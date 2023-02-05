@@ -8,6 +8,66 @@ root(ROOTS.Zones, m(DRAGON_ISLES, bubbleDown({ ["timeline"] = TIMELINE_DF_REL },
 			["g"] = sharedData({
 				["isDaily"] = true,
 			},{
+				-- Ohn ahran Plains
+				n(193170, {	-- Fulgurb
+					["coord"] = { 74.4, 47.6, OHNAHRAN_PLAINS },
+					["questID"] = 73994,
+					["isDaily"] = true,
+					["g"] = {
+						i(200433),	-- Footwraps of Subjugation
+						i(197111),	-- Highland Drake: Maned Head (DM!)
+					},
+				}),
+				n(193212, {	-- Malsegan
+					["coord"] = { 72.2, 44.8, OHNAHRAN_PLAINS },
+					["questID"] = 74011,
+					["g"] = {
+						i(200197),	-- Armoredon Herding Crook
+					},
+				}),
+				n(193173, {	-- Mikrin of the Raging Winds
+					["coord"] = { 62.8, 79.8, OHNAHRAN_PLAINS },
+					["questID"] = 74015,
+					["g"] = {
+						i(200542),	-- Breezy Companion
+						i(197372),	-- Renewed Proto-Drake: Purple Hair (DM!)
+						i(197602),	-- Windborne Velocidrake: Cluster Horns (DM!)
+						i(197606),	-- Windborne Velocidrake: Swept Horns (DM!)
+					},
+				}),
+				n(193235, {	-- Oshigol
+					["coord"] = { 60.8, 26.8, OHNAHRAN_PLAINS },
+					["questID"] = 74018,
+					["g"] = {
+						i(200684),	-- Emerald Tailbone
+						i(197149),	-- Highland Drake: Club Tail (DM!)
+						i(200203),	-- Repurposed Giant's Thimble
+						i(197608),	-- Windborne Velocidrake: Gray Horns (DM!)
+					},
+				}),
+				n(196010, {	-- Researcher Sneakwing <The Sundered Flame>
+					["coord"] = { 37.3, 53.9, OHNAHRAN_PLAINS },
+					["questID"] = 74023,
+					["g"] = {
+						i(200682),	-- Hardened Scale Shoulderguards
+						i(197403),	-- Renewed Proto-Drake: Club Tail (DM!)
+					},
+				}),
+				n(193227, {	-- Ronsak the Decimator
+					["coord"] = { 43.3, 55.2, OHNAHRAN_PLAINS },
+					-- ["questID"] = ,
+					["g"] = {
+						i(200308),	-- Rellen's Legacy
+						i(197367),	-- Renewed Proto-Drake: Gray Hair (DM!)
+					},
+				}),
+				n(193123, {	-- Steamgill
+					["coord"] = { 53.6, 72.8, OHNAHRAN_PLAINS },
+					["questID"] = 74034,
+					["g"] = {
+						i(200216),	-- Water Heating Cord
+					},
+				}),
 				-- Thaldraszus
 				n(193220, {	-- Broodweaver Araznae <Mother of Spiders>
 					["coord"] = { 59.6, 70.1, THALDRASZUS },
@@ -39,7 +99,6 @@ root(ROOTS.Zones, m(DRAGON_ISLES, bubbleDown({ ["timeline"] = TIMELINE_DF_REL },
 						i(200148),	-- A Collection of Me (TOY!)
 						i(200126),	-- Mantle of Copious Chronologies
 						i(200202),	-- Tomorrow's Chains
-						i(197008),	-- Cliffside Wylderdrake: Narrow Stripes Pattern (DM!)
 					},
 				}),
 				n(193240, {	-- Riverwalker Tamopo <Terror of the Shallows>
@@ -75,7 +134,7 @@ root(ROOTS.Zones, m(DRAGON_ISLES, bubbleDown({ ["timeline"] = TIMELINE_DF_REL },
 					["coord"] = { 35.0, 70.0, THALDRASZUS },
 					["questID"] = 74036,
 					["g"] = {
-						i(196994),	-- Cliffside Wylderdrake: Short Horns
+						i(196994),	-- Cliffside Wylderdrake: Short Horns (DM!)
 						i(200300),	-- Sack of Looted Treasures
 						i(200291),	-- Waterlogged Racing Grips
 					},
@@ -101,58 +160,6 @@ root(ROOTS.Zones, m(DRAGON_ISLES, bubbleDown({ ["timeline"] = TIMELINE_DF_REL },
 					["questID"] = 74030,
 					["g"] = {
 						i(200279),	-- Competitive Throwing Gauntlets
-					},
-				}),
-				-- The Ohnharan Plains
-				n(193170, {	-- Fulgurb
-					["coord"] = { 74.4, 47.6, OHNAHRAN_PLAINS },
-					["questID"] = 73994,
-					["isDaily"] = true,
-					["g"] = {
-						i(200433),	-- Footwraps of Subjugation
-					},
-				}),
-				n(193212, {	-- Malsegan
-					["coord"] = { 72.2, 44.8, OHNAHRAN_PLAINS },
-					["questID"] = 74011,
-					["g"] = {
-						i(200197),	-- Armoredon Herding Crook
-					},
-				}),
-				n(193173, {	-- Mikrin of the Raging Winds
-					["coord"] = { 62.8, 79.8, OHNAHRAN_PLAINS },
-					["questID"] = 74015,
-					["g"] = {
-						i(200542),	-- Breezy Companion
-						i(197602),	-- Windborne Velocidrake: Cluster Horns (DM!)
-					},
-				}),
-				n(193235, {	-- Oshigol
-					["coord"] = { 60.8, 26.8, OHNAHRAN_PLAINS },
-					["questID"] = 74018,
-					-- ["g"] = {
-
-					-- },
-				}),
-				n(196010, {	-- Researcher Sneakwing <The Sundered Flame>
-					["coord"] = { 37.3, 53.9, OHNAHRAN_PLAINS },
-					["questID"] = 74023,
-					["g"] = {
-						i(200682),	-- Hardened Scale Shoulderguards
-					},
-				}),
-				n(193227, {	-- Ronsak the Decimator
-					["coord"] = { 43.3, 55.2, OHNAHRAN_PLAINS },
-					-- ["questID"] = ,
-					["g"] = {
-						i(200308),	-- Rellen's Legacy
-					},
-				}),
-				n(193123, {	-- Steamgill
-					["coord"] = { 53.6, 72.8, OHNAHRAN_PLAINS },
-					["questID"] = 74034,
-					["g"] = {
-						i(200216),	-- Water Heating Cord
 					},
 				}),
 				-- The Waking Shores
@@ -183,7 +190,7 @@ root(ROOTS.Zones, m(DRAGON_ISLES, bubbleDown({ ["timeline"] = TIMELINE_DF_REL },
 				}),
 				n(186200, {	-- Harkyn Grymstone
 					["crs"] = {
-						186201, -- Groth
+						186201,	-- Groth
 						186203,	-- Snee
 						186202,	-- Voll
 					},
@@ -219,7 +226,6 @@ root(ROOTS.Zones, m(DRAGON_ISLES, bubbleDown({ ["timeline"] = TIMELINE_DF_REL },
 						i(200435),	-- Brackish Breeches
 						i(200203),	-- Repurposed Giant's Thimble
 						i(197608),	-- Windborne Velocidrake: Gray Horns (DM!)
-						i(197022),	-- Cliffside Wylderdrake: Finned Neck (DM!)
 					},
 				}),
 				n(193120, {	-- Smogswog the Firebreather

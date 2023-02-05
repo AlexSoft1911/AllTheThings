@@ -1,12 +1,13 @@
 -------------------------------------------------------------------
 --      E X P A N S I O N   F E A T U R E S    M O D U L E       --
 -------------------------------------------------------------------
+local DM_TEXT = "If you find this item. Please report to ATT-Discord. This item have yet to be found.";
 root(ROOTS.ExpansionFeatures, tier(DF_TIER, bubbleDown({ ["timeline"] = TIMELINE_DF_REL }, {
 	n(DRAKEWATCHER_MANUSCRIPTS, {
 		n(ACHIEVEMENTS, bubbleDownSelf({ ["timeline"] = { ADDED_DF_0_5 } }, {
 			ach(16699, {	-- Renewed Proto-Drake Scales and Patterns
 				crit(56246,	{	-- Green Scales
-					["provider"] = { "i", 197389 }, -- Renewed Proto-Drake: Green Scales (DM!)
+					["provider"] = { "i", 197389 },	-- Renewed Proto-Drake: Green Scales (DM!)
 				}),
 				crit(56261, {	-- Blue Scales
 					["provider"] = { "i", 197390 },	-- Renewed Proto-Drake: Blue Scales (DM!)
@@ -332,7 +333,7 @@ root(ROOTS.ExpansionFeatures, tier(DF_TIER, bubbleDown({ ["timeline"] = TIMELINE
 					["provider"] = { "i", 197147 },	-- Highland Drake: Heavy Scales (DM!)
 				}),
 				crit(56358, {	-- Striped Pattern
-					["provider"] = { "i", 197138 },	-- Highland Drake: Striped Pattern
+					["provider"] = { "i", 197138 },	-- Highland Drake: Striped Pattern (DM!)
 				}),
 				crit(56359, {	-- Large Spotted Pattern
 					["provider"] = { "i", 197139 },	-- Highland Drake: Large Spotted Pattern (DM!)
@@ -507,7 +508,7 @@ root(ROOTS.ExpansionFeatures, tier(DF_TIER, bubbleDown({ ["timeline"] = TIMELINE
 					["provider"] = { "i", 197007 },	-- Cliffside Wylderdrake: Wide Stripes Pattern (DM!)
 				}),
 				crit(56444, {	-- Narrow Stripes Pattern
-					["provider"] = { "i", 197008 },	-- Cliffside Wylderdrake: Narrow Stripes Pattern
+					["provider"] = { "i", 197008 },	-- Cliffside Wylderdrake: Narrow Stripes Pattern (DM!)
 				}),
 				crit(56445, {	-- Scaled Pattern
 					["provider"] = { "i", 197009 },	-- Cliffside Wylderdrake: Scaled Pattern (DM!)
@@ -541,16 +542,16 @@ root(ROOTS.ExpansionFeatures, tier(DF_TIER, bubbleDown({ ["timeline"] = TIMELINE
 					["provider"] = { "i", 196992 },	-- Cliffside Wylderdrake: Heavy Horns (DM!)
 				}),
 				crit(56457, {	-- Short Horns
-					["provider"] = { "i", 196994 },	-- Cliffside Wylderdrake: Short Horns
+					["provider"] = { "i", 196994 },	-- Cliffside Wylderdrake: Short Horns (DM!)
 				}),
 				crit(56459, {	-- Branched Horns
-					["provider"] = { "i", 196991 },	-- Cliffside Wylderdrake: Black Horns (DM!)
+					["provider"] = { "i", 196996 },	-- Cliffside Wylderdrake: Branched Horns (DM!)
 				}),
 				crit(56461, {	-- Hook Horns
 					["provider"] = { "i", 196998 },	-- Cliffside Wylderdrake: Hook Horns (DM!)
 				}),
 				crit(56462, {	-- Swept Horns
-					["provider"] = { "i", 196999 },	-- Cliffside Wylderdrake: Swept Horns
+					["provider"] = { "i", 196999 },	-- Cliffside Wylderdrake: Swept Horns (DM!)
 				}),
 				crit(56464, {	-- Black Mane
 					["provider"] = { "i", 196986 },	-- Cliffside Wylderdrake: Black Hair (DM!)
@@ -559,10 +560,10 @@ root(ROOTS.ExpansionFeatures, tier(DF_TIER, bubbleDown({ ["timeline"] = TIMELINE
 					["provider"] = { "i", 196987 },	-- Cliffside Wylderdrake: Blonde Hair (DM!)
 				}),
 				crit(56466, {	-- Red Mane
-					["provider"] = { "i", 196988 },	-- Cliffside Wylderdrake: Red Mane (DM!)
+					["provider"] = { "i", 196988 },	-- Cliffside Wylderdrake: Red Hair (DM!)
 				}),
 				crit(56467, {	-- White Mane
-					["provider"] = { "i", 196989 },	-- Cliffside Wylderdrake: White Hair
+					["provider"] = { "i", 196989 },	-- Cliffside Wylderdrake: White Hair (DM!)
 				}),
 			}),
 			ach(16727, {	-- Cliffside Wylderdrake Head Features
@@ -579,7 +580,7 @@ root(ROOTS.ExpansionFeatures, tier(DF_TIER, bubbleDown({ ["timeline"] = TIMELINE
 					["provider"] = { "i", 196974 },	-- Cliffside Wylderdrake: Four Horned Chin
 				}),
 				crit(56534, {	-- Head Fin
-					["provider"] = { "i", 196975 },	-- Cliffside Wylderdrake: Head Fin
+					["provider"] = { "i", 196975 },	-- Cliffside Wylderdrake: Head Fin (DM!)
 				}),
 				crit(56535, {	-- Head Mane
 					["provider"] = { "i", 196976 },	-- Cliffside Wylderdrake: Head Mane (DM!)
@@ -588,7 +589,7 @@ root(ROOTS.ExpansionFeatures, tier(DF_TIER, bubbleDown({ ["timeline"] = TIMELINE
 					["provider"] = { "i", 196977 },	-- Cliffside Wylderdrake: Split Head Horns (DM!)
 				}),
 				crit(56538, {	-- Curled Head Horns
-					["provider"] = { "i", 196979 },	-- Cliffside Wylderdrake: Curled Head Horns
+					["provider"] = { "i", 196979 },	-- Cliffside Wylderdrake: Curled Head Horns (DM!)
 				}),
 				crit(56539, {	-- Triple Head Horns
 					["provider"] = { "i", 196980 },	-- Cliffside Wylderdrake: Triple Head Horns (DM!)
@@ -615,7 +616,7 @@ root(ROOTS.ExpansionFeatures, tier(DF_TIER, bubbleDown({ ["timeline"] = TIMELINE
 					["provider"] = { "i", 197005 },	-- Cliffside Wylderdrake: Horned Nose (DM!)
 				}),
 				crit(56551, {	-- Finned Neck
-					["provider"] = { "i", 197022 },	-- Cliffside Wylderdrake: Finned Neck
+					["provider"] = { "i", 197022 },	-- Cliffside Wylderdrake: Finned Neck (DM!)
 				}),
 				crit(56552, {	-- Maned Neck
 					["provider"] = { "i", 197023 },	-- Cliffside Wylderdrake: Maned Neck (DM!)
@@ -626,10 +627,10 @@ root(ROOTS.ExpansionFeatures, tier(DF_TIER, bubbleDown({ ["timeline"] = TIMELINE
 					["provider"] = { "i", 196969 },	-- Cliffside Wylderdrake: Finned Back (DM!)
 				}),
 				crit(56469, {	-- Spiked Back
-					["provider"] = { "i", 196970 },	-- Cliffside Wylderdrake: Spiked Back
+					["provider"] = { "i", 196970 },	-- Cliffside Wylderdrake: Spiked Back (DM!)
 				}),
 				crit(56470, {	-- Maned Tail
-					["provider"] = { "i", 197016 },	-- Cliffside Wylderdrake: Maned Tail
+					["provider"] = { "i", 197016 },	-- Cliffside Wylderdrake: Maned Tail (DM!)
 				}),
 				crit(56471, {	-- Large Tail Spikes
 					["provider"] = { "i", 197017 },	-- Cliffside Wylderdrake: Large Tail Spikes (DM!)
@@ -648,10 +649,9 @@ root(ROOTS.ExpansionFeatures, tier(DF_TIER, bubbleDown({ ["timeline"] = TIMELINE
 				}),
 			}),
 		})),
-		pvp(i(201792)),	-- Highland Drake: Embodiment of the Crimson Gladiator (DM!)
-		i(201790),	-- Renewed Proto-Drake: Embodiment of the Storm-Eater (DM!)
-		-- Obtainable?
-		i(196961),	-- Cliffside Wylderdrake: Armor
+		i(196961, {	-- Cliffside Wylderdrake: Armor
+			["description"] = DM_TEXT,
+		}),
 		i(196991),	-- Cliffside Wylderdrake: Black Horns (DM!)
 		i(196986),	-- Cliffside Wylderdrake: Black Hair (DM!)
 		i(197013),	-- Cliffside Wylderdrake: Black Scales (DM!)
@@ -659,56 +659,86 @@ root(ROOTS.ExpansionFeatures, tier(DF_TIER, bubbleDown({ ["timeline"] = TIMELINE
 		i(197012),	-- Cliffside Wylderdrake: Blue Scales (DM!)
 		i(197019),	-- Cliffside Wylderdrake: Blunt Spiked Tail (DM!)
 		i(196996),	-- Cliffside Wylderdrake: Branched Horns (DM!)
-		i(196965),	-- Cliffside Wylderdrake: Bronze and Teal Armor
-		i(197000),	-- Cliffside Wylderdrake: Coiled Horns
+		i(196965, {	-- Cliffside Wylderdrake: Bronze and Teal Armor
+			["description"] = DM_TEXT,
+		}),
+		i(197000, {	-- Cliffside Wylderdrake: Coiled Horns
+			["description"] = DM_TEXT,
+		}),
 		i(196981),	-- Cliffside Wylderdrake: Conical Head (DM!)
-		i(196979),	-- Cliffside Wylderdrake: Curled Head Horns
+		i(196979),	-- Cliffside Wylderdrake: Curled Head Horns (DM!)
+		i(197015, {	-- Cliffside Wylderdrake: Dark Skin Variation
+			["description"] = DM_TEXT,
+		}),
+		i(196973),	-- Cliffside Wylderdrake: Dual Horned Chin (DM!)
 		i(196982),	-- Cliffside Wylderdrake: Ears (DM!)
 		i(196969),	-- Cliffside Wylderdrake: Finned Back (DM!)
 		i(197001),	-- Cliffside Wylderdrake: Finned Cheek (DM!)
-		i(196984),	-- Cliffside Wylderdrake: Finned Jaw
-		i(197022),	-- Cliffside Wylderdrake: Finned Neck
+		i(196984, {	-- Cliffside Wylderdrake: Finned Jaw
+			["description"] = DM_TEXT,
+		}),
+		i(197022),	-- Cliffside Wylderdrake: Finned Neck (DM!)
 		i(197018),	-- Cliffside Wylderdrake: Finned Tail (DM!)
-		i(197002),	-- Cliffside Wylderdrake: Flared Cheek
+		i(197002, {	-- Cliffside Wylderdrake: Flared Cheek
+			["description"] = DM_TEXT,
+		}),
+		i(196974, {	-- Cliffside Wylderdrake: Four Horned Chin
+			["description"] = DM_TEXT,
+		}),
 		i(196964),	-- Cliffside Wylderdrake: Gold and Black Armor (DM!)
 		i(196966),	-- Cliffside Wylderdrake: Gold and Orange Armor (DM!)
-		i(196967),	-- Cliffside Wylderdrake: Gold and White Armor
+		i(196967, {	-- Cliffside Wylderdrake: Gold and White Armor
+			["description"] = DM_TEXT,
+		}),
 		i(197011),	-- Cliffside Wylderdrake: Green Scales (DM!)
-		i(196975),	-- Cliffside Wylderdrake: Head Fin
+		i(196975),	-- Cliffside Wylderdrake: Head Fin (DM!)
 		i(196976),	-- Cliffside Wylderdrake: Head Mane (DM!)
 		i(196992),	-- Cliffside Wylderdrake: Heavy Horns (DM!)
-		i(196990),	-- Cliffside Wylderdrake: Helm
+		i(196990, {	-- Cliffside Wylderdrake: Helm
+			["description"] = DM_TEXT,
+		}),
 		i(196998),	-- Cliffside Wylderdrake: Hook Horns (DM!)
 		i(196985),	-- Cliffside Wylderdrake: Horned Jaw (DM!)
 		i(197005),	-- Cliffside Wylderdrake: Horned Nose (DM!)
 		i(197017),	-- Cliffside Wylderdrake: Large Tail Spikes (DM!)
 		i(196983),	-- Cliffside Wylderdrake: Maned Jaw (DM!)
 		i(197023),	-- Cliffside Wylderdrake: Maned Neck (DM!)
-		i(197016),	-- Cliffside Wylderdrake: Maned Tail
-		i(197008),	-- Cliffside Wylderdrake: Narrow Stripes Pattern
+		i(197016),	-- Cliffside Wylderdrake: Maned Tail (DM!)
+		i(197008),	-- Cliffside Wylderdrake: Narrow Stripes Pattern (DM!)
 		i(196972),	-- Cliffside Wylderdrake: Plated Brow (DM!)
-		i(197006),	-- Cliffside Wylderdrake: Plated Nose
-		i(196988),	-- Cliffside Wylderdrake: Red Mane (DM!)
+		i(196988),	-- Cliffside Wylderdrake: Red Hair (DM!)
 		i(197010),	-- Cliffside Wylderdrake: Red Scales (DM!)
 		i(197009),	-- Cliffside Wylderdrake: Scaled Pattern (DM!)
-		i(196994),	-- Cliffside Wylderdrake: Short Horns
+		i(196994),	-- Cliffside Wylderdrake: Short Horns (DM!)
 		i(196963),	-- Cliffside Wylderdrake: Silver and Blue Armor (DM!)
 		i(196962),	-- Cliffside Wylderdrake: Silver and Purple Armor (DM!)
-		i(196993),	-- Cliffside Wylderdrake: Sleek Horns
-		i(196978),	-- Cliffside Wylderdrake: Small Head Spikes
+		i(196993, {	-- Cliffside Wylderdrake: Sleek Horns
+			["description"] = DM_TEXT,
+		}),
+		i(196978, {	-- Cliffside Wylderdrake: Small Head Spikes
+			["description"] = DM_TEXT,
+		}),
 		i(197020),	-- Cliffside Wylderdrake: Spear Tail (DM!)
-		i(196970),	-- Cliffside Wylderdrake: Spiked Back
+		i(196970),	-- Cliffside Wylderdrake: Spiked Back (DM!)
 		i(196971),	-- Cliffside Wylderdrake: Spiked Brow (DM!)
 		i(197003),	-- Cliffside Wylderdrake: Spiked Cheek (DM!)
-		i(197021),	-- Cliffside Wylderdrake: Spiked Club Tail
-		i(196995),	-- Cliffside Wylderdrake: Spiked Horns
+		i(197021, {	-- Cliffside Wylderdrake: Spiked Club Tail
+			["description"] = DM_TEXT,
+		}),
+		i(197004, {	-- Cliffside Wylderdrake: Spiked Legs
+			["description"] = DM_TEXT,
+		}),
 		i(196977),	-- Cliffside Wylderdrake: Split Head Horns (DM!)
-		i(196997),	-- Cliffside Wylderdrake: Split Horns
+		i(196997, {	-- Cliffside Wylderdrake: Split Horns
+			["description"] = DM_TEXT,
+		}),
 		i(196968),	-- Cliffside Wylderdrake: Steel and Yellow Armor (DM!)
-		i(196999),	-- Cliffside Wylderdrake: Swept Horns
+		i(196999),	-- Cliffside Wylderdrake: Swept Horns (DM!)
 		i(196980),	-- Cliffside Wylderdrake: Triple Head Horns (DM!)
-		i(196989),	-- Cliffside Wylderdrake: White Hair
-		i(197014),	-- Cliffside Wylderdrake: White Scales
+		i(196989),	-- Cliffside Wylderdrake: White Hair (DM!)
+		i(197014, {	-- Cliffside Wylderdrake: White Scales
+			["description"] = DM_TEXT,
+		}),
 		i(197007),	-- Cliffside Wylderdrake: Wide Stripes Pattern (DM!)
 		i(197099),	-- Highland Drake: Armor
 		i(197117),	-- Highland Drake: Black Hair (DM!)
@@ -885,13 +915,16 @@ root(ROOTS.ExpansionFeatures, tier(DF_TIER, bubbleDown({ ["timeline"] = TIMELINE
 		i(197582),	-- Windborne Velocidrake: White and Pink Armor
 		i(197634),	-- Windborne Velocidrake: Windswept Pattern (DM!)
 		i(197610),	-- Windborne Velocidrake: Yellow Horns (DM!)
+		-- Special --
+		pvp(i(201792)),	-- Highland Drake: Embodiment of the Crimson Gladiator (DM!)
+		i(201790),	-- Renewed Proto-Drake: Embodiment of the Storm-Eater (DM!)
 	}),
 })));
 
 root(ROOTS.NeverImplemented, tier(DF_TIER, bubbleDown({ ["timeline"] = TIMELINE_DF_REL }, {
-	i(197015),	-- Cliffside Wylderdrake: Dark Skin Variation
-	i(196974),	-- Cliffside Wylderdrake: Four Horned Chin
-	i(197004),	-- Cliffside Wylderdrake: Spiked Legs
+	i(197006),	-- Cliffside Wylderdrake: Plated Nose [Datamined Winterfurbolg Rep?]
+	i(196995),	-- Cliffside Wylderdrake: Spiked Horns [Datamined Winterfurbolg Rep?]
+
 	i(197155),	-- Highland Drake: Finned Neck ("quest reward but not found in 2months")
 	i(197358),	-- Renewed Proto-Drake: Curved Spiked Brow
 	i(197621),	-- Windborne Velocidrake: Exposed Finned Tail
@@ -903,19 +936,4 @@ root(ROOTS.NeverImplemented, tier(DF_TIER, bubbleDown({ ["timeline"] = TIMELINE_
 	i(197604),	-- Windborne Velocidrake: Ox Horns ("centaur renown" but not on vendor)
 	i(197636),	-- Windborne Velocidrake: Shrieker Pattern ("centaur renown" but not on vendor)
 	i(197609),	-- Windborne Velocidrake: White Horns ("world drop" but not found in 2months")
-	--[[
-		-- These might be NYI? Two Versions exists
-		i(194839),	-- Cliffside Wylderdrake Manuscript: Conical Head
-		i(194840),	-- Cliffside Wylderdrake Manuscript: Triple Head Horns
-		i(194841),	-- Cliffside Wylderdrake Manuscript: Red Mane
-		i(194837),	-- Highland Drake Manuscript: Black Hair
-		i(194838),	-- Highland Drake Manuscript: Spined Head
-		i(194836),	-- Highland Drake Manuscript: Spined Throat
-		i(194831),	-- Renewed Proto Drake Manuscript: Predator Pattern
-		i(194830),	-- Renewed Proto Drake Manuscript: Red Hair
-		i(194832),	-- Renewed Proto Drake Manuscript: Spined Crest
-		i(194833),	-- Windborne Velocidrake Manuscript: Black Fur
-		i(194835),	-- Windborne Velocidrake Manuscript: Spined Crest
-		i(194834),	-- Windborne Velocidrake Manuscript: Windswept
-	--]]
 })));

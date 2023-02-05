@@ -5,25 +5,9 @@ local i = function(itemID, questID)
 	Items[itemID] = { ["questID"] = questID };
 end
 
--- Special
-i(201792, 72371);	-- Highland Drake: Embodiment of the Crimson Gladiator
-i(201790, 72367);	-- Renewed Proto-Drake: Embodiment of the Storm-Eater
-
--- These might be NYI? Two Versions exists
-i(194839, 0);	-- Cliffside Wylderdrake Manuscript: Conical Head
-i(194840, 0);	-- Cliffside Wylderdrake Manuscript: Triple Head Horns
-i(194841, 0);	-- Cliffside Wylderdrake Manuscript: Red Mane
-i(194837, 0);	-- Highland Drake Manuscript: Black Hair
-i(194838, 0);	-- Highland Drake Manuscript: Spined Head
-i(194836, 0);	-- Highland Drake Manuscript: Spined Throat
-i(194831, 0);	-- Renewed Proto Drake Manuscript: Predator Pattern
-i(194830, 0);	-- Renewed Proto Drake Manuscript: Red Hair
-i(194832, 0);	-- Renewed Proto Drake Manuscript: Spined Crest
-i(194833, 0);	-- Windborne Velocidrake Manuscript: Black Fur
-i(194835, 0);	-- Windborne Velocidrake Manuscript: Spined Crest
-i(194834, 0);	-- Windborne Velocidrake Manuscript: Windswept
-
--- Obtainable?
+------------------
+-- PATCH 10.0.2 --
+------------------
 i(196961, 69161);	-- Cliffside Wylderdrake: Armor
 i(196991, 69191);	-- Cliffside Wylderdrake: Black Horns
 i(196986, 69186);	-- Cliffside Wylderdrake: Black Hair
@@ -35,7 +19,6 @@ i(196996, 69196);	-- Cliffside Wylderdrake: Branched Horns
 i(196965, 69165);	-- Cliffside Wylderdrake: Bronze and Teal Armor
 i(197000, 69200);	-- Cliffside Wylderdrake: Coiled Horns
 i(196981, 69181);	-- Cliffside Wylderdrake: Conical Head
-i(196962, 69162);	-- Cliffside Wylderdrake: Silver and Purple Armor
 i(196979, 69179);	-- Cliffside Wylderdrake: Curled Head Horns
 i(197015, 69215);	-- Cliffside Wylderdrake: Dark Skin Variation
 i(196973, 69173);	-- Cliffside Wylderdrake: Dual Horned Chin
@@ -64,11 +47,12 @@ i(197023, 69223);	-- Cliffside Wylderdrake: Maned Neck
 i(197016, 69216);	-- Cliffside Wylderdrake: Maned Tail
 i(197008, 69208);	-- Cliffside Wylderdrake: Narrow Stripes Pattern
 i(196972, 69172);	-- Cliffside Wylderdrake: Plated Brow
-i(197006, 69206);	-- Cliffside Wylderdrake: Plated Nose
-i(196988, 69188);	-- Cliffside Wylderdrake: Red Mane
+i(196988, 69188);	-- Cliffside Wylderdrake: Red Hair
+i(197010, 69210);	-- Cliffside Wylderdrake: Red Scales
 i(197009, 69209);	-- Cliffside Wylderdrake: Scaled Pattern
 i(196994, 69194);	-- Cliffside Wylderdrake: Short Horns
 i(196963, 69163);	-- Cliffside Wylderdrake: Silver and Blue Armor
+i(196962, 69162);	-- Cliffside Wylderdrake: Silver and Purple Armor
 i(196993, 69193);	-- Cliffside Wylderdrake: Sleek Horns
 i(196978, 69178);	-- Cliffside Wylderdrake: Small Head Spikes
 i(197020, 69220);	-- Cliffside Wylderdrake: Spear Tail
@@ -76,7 +60,6 @@ i(196970, 69170);	-- Cliffside Wylderdrake: Spiked Back
 i(196971, 69171);	-- Cliffside Wylderdrake: Spiked Brow
 i(197003, 69203);	-- Cliffside Wylderdrake: Spiked Cheek
 i(197021, 69221);	-- Cliffside Wylderdrake: Spiked Club Tail
-i(196995, 69195);	-- Cliffside Wylderdrake: Spiked Horns
 i(197004, 69204);	-- Cliffside Wylderdrake: Spiked Legs
 i(196977, 69177);	-- Cliffside Wylderdrake: Split Head Horns
 i(196997, 69197);	-- Cliffside Wylderdrake: Split Horns
@@ -86,7 +69,6 @@ i(196980, 69180);	-- Cliffside Wylderdrake: Triple Head Horns
 i(196989, 69189);	-- Cliffside Wylderdrake: White Hair
 i(197014, 69214);	-- Cliffside Wylderdrake: White Scales
 i(197007, 69207);	-- Cliffside Wylderdrake: Wide Stripes Pattern
-i(197010, 69210);	-- Cliffside Wylderdrake: Red Scales
 i(197099, 69300);	-- Highland Drake: Armor
 i(197117, 69318);	-- Highland Drake: Black Hair
 i(197142, 69343);	-- Highland Drake: Black Scales
@@ -273,3 +255,25 @@ i(197616, 69820);	-- Windborne Velocidrake: White Scales
 i(197582, 69786);	-- Windborne Velocidrake: White and Pink Armor
 i(197634, 69845);	-- Windborne Velocidrake: Windswept Pattern
 i(197610, 69814);	-- Windborne Velocidrake: Yellow Horns
+-- Special --
+i(201792, 72371);	-- Highland Drake: Embodiment of the Crimson Gladiator
+i(201790, 72367);	-- Renewed Proto-Drake: Embodiment of the Storm-Eater
+-- NYI --
+i(194837, 0);		-- Highland Drake Manuscript: Black Hair
+i(194838, 0);		-- Highland Drake Manuscript: Spined Head
+i(194836, 0);		-- Highland Drake Manuscript: Spined Throat
+i(194839, 0);		-- Cliffside Wylderdrake Manuscript: Conical Head
+i(194841, 0);		-- Cliffside Wylderdrake Manuscript: Red Mane
+i(194840, 0);		-- Cliffside Wylderdrake Manuscript: Triple Head Horns
+i(194831, 0);		-- Renewed Proto Drake Manuscript: Predator Pattern
+i(194830, 0);		-- Renewed Proto Drake Manuscript: Red Hair
+i(194832, 0);		-- Renewed Proto Drake Manuscript: Spined Crest
+i(194833, 0);		-- Windborne Velocidrake Manuscript: Black Fur
+i(194835, 0);		-- Windborne Velocidrake Manuscript: Spined Crest
+i(194834, 0);		-- Windborne Velocidrake Manuscript: Windswept
+
+------------------
+-- PATCH 10.0.7 --
+------------------
+i(197006, 69206);	-- Cliffside Wylderdrake: Plated Nose
+i(196995, 69195);	-- Cliffside Wylderdrake: Spiked Horns

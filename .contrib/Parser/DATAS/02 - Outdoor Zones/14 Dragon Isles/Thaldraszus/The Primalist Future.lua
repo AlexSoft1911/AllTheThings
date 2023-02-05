@@ -146,7 +146,6 @@ root(ROOTS.Zones, m(DRAGON_ISLES, bubbleDown({ ["timeline"] = TIMELINE_DF_REL },
 								{ "i", ESSENCE_OF_THE_STORM, 30 },
 								{ "c", ELEMENTAL_OVERFLOW, 750 },
 							},
-							["collectible"] = false,	-- Its a Neck. Blizzard begs to differ.
 						}),
 						i(202015, {	-- Sands of Temporal Perfection
 							["cost"] = {
@@ -191,7 +190,7 @@ root(ROOTS.Zones, m(DRAGON_ISLES, bubbleDown({ ["timeline"] = TIMELINE_DF_REL },
 
 root(ROOTS.HiddenQuestTriggers, m(DRAGON_ISLES, {
 	m(THE_PRIMALIST_FUTURE, {
-		q(73162),	-- Killing Nimbulatus
+		q(73162),	-- Killing Nimbulatus/Seismodor
 		q(74552),	-- flagged when 74378 "The Storm's Fury" unflagged first time
 	}),
 }));

@@ -958,7 +958,7 @@ root(ROOTS.Zones, m(DRAGON_ISLES, bubbleDown({ ["timeline"] = TIMELINE_DF_REL },
 						["sourceQuests"] = { 66671 },	-- Path to Nowhere
 						["provider"] = { "n", 188144 },	-- Rannan Korren
 						["coord"] = { 63.4, 58.0, THE_AZURE_SPAN },
-						["isBreadcrumb"] = true, -- Probably? Need checking
+						["isBreadcrumb"] = true,	-- Probably? Need checking
 					}),
 					q(66353, {	-- R.A.D Anomalies
 						["sourceQuests"] = { 66391 },	-- To the Ruins!
@@ -1458,7 +1458,7 @@ root(ROOTS.Zones, m(DRAGON_ISLES, bubbleDown({ ["timeline"] = TIMELINE_DF_REL },
 				["sourceQuests"] = { 66026 },	-- Urgent Action Required
 				["provider"] = { "n", 194415 },	-- Rauvros
 				["coord"] = { 22.1, 36.8, THE_AZURE_SPAN },
-				["isBreadcrumb"] = true, -- Probably?
+				["isBreadcrumb"] = true,	-- Probably?
 				["g"] = {
 					i(198476),	-- Painting of Introduction
 				},
@@ -1565,6 +1565,7 @@ root(ROOTS.Zones, m(DRAGON_ISLES, bubbleDown({ ["timeline"] = TIMELINE_DF_REL },
 				q(74001, {	-- Gruffy
 					["provider"] = { "n", 193251 },	-- Gruffy
 					["coord"] = { 32.5, 29.2, THE_AZURE_SPAN },
+					["timeline"] = { ADDED_DF_0_5 },
 				}),
 				q(69892, {	-- Grumbletrunk
 					["provider"] = { "n", 193269 },	-- Grumbletrunk
@@ -1598,6 +1599,7 @@ root(ROOTS.Zones, m(DRAGON_ISLES, bubbleDown({ ["timeline"] = TIMELINE_DF_REL },
 					["provider"] = { "n", 201555 },	-- Srivantor
 					["coord"] = { 46.7, 21.9, THE_AZURE_SPAN },
 					["isDaily"] = true,
+					["timeline"] = { ADDED_DF_0_5 },
 				}),
 				q(65841, {	-- Stop the Spread
 					["sourceQuests"] = {

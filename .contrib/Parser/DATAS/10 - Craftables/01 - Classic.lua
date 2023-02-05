@@ -1686,8 +1686,8 @@ root(ROOTS.Craftables, tier(CLASSIC_TIER, {
 					applyclassicphase(PHASE_FOUR, i(20380, {	-- Dreamscale Breastplate
 						-- #if AFTER 4.0.3
 						["description"] = "While this recipe is still available, the mats required to craft it are not.",
-						["timeline"] = { "removed 4.0.3" },
 						-- #endif
+						["timeline"] = { "removed 4.0.3" },
 					})),
 					i(15045),	-- Green Dragonscale Breastplate
 					i(15047, {	-- Red Dragonscale Breastplate
@@ -2202,13 +2202,13 @@ root(ROOTS.Craftables, tier(CLASSIC_TIER, {
 				applyclassicphase(PHASE_FOUR, i(20380, {	-- Dreamscale Breastplate
 					-- #if AFTER 4.0.3
 					["description"] = "While this recipe is still available, the mats required to craft it are not.",
-					["timeline"] = { "removed 4.0.3" },
 					-- #endif
+					["timeline"] = { "removed 4.0.3" },
 				})),
 				i(15045),	-- Green Dragonscale Breastplate
 				-- #endif
 				i(15076, {	-- Heavy Scorpid Vest
-					["timeline"] = { "removed 4.0.3" },
+					["timeline"] = { "removed 4.0.3", ADDED_DF_0_5 },
 				}),
 				applyclassicphase(PHASE_SIX, i(22664, {	-- Icy Scale Breastplate
 					["timeline"] = { "removed 3.0.1" },
