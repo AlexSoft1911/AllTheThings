@@ -1165,6 +1165,15 @@ root(ROOTS.Zones, m(DRAGON_ISLES, bubbleDown({ ["timeline"] = TIMELINE_DF_REL },
 					["coord"] = { 20.1, 44.3, OHNAHRAN_PLAINS },
 					["isDaily"] = false,
 				}),
+				q(67717, {	-- Web-Queen Ashkaz
+					["provider"] = { "n", 192938 },	-- Web-Queen Ashkaz
+					["coord"] = { 43.3, 47.2, OHNAHRAN_PLAINS },
+					["isDaily"] = false,
+				}),
+				q(74440, {	-- Windseeker Avash
+					["provider"] = { "n", 192045 },	-- Windseeker Avash
+					["coord"] = { 58.9, 67.5, OHNAHRAN_PLAINS },
+				}),
 				q(72364, {	-- Zarizz
 					["provider"] = { "n", 193140 },	-- Zarizz
 					["coord"] = { 30.3, 62.1, OHNAHRAN_PLAINS },
@@ -1186,6 +1195,7 @@ root(ROOTS.HiddenQuestTriggers, m(DRAGON_ISLES, bubbleDown({ ["timeline"] = TIME
 		q(66888),	-- Choose Blood (Renewal of Vows 66783)
 		q(66889),	-- Choose Eagle Feather (Renewal of Vows 66783)
 		q(69867),	-- Stay and Listen Merithra 18.7,51.6 (LQ 70928)
+		q(66505),	-- triggered when talking to Ranger Bolor and giving them Batu's Collar
 		q(66512),	-- triggered when talking to Hunter Zaya and giving her Sarnai's Collar
 		q(74168),	-- After killing Skaara (during leveling)
 		-- Achievement Honor Our Ancestors

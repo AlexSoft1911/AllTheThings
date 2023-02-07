@@ -708,6 +708,20 @@ namespace ATT
                                         data["pvp"] = true;
                                     }
                                 }
+
+                                // Single Cost Item on a Achieve/Criteria group should be represented as a Provider instead
+                                if (data.TryGetValue("achID", out long _) ||
+                                    data.TryGetValue("criteriaID", out long _))
+                                {
+                                    if (!data.TryGetValue("providers", out object _) &&
+                                        cost.Count == 1 &&
+                                        c.Count > 2 &&
+                                        c[2].TryConvert(out long count) &&
+                                        count == 1)
+                                    {
+                                        Log($"WARN: 'cost' = {ToJSON(c)} should be 'provider'{Environment.NewLine}-- {ToJSON(data)}");
+                                    }
+                                }
                                 break;
                             case "c":
                                 if (costID == 1602 ||   // Conquest
@@ -719,7 +733,7 @@ namespace ATT
                             case "g": break;
 
                             default:
-                                Log($"Warning: Unknown 'cost' type: {c[0]}{Environment.NewLine}-- {ToJSON(data)}");
+                                Log($"WARN: Unknown 'cost' type: {c[0]}{Environment.NewLine}-- {ToJSON(data)}");
                                 break;
                         }
                     }

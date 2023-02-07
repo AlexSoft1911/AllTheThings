@@ -389,29 +389,27 @@ root(ROOTS.Holidays, applyholiday(HALLOWS_END, {
 		n(ACHIEVEMENTS, {
 			ach(1656, {	-- Hallowed Be Thy Name (A) / Hallowed Be Thy Name [MOP+]
 				-- Meta Achievement should symlink the contained Achievements from Source
-				["sym"] = {
-					{"meta_achievement",
-						972,				-- Trick or Treat!
-						288,				-- Out With It
-						255,				-- Bring Me The Head of... Oh Wait
-						289,				-- The Savior of Hallow's End
-						981,				-- That Sparkling Smile
-						1040,				-- Rotten Hallow (A)
-						-- #if AFTER MOP
-						1041,				-- Rotten Hallow (H)
-						-- #endif
-						1261,				-- G.N.E.R.D. Rage
-						291,				-- Check Your Head
-						283,				-- The Masquerade
-						292,				-- Sinister Calling
-						-- #if AFTER MOP
-						971,				-- Tricks and Treats of Azeroth
-						-- #else
-						970,				-- Tricks and Treats of Azeroth (A)
-						-- #endif
+				["sym"] = {{"meta_achievement",
+					972,				-- Trick or Treat!
+					288,				-- Out With It
+					255,				-- Bring Me The Head of... Oh Wait
+					289,				-- The Savior of Hallow's End
+					981,				-- That Sparkling Smile
+					1040,				-- Rotten Hallow (A)
+					-- #if AFTER MOP
+					1041,				-- Rotten Hallow (H)
+					-- #endif
+					1261,				-- G.N.E.R.D. Rage
+					291,				-- Check Your Head
+					283,				-- The Masquerade
+					292,				-- Sinister Calling
+					-- #if AFTER MOP
+					971,				-- Tricks and Treats of Azeroth
+					-- #else
+					970,				-- Tricks and Treats of Azeroth (A)
+					-- #endif
 
-					},
-				},
+				}},
 				-- #if BEFORE MOP
 				["races"] = ALLIANCE_ONLY,
 				-- #endif
@@ -422,21 +420,20 @@ root(ROOTS.Holidays, applyholiday(HALLOWS_END, {
 			-- #if BEFORE MOP
 			ach(1657, {	-- Hallowed Be Thy Name (H)
 				-- Meta Achievement should symlink the contained Achievements from Source
-				["sym"] = {
-					{"meta_achievement",
-						972,				-- Trick or Treat!
-						288,				-- Out With It
-						255,				-- Bring Me The Head of... Oh Wait
-						289,				-- The Savior of Hallow's End
-						981,				-- That Sparkling Smile
-						1041,				-- Rotten Hallow (H)
-						1261,				-- G.N.E.R.D. Rage
-						291,				-- Check Your Head
-						283,				-- The Masquerade
-						292,				-- Sinister Calling
-						971,				-- Tricks and Treats of Azeroth (H)
-					},
-				},
+				["sym"] = {{"meta_achievement",
+					972,				-- Trick or Treat!
+					288,				-- Out With It
+					255,				-- Bring Me The Head of... Oh Wait
+					289,				-- The Savior of Hallow's End
+					981,				-- That Sparkling Smile
+					1041,				-- Rotten Hallow (H)
+					1261,				-- G.N.E.R.D. Rage
+					291,				-- Check Your Head
+					283,				-- The Masquerade
+					292,				-- Sinister Calling
+					971,				-- Tricks and Treats of Azeroth (H)
+				}},
+				["timeline"] = { "added 3.0.2", "deleted 5.0.1" },
 				["races"] = HORDE_ONLY,
 				["groups"] = {
 					title(92),	-- %s the Hallowed
@@ -531,42 +528,42 @@ root(ROOTS.Holidays, applyholiday(HALLOWS_END, {
 			}),
 			ach(291, {	-- Check Your Head
 				crit(5774, {	-- Blood Elf
-					["cost"] = { { "i", 34068, 1 } },	-- Weighted Jack-o'-Lantern
+					["provider"] = { "i", 34068 }	-- Weighted Jack-o'-Lantern
 				}),
 				crit(5775, {	-- Draenei
-					["cost"] = { { "i", 34068, 1 } },	-- Weighted Jack-o'-Lantern
+					["provider"] = { "i", 34068 }	-- Weighted Jack-o'-Lantern
 				}),
 				crit(5776, {	-- Dwarf
-					["cost"] = { { "i", 34068, 1 } },	-- Weighted Jack-o'-Lantern
+					["provider"] = { "i", 34068 }	-- Weighted Jack-o'-Lantern
 				}),
 				crit(5772, {	-- Gnome
-					["cost"] = { { "i", 34068, 1 } },	-- Weighted Jack-o'-Lantern
+					["provider"] = { "i", 34068 }	-- Weighted Jack-o'-Lantern
 				}),
 				crit(17855, {	-- Goblin
 					["timeline"] = { "added 4.0.1" },
-					["cost"] = { { "i", 34068, 1 } },	-- Weighted Jack-o'-Lantern
+					["provider"] = { "i", 34068 }	-- Weighted Jack-o'-Lantern
 				}),
 				crit(5777, {	-- Human
-					["cost"] = { { "i", 34068, 1 } },	-- Weighted Jack-o'-Lantern
+					["provider"] = { "i", 34068 }	-- Weighted Jack-o'-Lantern
 				}),
 				crit(5778, {	-- Night Elf
-					["cost"] = { { "i", 34068, 1 } },	-- Weighted Jack-o'-Lantern
+					["provider"] = { "i", 34068 }	-- Weighted Jack-o'-Lantern
 				}),
 				crit(5779, {	-- Orc
-					["cost"] = { { "i", 34068, 1 } },	-- Weighted Jack-o'-Lantern
+					["provider"] = { "i", 34068 }	-- Weighted Jack-o'-Lantern
 				}),
 				crit(5780, {	-- Tauren
-					["cost"] = { { "i", 34068, 1 } },	-- Weighted Jack-o'-Lantern
+					["provider"] = { "i", 34068 }	-- Weighted Jack-o'-Lantern
 				}),
 				crit(5781, {	-- Troll
-					["cost"] = { { "i", 34068, 1 } },	-- Weighted Jack-o'-Lantern
+					["provider"] = { "i", 34068 }	-- Weighted Jack-o'-Lantern
 				}),
 				crit(5782, {	-- Undead
-					["cost"] = { { "i", 34068, 1 } },	-- Weighted Jack-o'-Lantern
+					["provider"] = { "i", 34068 }	-- Weighted Jack-o'-Lantern
 				}),
 				crit(17854, {	-- Worgen
 					["timeline"] = { "added 4.0.1" },
-					["cost"] = { { "i", 34068, 1 } },	-- Weighted Jack-o'-Lantern
+					["provider"] = { "i", 34068 }	-- Weighted Jack-o'-Lantern
 				}),
 			}),
 			ach(1261, {	-- G.N.E.R.D. Rage
