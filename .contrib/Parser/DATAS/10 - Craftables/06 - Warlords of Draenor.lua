@@ -110,6 +110,7 @@ root(ROOTS.Craftables, tier(WOD_TIER, applyclassicphase(WOD_PHASE_ONE, bubbleDow
 		i(116426),	-- Smoldering Helm
 		i(116427),	-- Smoldering Breastplate
 		i(116425),	-- Smoldering Greaves
+		-- #IF BEFORE 10.0.5
 		WOD_CRAFTED_ITEM(120261, 128016),	-- Steelforged Aegis + Steelforged Essence
 		WOD_CRAFTED_ITEM(120259, 128016),	-- Steelforged Axe + Steelforged Essence
 		WOD_CRAFTED_ITEM(116644, 128016),	-- Steelforged Dagger + Steelforged Essence
@@ -125,6 +126,53 @@ root(ROOTS.Craftables, tier(WOD_TIER, applyclassicphase(WOD_PHASE_ONE, bubbleDow
 		WOD_CRAFTED_ITEM(114233, 128015),	-- Truesteel Waistguard + Truesteel Essence
 		WOD_CRAFTED_ITEM(114234, 128015),	-- Truesteel Greaves + Truesteel Essence
 		WOD_CRAFTED_ITEM(114235, 128015),	-- Truesteel Boots + Truesteel Essence
+		-- #ELSE
+		WOD_CRAFTED_ITEM_DF_BASE(120261),	-- Steelforged Aegis
+		WOD_CRAFTED_ITEM_DF_BASE(120259),	-- Steelforged Axe
+		WOD_CRAFTED_ITEM_DF_BASE(116644),	-- Steelforged Dagger
+		WOD_CRAFTED_ITEM_DF_BASE(116453),	-- Steelforged Greataxe
+		WOD_CRAFTED_ITEM_DF_BASE(116646),	-- Steelforged Hammer
+		WOD_CRAFTED_ITEM_DF_BASE(116454),	-- Steelforged Saber
+		WOD_CRAFTED_ITEM_DF_BASE(116647),	-- Steelforged Shield
+		WOD_CRAFTED_ITEM_DF_IMPRESSIVE(120261, 202208),	-- Steelforged Aegis + Impressive Steelforged Essence
+		WOD_CRAFTED_ITEM_DF_IMPRESSIVE(120259, 202208),	-- Steelforged Axe + Impressive Steelforged Essence
+		WOD_CRAFTED_ITEM_DF_IMPRESSIVE(116644, 202208),	-- Steelforged Dagger + Impressive Steelforged Essence
+		WOD_CRAFTED_ITEM_DF_IMPRESSIVE(116453, 202208),	-- Steelforged Greataxe + Impressive Steelforged Essence
+		WOD_CRAFTED_ITEM_DF_IMPRESSIVE(116646, 202208),	-- Steelforged Hammer + Impressive Steelforged Essence
+		WOD_CRAFTED_ITEM_DF_IMPRESSIVE(116454, 202208),	-- Steelforged Saber + Impressive Steelforged Essence
+		WOD_CRAFTED_ITEM_DF_IMPRESSIVE(116647, 202208),	-- Steelforged Shield + Impressive Steelforged Essence
+		WOD_CRAFTED_ITEM_DF_REMARKABLE(120261, 202209),	-- Steelforged Aegis + Remarkable Steelforged Essence
+		WOD_CRAFTED_ITEM_DF_REMARKABLE(120259, 202209),	-- Steelforged Axe + Remarkable Steelforged Essence
+		WOD_CRAFTED_ITEM_DF_REMARKABLE(116644, 202209),	-- Steelforged Dagger + Remarkable Steelforged Essence
+		WOD_CRAFTED_ITEM_DF_REMARKABLE(116453, 202209),	-- Steelforged Greataxe + Remarkable Steelforged Essence
+		WOD_CRAFTED_ITEM_DF_REMARKABLE(116646, 202209),	-- Steelforged Hammer + Remarkable Steelforged Essence
+		WOD_CRAFTED_ITEM_DF_REMARKABLE(116454, 202209),	-- Steelforged Saber + Remarkable Steelforged Essence
+		WOD_CRAFTED_ITEM_DF_REMARKABLE(116647, 202209),	-- Steelforged Shield + Remarkable Steelforged Essence
+		WOD_CRAFTED_ITEM_DF_BASE(114230),	-- Truesteel Helm
+		WOD_CRAFTED_ITEM_DF_BASE(114231),	-- Truesteel Pauldrons
+		WOD_CRAFTED_ITEM_DF_BASE(114232),	-- Truesteel Breastplate
+		WOD_CRAFTED_ITEM_DF_BASE(114236),	-- Truesteel Armguards
+		WOD_CRAFTED_ITEM_DF_BASE(114237),	-- Truesteel Gauntlets
+		WOD_CRAFTED_ITEM_DF_BASE(114233),	-- Truesteel Waistguard
+		WOD_CRAFTED_ITEM_DF_BASE(114234),	-- Truesteel Greaves
+		WOD_CRAFTED_ITEM_DF_BASE(114235),	-- Truesteel Boots
+		WOD_CRAFTED_ITEM_DF_IMPRESSIVE(114230, 202210),	-- Truesteel Helm + Impressive Truesteel Essence
+		WOD_CRAFTED_ITEM_DF_IMPRESSIVE(114231, 202210),	-- Truesteel Pauldrons + Impressive Truesteel Essence
+		WOD_CRAFTED_ITEM_DF_IMPRESSIVE(114232, 202210),	-- Truesteel Breastplate + Impressive Truesteel Essence
+		WOD_CRAFTED_ITEM_DF_IMPRESSIVE(114236, 202210),	-- Truesteel Armguards + Impressive Truesteel Essence
+		WOD_CRAFTED_ITEM_DF_IMPRESSIVE(114237, 202210),	-- Truesteel Gauntlets + Impressive Truesteel Essence
+		WOD_CRAFTED_ITEM_DF_IMPRESSIVE(114233, 202210),	-- Truesteel Waistguard + Impressive Truesteel Essence
+		WOD_CRAFTED_ITEM_DF_IMPRESSIVE(114234, 202210),	-- Truesteel Greaves + Impressive Truesteel Essence
+		WOD_CRAFTED_ITEM_DF_IMPRESSIVE(114235, 202210),	-- Truesteel Boots + Impressive Truesteel Essence
+		WOD_CRAFTED_ITEM_DF_REMARKABLE(114230, 202211),	-- Truesteel Helm + Remarkable Truesteel Essence
+		WOD_CRAFTED_ITEM_DF_REMARKABLE(114231, 202211),	-- Truesteel Pauldrons + Remarkable Truesteel Essence
+		WOD_CRAFTED_ITEM_DF_REMARKABLE(114232, 202211),	-- Truesteel Breastplate + Remarkable Truesteel Essence
+		WOD_CRAFTED_ITEM_DF_REMARKABLE(114236, 202211),	-- Truesteel Armguards + Remarkable Truesteel Essence
+		WOD_CRAFTED_ITEM_DF_REMARKABLE(114237, 202211),	-- Truesteel Gauntlets + Remarkable Truesteel Essence
+		WOD_CRAFTED_ITEM_DF_REMARKABLE(114233, 202211),	-- Truesteel Waistguard + Remarkable Truesteel Essence
+		WOD_CRAFTED_ITEM_DF_REMARKABLE(114234, 202211),	-- Truesteel Greaves + Remarkable Truesteel Essence
+		WOD_CRAFTED_ITEM_DF_REMARKABLE(114235, 202211),	-- Truesteel Boots + Remarkable Truesteel Essence
+		-- #ENDIF
 	}),
 	prof(ENCHANTING, {
 		spell(13262, {	-- Disenchant
@@ -208,14 +256,36 @@ root(ROOTS.Craftables, tier(WOD_TIER, applyclassicphase(WOD_PHASE_ONE, bubbleDow
 		n(WEAPONS, {
 			i(109168, {	-- Shrediron's Shredder
 				["timeline"] = { "created 9.0" },
+				["bonusID"] = 585,
 			}),
+			-- #IF BEFORE 10.0.5
 			WOD_CRAFTED_ITEM(109168, 128017),	-- Shrediron's Shredder* + True Iron Trigger*
+			-- #ELSE
+			WOD_CRAFTED_ITEM_DF_BASE(109168),	-- Shrediron's Shredder
+			WOD_CRAFTED_ITEM_DF_IMPRESSIVE(109168, 202214),	-- Shrediron's Shredder + Impressive True Iron Trigger
+			WOD_CRAFTED_ITEM_DF_REMARKABLE(109168, 202215),	-- Shrediron's Shredder + Remarkable True Iron Trigger
+			-- #ENDIF
 		}),
 		n(ARMOR, {
+			-- #IF BEFORE 10.0.5
 			WOD_CRAFTED_IDENTICAL_ITEM(109173, 128011),	-- Cybergenetic Mechshades* + Linkgrease Locksprocket
 			WOD_CRAFTED_IDENTICAL_ITEM(109171, 128011),	-- Night-Vision Mechshades* + Linkgrease Locksprocket
 			WOD_CRAFTED_IDENTICAL_ITEM(109172, 128011),	-- Plasma Mechshades* + Linkgrease Locksprocket
 			WOD_CRAFTED_IDENTICAL_ITEM(109174, 128011),	-- Razorguard Mechshades* + Linkgrease Locksprocket
+			-- #ELSE
+			WOD_CRAFTED_ITEM_DF_BASE(109173),	-- Cybergenetic Mechshades
+			WOD_CRAFTED_ITEM_DF_BASE(109171),	-- Night-Vision Mechshades
+			WOD_CRAFTED_ITEM_DF_BASE(109172),	-- Plasma Mechshades
+			WOD_CRAFTED_ITEM_DF_BASE(109174),	-- Razorguard Mechshades
+			WOD_CRAFTED_ITEM_DF_IMPRESSIVE(109173, 202212),	-- Cybergenetic Mechshades + Impressive Linkgrease Locksprocket
+			WOD_CRAFTED_ITEM_DF_IMPRESSIVE(109171, 202212),	-- Night-Vision Mechshades + Impressive Linkgrease Locksprocket
+			WOD_CRAFTED_ITEM_DF_IMPRESSIVE(109172, 202212),	-- Plasma Mechshades + Impressive Linkgrease Locksprocket
+			WOD_CRAFTED_ITEM_DF_IMPRESSIVE(109174, 202212),	-- Razorguard Mechshades + Impressive Linkgrease Locksprocket
+			WOD_CRAFTED_ITEM_DF_REMARKABLE(109173, 202213),	-- Cybergenetic Mechshades + Remarkable Linkgrease Locksprocket
+			WOD_CRAFTED_ITEM_DF_REMARKABLE(109171, 202213),	-- Night-Vision Mechshades + Remarkable Linkgrease Locksprocket
+			WOD_CRAFTED_ITEM_DF_REMARKABLE(109172, 202213),	-- Plasma Mechshades + Remarkable Linkgrease Locksprocket
+			WOD_CRAFTED_ITEM_DF_REMARKABLE(109174, 202213),	-- Razorguard Mechshades + Remarkable Linkgrease Locksprocket
+			-- #ENDIF
 		}),
 	}),
 	prof(INSCRIPTION, {
@@ -246,26 +316,49 @@ root(ROOTS.Craftables, tier(WOD_TIER, applyclassicphase(WOD_PHASE_ONE, bubbleDow
 		filter(HELD_IN_OFF_HAND, {
 			i(113270, {	-- Shadowtome
 				["timeline"] = { "created 9.0" },
+				["bonusID"] = 585,
 			}),
+			-- #IF BEFORE 10.0.5
 			WOD_CRAFTED_ITEM(113270),	-- Shadowtome
+			-- #ELSE
+			WOD_CRAFTED_ITEM_DF_BASE(113270),	-- Shadowtome
+			WOD_CRAFTED_ITEM_DF_IMPRESSIVE(113270, 202220),	-- Shadowtome + Impressive Weapon Crystal
+			WOD_CRAFTED_ITEM_DF_REMARKABLE(113270, 202221),	-- Shadowtome + Remarkable Weapon Crystal
+			-- #ENDIF
 		}),
 		filter(STAVES, {
 			i(113134, {	-- Crystalfire Spellstaff
 				["timeline"] = { "created 9.0" },
+				["bonusID"] = 585,
 			}),
-			WOD_CRAFTED_ITEM(113134),	-- Crystalfire Spellstaff
 			i(111526, {	-- Etched-Blade Warstaff
 				["timeline"] = { "created 9.0" },
+				["bonusID"] = 585,
 			}),
+			-- #IF BEFORE 10.0.5
+			WOD_CRAFTED_ITEM(113134),	-- Crystalfire Spellstaff
 			WOD_CRAFTED_ITEM(111526),	-- Etched-Blade Warstaff
+			-- #ELSE
+			WOD_CRAFTED_ITEM_DF_BASE(113134),	-- Crystalfire Spellstaff
+			WOD_CRAFTED_ITEM_DF_BASE(111526),	-- Etched-Blade Warstaff
+			WOD_CRAFTED_ITEM_DF_IMPRESSIVE(113134, 202220),	-- Crystalfire Spellstaff+ Impressive Weapon Crystal
+			WOD_CRAFTED_ITEM_DF_IMPRESSIVE(111526, 202220),	-- Etched-Blade Warstaff + Impressive Weapon Crystal
+			WOD_CRAFTED_ITEM_DF_REMARKABLE(113134, 202221),	-- Crystalfire Spellstaff + Remarkable Weapon Crystal
+			WOD_CRAFTED_ITEM_DF_REMARKABLE(111526, 202221),	-- Etched-Blade Warstaff + Remarkable Weapon Crystal
+			-- #ENDIF
 		}),
 		filter(WANDS, {
 			i(113131, {	-- Warmaster's Firestick
-				["timeline"] = { "added 9.0" },
+				["timeline"] = { "created 9.0" },
+				["bonusID"] = 585,
 			}),
-			bubbleDown({["u"] = REMOVED_FROM_GAME,},
-				WOD_CRAFTED_ITEM(113131)	-- Warmaster's Firestick
-			);
+			-- #IF BEFORE 10.0.5
+			WOD_CRAFTED_ITEM(113131),	-- Warmaster's Firestick
+			-- #ELSE
+			WOD_CRAFTED_ITEM_DF_BASE(113131),	-- Warmaster's Firestick
+			WOD_CRAFTED_ITEM_DF_IMPRESSIVE(113131, 202220),	-- Warmaster's Firestick + Impressive Weapon Crystal
+			WOD_CRAFTED_ITEM_DF_REMARKABLE(113131, 202221),	-- Warmaster's Firestick + Remarkable Weapon Crystal
+			-- #ENDIF
 		}),
 	}),
 	prof(JEWELCRAFTING, {
@@ -401,14 +494,27 @@ root(ROOTS.Craftables, tier(WOD_TIER, applyclassicphase(WOD_PHASE_ONE, bubbleDow
 			i(114821),	-- Hexweave Bag
 		}),
 		n(BACK, {
+			-- #IF BEFORE 10.0.5
 			WOD_CRAFTED_ITEM(114819, 128012),	-- Brilliant Hexweave Cloak + Hexweave Essence
 			WOD_CRAFTED_ITEM(114818, 128012),	-- Nimble Hexweave Cloak + Hexweave Essence
 			WOD_CRAFTED_ITEM(114817, 128012),	-- Powerful Hexweave Cloak + Hexweave Essence
+			-- #ELSE
+			WOD_CRAFTED_ITEM_DF_BASE(114819),	-- Brilliant Hexweave Cloak
+			WOD_CRAFTED_ITEM_DF_BASE(114818),	-- Nimble Hexweave Cloak
+			WOD_CRAFTED_ITEM_DF_BASE(114817),	-- Powerful Hexweave Cloak
+			WOD_CRAFTED_ITEM_DF_IMPRESSIVE(114819, 202218),	-- Brilliant Hexweave Cloak + Impressive Hexweave Essence
+			WOD_CRAFTED_ITEM_DF_IMPRESSIVE(114818, 202218),	-- Nimble Hexweave Cloak + Impressive Hexweave Essence
+			WOD_CRAFTED_ITEM_DF_IMPRESSIVE(114817, 202218),	-- Powerful Hexweave Cloak + Impressive Hexweave Essence
+			WOD_CRAFTED_ITEM_DF_REMARKABLE(114819, 202219),	-- Brilliant Hexweave Cloak + Remarkable Hexweave Essence
+			WOD_CRAFTED_ITEM_DF_REMARKABLE(114818, 202219),	-- Nimble Hexweave Cloak + Remarkable Hexweave Essence
+			WOD_CRAFTED_ITEM_DF_REMARKABLE(114817, 202219),	-- Powerful Hexweave Cloak + Remarkable Hexweave Essence
+			-- #ENDIF
 		}),
 		filter(CLOTH, {
 			i(114828),	-- Sumptuous Cowl
 			i(114829),	-- Sumptuous Robes
 			i(114831),	-- Sumptuous Leggings
+			-- #IF BEFORE 10.0.5
 			WOD_CRAFTED_ITEM(114816, 128012),	-- Hexweave Belt + Hexweave Essence
 			WOD_CRAFTED_ITEM(114814, 128012),	-- Hexweave Bracers + Hexweave Essence
 			WOD_CRAFTED_ITEM(114810, 128012),	-- Hexweave Cowl + Hexweave Essence
@@ -417,6 +523,32 @@ root(ROOTS.Craftables, tier(WOD_TIER, applyclassicphase(WOD_PHASE_ONE, bubbleDow
 			WOD_CRAFTED_ITEM(114809, 128012),	-- Hexweave Mantle + Hexweave Essence
 			WOD_CRAFTED_ITEM(114813, 128012),	-- Hexweave Robe + Hexweave Essence
 			WOD_CRAFTED_ITEM(114815, 128012),	-- Hexweave Slippers + Hexweave Essence
+			-- #ELSE
+			WOD_CRAFTED_ITEM_DF_BASE(114816),	-- Hexweave Belt
+			WOD_CRAFTED_ITEM_DF_BASE(114814),	-- Hexweave Bracers
+			WOD_CRAFTED_ITEM_DF_BASE(114810),	-- Hexweave Cowl
+			WOD_CRAFTED_ITEM_DF_BASE(114812),	-- Hexweave Gloves
+			WOD_CRAFTED_ITEM_DF_BASE(114811),	-- Hexweave Leggings
+			WOD_CRAFTED_ITEM_DF_BASE(114809),	-- Hexweave Mantle
+			WOD_CRAFTED_ITEM_DF_BASE(114813),	-- Hexweave Robe
+			WOD_CRAFTED_ITEM_DF_BASE(114815),	-- Hexweave Slippers
+			WOD_CRAFTED_ITEM_DF_IMPRESSIVE(114816, 202218),	-- Hexweave Belt + Impressive Hexweave Essence
+			WOD_CRAFTED_ITEM_DF_IMPRESSIVE(114814, 202218),	-- Hexweave Bracers + Impressive Hexweave Essence
+			WOD_CRAFTED_ITEM_DF_IMPRESSIVE(114810, 202218),	-- Hexweave Cowl + Impressive Hexweave Essence
+			WOD_CRAFTED_ITEM_DF_IMPRESSIVE(114812, 202218),	-- Hexweave Gloves + Impressive Hexweave Essence
+			WOD_CRAFTED_ITEM_DF_IMPRESSIVE(114811, 202218),	-- Hexweave Leggings + Impressive Hexweave Essence
+			WOD_CRAFTED_ITEM_DF_IMPRESSIVE(114809, 202218),	-- Hexweave Mantle + Impressive Hexweave Essence
+			WOD_CRAFTED_ITEM_DF_IMPRESSIVE(114813, 202218),	-- Hexweave Robe + Impressive Hexweave Essence
+			WOD_CRAFTED_ITEM_DF_IMPRESSIVE(114815, 202218),	-- Hexweave Slippers + Impressive Hexweave Essence
+			WOD_CRAFTED_ITEM_DF_REMARKABLE(114816, 202219),	-- Hexweave Belt + Remarkable Hexweave Essence
+			WOD_CRAFTED_ITEM_DF_REMARKABLE(114814, 202219),	-- Hexweave Bracers + Remarkable Hexweave Essence
+			WOD_CRAFTED_ITEM_DF_REMARKABLE(114810, 202219),	-- Hexweave Cowl + Remarkable Hexweave Essence
+			WOD_CRAFTED_ITEM_DF_REMARKABLE(114812, 202219),	-- Hexweave Gloves + Remarkable Hexweave Essence
+			WOD_CRAFTED_ITEM_DF_REMARKABLE(114811, 202219),	-- Hexweave Leggings + Remarkable Hexweave Essence
+			WOD_CRAFTED_ITEM_DF_REMARKABLE(114809, 202219),	-- Hexweave Mantle + Remarkable Hexweave Essence
+			WOD_CRAFTED_ITEM_DF_REMARKABLE(114813, 202219),	-- Hexweave Robe + Remarkable Hexweave Essence
+			WOD_CRAFTED_ITEM_DF_REMARKABLE(114815, 202219),	-- Hexweave Slippers + Remarkable Hexweave Essence
+			-- #ENDIF
 		}),
 		filter(MOUNTS, {
 			i(115363),	-- Creeping Carpet (MOUNT!)

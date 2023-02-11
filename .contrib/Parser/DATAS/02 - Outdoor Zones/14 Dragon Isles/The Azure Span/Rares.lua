@@ -21,14 +21,12 @@ root(ROOTS.Zones, m(DRAGON_ISLES, bubbleDown({ ["timeline"] = TIMELINE_DF_REL },
 				["questID"] = 73868,
 				["g"] = {
 					i(200673),	-- Beogoka's Tooth and Claw
-					i(200253),	-- Snowspring Incanter's Knife
 				},
 			}),
 			n(193178, {	-- Blightfur
 				["coord"] = { 13.4, 22.4, THE_AZURE_SPAN },
 				["questID"] = 74058,
 				["g"] = {
-					i(197382),	-- Renewed Proto-Drake: White Horns (DM!)
 					i(197404),	-- Renewed Proto-Drake: Finned Tail (DM!)
 				},
 			}),
@@ -49,7 +47,6 @@ root(ROOTS.Zones, m(DRAGON_ISLES, bubbleDown({ ["timeline"] = TIMELINE_DF_REL },
 				["g"] = {
 					i(200448),	-- Abyssal Ward
 					i(200151),	-- Seamist Blade
-					i(197589),	-- Windborne Velocidrake: Large Head Fin
 				},
 			}),
 			n(186962, {	-- Cascade
@@ -58,7 +55,6 @@ root(ROOTS.Zones, m(DRAGON_ISLES, bubbleDown({ ["timeline"] = TIMELINE_DF_REL },
 				["isDaily"] = false,
 				["g"] = {
 					i(200135),	-- Corroded Greatsword
-					i(197098),	-- Highland Drake: Finned Back (DM!)
 					i(200187),	-- Rod of Glacial Force
 				},
 			}),
@@ -67,7 +63,6 @@ root(ROOTS.Zones, m(DRAGON_ISLES, bubbleDown({ ["timeline"] = TIMELINE_DF_REL },
 				["questID"] = 73873,
 				["g"] = {
 					i(200302),	-- Magmaforged Scimitar
-					i(200169),	-- Protector's Molten Cudgel
 				},
 			}),
 			n(193691, {	-- Fisherman Tinnak <Angered Ghost>
@@ -79,13 +74,8 @@ root(ROOTS.Zones, m(DRAGON_ISLES, bubbleDown({ ["timeline"] = TIMELINE_DF_REL },
 				["g"] = {
 					i(200256),	-- Darkmaul Soul Horn
 					i(200158),	-- Eerie Spectral Ring
-					i(197098),	-- Highland Drake: Finned Back (DM!)
-					i(200245),	-- Leviathan Lure
-					i(197382),	-- Renewed Proto-Drake: White Horns (DM!)
 					i(200187),	-- Rod of Glacial Force
-					i(200310),	-- Stole of the Iron Phantom
 					i(198070),	-- Tattered Seavine (IF!)
-					i(200552),	-- Torrent Callers-shell
 				},
 			}),
 			n(193214, {	-- Forgotten Creation
@@ -115,8 +105,6 @@ root(ROOTS.Zones, m(DRAGON_ISLES, bubbleDown({ ["timeline"] = TIMELINE_DF_REL },
 				["g"] = {
 					i(200259),	-- Forest Dweller's Shield
 					i(200267),	-- Reinforced Garden Tenders
-					i(197398),	-- Renewed Proto-Drake: Snub Snout (DM!)
-					i(197121),	-- Highland Drake: Tan Horns (DM!)
 				},
 			}),
 			-- n(193251),	-- Gruffy // under DF/Timed Based Rare
@@ -125,7 +113,6 @@ root(ROOTS.Zones, m(DRAGON_ISLES, bubbleDown({ ["timeline"] = TIMELINE_DF_REL },
 				["coord"] = { 16.2, 33.6, THE_AZURE_SPAN },
 				["questID"] = 74004,
 				["g"] = {
-					i(197150),	-- Highland Drake: Spiked Club Tail (DM!)
 					i(200178),	-- Infested Ichor (TOY!)
 				},
 			}),
@@ -134,7 +121,6 @@ root(ROOTS.Zones, m(DRAGON_ISLES, bubbleDown({ ["timeline"] = TIMELINE_DF_REL },
 				["questID"] = 73883,
 				["g"] = {
 					i(200684),	-- Emerald tailbone
-					i(197149),	-- Highland Drake: Club Tail (DM!)
 					i(200157),	-- Pathmaker
 				},
 			}),
@@ -189,7 +175,6 @@ root(ROOTS.Zones, m(DRAGON_ISLES, bubbleDown({ ["timeline"] = TIMELINE_DF_REL },
 				["questID"] = 72846,
 				["isDaily"] = false,
 				["g"] = {
-					i(197150),	-- Highland Drake: Spiked Club Tail (DM!)
 					i(200283),	-- Gnoll-Gnawed Breeches
 					i(200266),	-- Gnollish Chewtoy Launcher
 				},
@@ -220,7 +205,6 @@ root(ROOTS.Zones, m(DRAGON_ISLES, bubbleDown({ ["timeline"] = TIMELINE_DF_REL },
 				["isDaily"] = false,
 				["g"] = {
 					i(200868),	-- Integrated Primal Fire
-					i(200133),	-- Volcanic Chakram
 				},
 			}),
 			n(193167, {	-- Swagraal the Swollen
@@ -249,7 +233,6 @@ root(ROOTS.Zones, m(DRAGON_ISLES, bubbleDown({ ["timeline"] = TIMELINE_DF_REL },
 				["isDaily"] = false,
 				["g"] = {
 					i(201728, {	-- Vakril's Strongbox
-						i(200245),	-- Leviathan Lure
 						i(200187),	-- Rod of Glacial Force
 					}),
 				},

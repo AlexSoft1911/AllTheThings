@@ -49,6 +49,10 @@ HEADERS = {
 	Spell = "s",
 	AchCategory = "ac",
 	AchCriteria = "crit",
+	-- Provides name/icon using the GetLFGDungeonInfo API ref: https://wowpedia.fandom.com/wiki/LfgDungeonID
+	LFGDungeon = "d",
+	-- Provides name/icon using the GetLFGDungeonInfo API (split by Faction, i.e. 'AAAA.HHHH') ref: https://wowpedia.fandom.com/wiki/LfgDungeonID
+	LFGDungeonByFaction = "df"
 };
 
 -- Map Constants for quick and easy replacement when we can get mapIDs on live!
@@ -750,7 +754,7 @@ ACHIEVEMENT_CATEGORY_DUNGEONS_AND_RAIDS = 168;
 	ACHIEVEMENT_CATEGORY_SHADOWLANDS_DUNGEON = 15428;
 	ACHIEVEMENT_CATEGORY_SHADOWLANDS_RAID = 15438;
 	ACHIEVEMENT_CATEGORY_DRAGONFLIGHT_DUNGEON = 15467;
-	ACHIEVEMENT_CATEGORY_DRAGONFLIGHT_RAID = 15471;
+	ACHIEVEMENT_CATEGORY_DRAGONFLIGHT_RAID = 15468;
 ACHIEVEMENT_CATEGORY_PROFESSIONS = 169;
 	ACHIEVEMENT_CATEGORY_COOKING = 170;
 	ACHIEVEMENT_CATEGORY_FISHING = 171;
@@ -1105,7 +1109,7 @@ RELICS = 54;
 TOTEMS = 54;
 CONSUMABLES = 55;
 REAGENTS = 56;
-FISHING_POLES = 57;
+PROF_EQUIP = 57;
 MOUNTS = 100;
 BATTLE_PETS = 101;
 TOYS = 102;
@@ -2363,7 +2367,9 @@ title_gendered = function(id_m, id_f, t)				-- Create a TITLE Object which is 't
 	return struct("titleID", id_m * id_f * 100, t);		-- Arbitrary titleID from the combination of both titleID's
 end
 v = function(id, t)										-- Create a VIGNETTE Object
-	return struct("vignetteID", id, t);
+	local v = struct("questID", id, t);
+	v.type = "v";
+	return v;
 end
 
 -- SHORTCUTS for Field Modifiers (not objects, you can apply these anywhere)

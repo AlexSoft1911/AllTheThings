@@ -2046,6 +2046,8 @@ local function CreateObject(t, rootOnly)
 			t = app.CreateAchievement(t.achID or t.achievementID, t);
 		elseif t.recipeID then
 			t = app.CreateRecipe(t.recipeID, t);
+		elseif t.factionID then
+			t = app.CreateFaction(t.factionID, t);
 		elseif t.itemID then
 			if t.isToy then
 				t = app.CreateToy(t.itemID, t);
@@ -2214,14 +2216,16 @@ app.DetermineItemLink = function(sourceID)
 	local sourceInfo = C_TransmogCollection_GetSourceInfo(sourceID);
 	local itemID = sourceInfo and sourceInfo.itemID;
 	if not itemID then
-		-- app.print("Could not generate Item Link for",sourceID,"(No Source Info from Blizzard)");
+		-- app.PrintDebug("Could not generate Item Link for",sourceID,"(No Source Info from Blizzard)");
 		return;
 	end
-	local checkID, found;
 	local itemFormat = "item:"..itemID;
 	-- Check Raw Item
 	link = itemFormat;
-	checkID, found = GetSourceID(link);
+	if sourceInfo.itemModID == 0 then
+		return link;
+	end
+	local checkID, found = GetSourceID(link);
 	if found and checkID == sourceID then return link; end
 
 	-- Check ModIDs
@@ -2231,7 +2235,7 @@ app.DetermineItemLink = function(sourceID)
 	for m=1,99,1 do
 		link = sformat(itemFormat, m);
 		checkID, found = GetSourceID(link);
-		-- print(link,checkID,found)
+		-- app.PrintDebug(link,checkID,found)
 		if found and checkID == sourceID then return link; end
 	end
 
@@ -2240,10 +2244,10 @@ app.DetermineItemLink = function(sourceID)
 	for b=1,9999,1 do
 		link = sformat(itemFormat, b);
 		checkID, found = GetSourceID(link);
-		-- print(link,checkID,found)
+		-- app.PrintDebug(link,checkID,found)
 		if found and checkID == sourceID then return link; end
 	end
-	-- app.print("Could not generate Item Link for",sourceID,"(No ModID or BonusID match)");
+	-- app.PrintDebug("Could not generate Item Link for",sourceID,"(No ModID or BonusID match)");
 end
 app.IsComplete = function(o)
 	if o.total and o.total > 0 then return o.total == o.progress; end
@@ -2443,10 +2447,17 @@ local function GroupMatchesParams(group, key, value, ignoreModID)
 			return itemID == value;
 		end
 	end
-	-- exact specific match for other keys
+	-- check exact specific match for other keys
 	if group[key] == value then return true; end
+	-- Other fields can require further verification
 	-- Some objects also need to check altquestID for questID
-	if key == "questID" and group.otherFactionQuestID == value then return true; end
+	if key == "questID" then
+		if group.otherFactionQuestID == value then return true; end
+	-- NPCID can be contained in other fields as well (for now)
+	elseif key == "npcID" or key == "creatureID" then
+		if group.creatureID == value then return true; end
+		if group.npcID == value then return true; end
+	end
 end
 -- Filters a specs table to only those which the current Character class can choose
 local function FilterSpecs(specs)
@@ -2604,7 +2615,7 @@ app.CheckInaccurateQuestInfo = function(questRef, questChange)
 end
 local PrintQuestInfo = function(questID, new, info)
 	if app.IsReady and app.Settings:GetTooltipSetting("Report:CompletedQuests") then
-		local questRef = app.SearchForObject("questID", questID) or app.SearchForField("questID", questID) or app.SearchForField("altQuestIDs", questID);
+		local questRef = app.SearchForObject("questID", questID, "field");
 		questRef = (questRef and questRef[1]) or questRef;
 		local questChange;
 		if new == true then
@@ -2815,7 +2826,7 @@ end
 app.SourceQuestString = function(quest)
 	if quest then
 		if type(quest) == "string" or type(quest) == "number" then
-			quest = app.SearchForObject("questID",tonumber(quest));
+			quest = app.SearchForObject("questID",tonumber(quest),"field");
 		end
 	end
 	if quest then
@@ -4390,7 +4401,7 @@ local function GetCachedSearchResults(search, method, paramA, paramB, ...)
 											tinsert(info, { left = text .. link .. (app.Settings:GetTooltipSetting("itemID") and " (*)" or ""), right = GetCollectionIcon(ATTAccountWideData.Sources[sourceID])});
 										end
 									else
-										local otherATTSource = app.SearchForObject("s", otherSourceID);
+										local otherATTSource = app.SearchForObject("s", otherSourceID, "field");
 										if otherATTSource then
 											-- Only show Shared Appearances that match the requirements for this class to prevent people from assuming things.
 											if (sourceGroup.f == otherATTSource.f or sourceGroup.f == 2 or otherATTSource.f == 2) and not otherATTSource.nmc and not otherATTSource.nmr then
@@ -4450,7 +4461,7 @@ local function GetCachedSearchResults(search, method, paramA, paramB, ...)
 											tinsert(info, { left = text .. link .. (app.Settings:GetTooltipSetting("itemID") and " (*)" or ""), right = GetCollectionIcon(ATTAccountWideData.Sources[sourceID])});
 										end
 									else
-										local otherATTSource = app.SearchForObject("s", otherSourceID);
+										local otherATTSource = app.SearchForObject("s", otherSourceID, "field");
 										if otherATTSource then
 											-- Show information about the appearance:
 											local failText = "";
@@ -4614,8 +4625,8 @@ local function GetCachedSearchResults(search, method, paramA, paramB, ...)
 			if parent and not parent.hideText and parent.parent
 				and (showCompleted or not app.IsComplete(j))
 				and not app.HasCost(j, paramA, paramB)
-				then
-				text = BuildSourceText(paramA ~= "itemID" and parent or j, paramA ~= "itemID" and 1 or 0);
+			then
+				text = BuildSourceText(parent, 1);
 				if showUnsorted or (not string.match(text, L["UNSORTED_1"]) and not string.match(text, L["HIDDEN_QUEST_TRIGGERS"])) then
 					for source,replacement in pairs(abbrevs) do
 						text = string.gsub(text, source, replacement);
@@ -4647,20 +4658,20 @@ local function GetCachedSearchResults(search, method, paramA, paramB, ...)
 		if #temp > 0 then
 			local listing = {};
 			local maximum = app.Settings:GetTooltipSetting("Locations");
+			local count = 0;
 			app.Sort(temp, app.SortDefaults.Text);
-			for i,j in ipairs(temp) do
+			for _,j in ipairs(temp) do
 				if not contains(listing, j) then
-					tinsert(listing, 1, j);
+					count = count + 1;
+					if count <= maximum then
+						tinsert(listing, 1, j);
+					end
 				end
 			end
-			local count = #listing;
-			if count > maximum + 1 then
-				for i=count,maximum + 1,-1 do
-					table.remove(listing, 1);
-				end
+			if count > maximum then
 				tinsert(listing, 1, L["AND_"] .. (count - maximum) .. L["_OTHER_SOURCES"] .. "...");
 			end
-			for i,text in ipairs(listing) do
+			for _,text in ipairs(listing) do
 				if not working and text:find(RETRIEVING_DATA) then working = true; end
 				local left, right = strsplit(DESCRIPTION_SEPARATOR, text);
 				tinsert(info, 1, { left = left, right = right, wrap = wrap });
@@ -4983,7 +4994,7 @@ local function GetCachedSearchResults(search, method, paramA, paramB, ...)
 								end
 							end
 						else
-							locationGroup = SearchForObject(field, id) or (id and field == "mapID" and C_Map_GetMapInfo(id));
+							locationGroup = SearchForObject(field, id, "field") or (id and field == "mapID" and C_Map_GetMapInfo(id));
 							locationName = locationGroup and (locationGroup.name or locationGroup.text);
 						end
 						-- print("contains info",entry.itemID,field,id,locationGroup,locationName)
@@ -5007,8 +5018,8 @@ local function GetCachedSearchResults(search, method, paramA, paramB, ...)
 					if entry.criteriaID and entry.achievementID then
 						local rawParent = rawget(entry, "parent");
 						if not rawParent or rawParent.achievementID ~= entry.achievementID then
-							local critAch = SearchForObject("achievementID", entry.achievementID);
-							left = left .. " > " .. critAch.text;
+							local critAch = SearchForObject("achievementID", entry.achievementID, "key");
+							left = left .. " > " .. (critAch and critAch.text or "???");
 						end
 					end
 
@@ -5249,7 +5260,7 @@ local function DetermineCraftedGroups(group, FillData)
 		if not included[craftedItemID] then
 			included[craftedItemID] = true;
 			-- Searches for a filter-matched crafted Item
-			search = app.SearchForObject("itemID",craftedItemID);
+			search = app.SearchForObject("itemID",craftedItemID,"field");
 			if search then
 				search = CreateObject(search);
 			end
@@ -5460,9 +5471,9 @@ app.BuildCost = function(group)
 			-- print("Cost",c[1],c[2],c[3]);
 			costItem = nil;
 			if c[1] == "c" then
-				costItem = app.SearchForObject("currencyID", c[2]) or app.CreateCurrencyClass(c[2]);
+				costItem = app.SearchForObject("currencyID", c[2], "field") or app.CreateCurrencyClass(c[2]);
 			elseif c[1] == "i" then
-				costItem = app.SearchForObject("itemID", c[2]) or app.CreateItem(c[2]);
+				costItem = app.SearchForObject("itemID", c[2], "field") or app.CreateItem(c[2]);
 			end
 			if costItem then
 				costItem = CloneData(costItem);
@@ -5589,7 +5600,7 @@ app.BuildSourceParent = function(group)
 				end
 				-- Things tagged with an npcID should show that NPC as a Source
 				if thing.key ~= "npcID" and (thing.npcID or thing.creatureID) then
-					local parentNPC = app.SearchForObject("creatureID", thing.npcID or thing.creatureID) or {["npcID"] = thing.npcID or thing.creatureID};
+					local parentNPC = app.SearchForObject("creatureID", thing.npcID or thing.creatureID, "field") or {["npcID"] = thing.npcID or thing.creatureID};
 					if parents then tinsert(parents, parentNPC);
 					else parents = { parentNPC }; end
 				end
@@ -5599,7 +5610,7 @@ app.BuildSourceParent = function(group)
 					if not parents then parents = {}; end
 					local parentNPC;
 					for _,npcID in ipairs(thing.crs) do
-						parentNPC = app.SearchForObject("creatureID", npcID) or {["npcID"] = npcID};
+						parentNPC = app.SearchForObject("creatureID", npcID, "field") or {["npcID"] = npcID};
 						tinsert(parents, parentNPC);
 					end
 				end
@@ -5609,9 +5620,9 @@ app.BuildSourceParent = function(group)
 					for _,p in ipairs(thing.providers) do
 						type, id = p[1], p[2];
 						-- app.PrintDebug("Root Provider",type,id);
-						local pRef = (type == "i" and app.SearchForObject("itemID", id))
-								or   (type == "o" and app.SearchForObject("objectID", id))
-								or   (type == "n" and app.SearchForObject("npcID", id));
+						local pRef = (type == "i" and app.SearchForObject("itemID", id, "field"))
+								or   (type == "o" and app.SearchForObject("objectID", id, "field"))
+								or   (type == "n" and app.SearchForObject("npcID", id, "field"));
 						if pRef then
 							pRef = CreateObject(pRef);
 							if parents then tinsert(parents, pRef);
@@ -6516,20 +6527,37 @@ local function SearchForField(field, id)
 	end
 end
 app.SearchForField = SearchForField;
--- This method performs the SearchForField logic, but then verifies that ONLY a specific matching, filtered-priority object is returned
-app.SearchForObject = function(field, id)
+-- This method performs the SearchForField logic, but then may verifies that ONLY a specific matching, filtered-priority object is returned
+	-- require - Determine the required level of matching found objects:
+	-- * "key" - only accept objects whose key is also the field with value
+	-- * "field" - only accept objects which contain the exact field with value
+	-- * none - accept any object which is cached against the specific field value
+app.SearchForObject = function(field, id, require)
 	local fcache = SearchForField(field, id);
 	if fcache then
 		local count = #fcache;
 		if count == 0 then
+			app.PrintDebug("SFO",field,id,require,"0~")
 			return;
 		end
+		local fcacheObj;
+		require = (require == "key" and 2) or (require == "field" and 1) or 0;
 		-- quick escape for single cache results! hooray!
 		if count == 1 then
-			return fcache[1];
+			fcacheObj = fcache[1];
+			if (require == 0) or
+				(require == 1 and fcacheObj[field] == id) or
+				(require == 2 and fcacheObj.key == field and fcacheObj[field] == id)
+			then
+				-- app.PrintDebug("SFO",field,id,require,"1=",fcacheObj.hash)
+				return fcacheObj;
+			end
+			-- one result, but doesn't meet the 'require'
+			app.PrintDebug("SFO",field,id,require,"1~",fcacheObj.hash)
+			return;
 		end
 		-- find a filter-match object first
-		local fcacheObj, keyMatch, fieldMatch, match;
+		local keyMatch, fieldMatch, match;
 		local Filter = app.RecursiveGroupRequirementsFilter;
 		for i=1,count,1 do
 			fcacheObj = fcache[i];
@@ -6538,19 +6566,21 @@ app.SearchForObject = function(field, id)
 				if fcacheObj.key == field then
 					-- with keyed-field matching key & current filters
 					if Filter(fcacheObj) then
+						-- app.PrintDebug("SFO",field,id,require,"F>",fcacheObj.hash)
 						return fcacheObj;
 					end
 					keyMatch = keyMatch or fcacheObj;
-				else
+				elseif require < 2 then
 					-- with field matching id
 					fieldMatch = fieldMatch or fcacheObj;
 				end
 			-- basic group related to search
-			else
+			elseif require < 1 then
 				match = match or fcacheObj;
 			end
 		end
 		-- otherwise just find the first matching object
+		-- app.PrintDebug("SFO",field,id,require,"?>",keyMatch and keyMatch.hash,fieldMatch and fieldMatch.hash,match and match.hash)
 		return keyMatch or fieldMatch or match or nil;
 	end
 end
@@ -7146,7 +7176,7 @@ local function PopulateQuestObject(questObject)
 end
 -- Returns an Object based on a QuestID a lot of Quest information for displaying in a row
 local function GetPopulatedQuestObject(questID)
-	local cachedVersion = app.SearchForObject("questID", questID);
+	local cachedVersion = app.SearchForObject("questID", questID, "field");
 	-- either want to duplicate the existing data for this quest, or create new data for a missing quest
 	local data = cachedVersion or { questID = questID, _missing = true };
 	local questObject = CreateObject(data, true);
@@ -7584,7 +7614,7 @@ local ObjectFunctions = {
 	-- whether something is considered 'missing' by seeing if it can search for itself
 	["_missing"] = function(t)
 		local key = t.key;
-		local o = app.SearchForObject(key, t[key]);
+		local o = app.SearchForObject(key, t[key], "field");
 		local missing = true;
 		while o do
 			missing = rawget(o, "_missing");
@@ -7970,7 +8000,7 @@ local criteriaFuncs = {
     ["questID"] = QuestConsideredSaved,
 	["label_questID"] = L["LOCK_CRITERIA_QUEST_LABEL"],
     ["text_questID"] = function(v)
-		local questObj = app.SearchForObject("questID", v);
+		local questObj = app.SearchForObject("questID", v, "field");
         return sformat("[%d] %s", v, questObj and questObj.text or "???");
     end,
 
@@ -8057,7 +8087,7 @@ local function LockedAsQuest(t)
 					return questID;
 				else
 					-- this questID may not even be available to pick up, so try to find an object with this questID to determine if the object is complete
-					nq = app.SearchForObject("questID", questID);
+					nq = app.SearchForObject("questID", questID, "field");
 					if nq and (IsQuestFlaggedCompleted(nq.questID) or nq.altcollected or nq.locked) then
 						rawset(t, "locked", questID);
 						-- app.PrintDebug("Locked Quest", app:Linkify(t.hash, app.Colors.ChatLink, "search:"..t.key..":"..t[t.key]))
@@ -8123,7 +8153,7 @@ local function MapSourceQuestsRecursive(parentQuestID, questID, currentDepth, de
 			-- app.PrintDebug("Not in Backtrace",questID)
 		end
 	else
-		questRef = Search("questID",questID);
+		questRef = Search("questID",questID,"field");
 		if not questRef then
 			app.report("Failed to find Source Quest",questID)
 			return;
@@ -8154,7 +8184,7 @@ local function MapSourceQuestsRecursive(parentQuestID, questID, currentDepth, de
 				if p[1] == "i" then
 					id = p[2];
 					-- print("Quest Item Provider",p[1], id);
-					local pRef = Search("itemID", id);
+					local pRef = Search("itemID", id, "field");
 					if pRef then
 						NestObject(questRef, pRef, true, 1);
 					else
@@ -8318,7 +8348,7 @@ local questFields = {
 		-- and the Quest is not locked from being completed
 		if app.CollectibleReputations and t.maxReputation and not t.locked then
 			local factionID = t.maxReputation[1];
-			local factionRef = app.SearchForObject("factionID", factionID);
+			local factionRef = app.SearchForObject("factionID", factionID, "key");
 			if factionRef and not factionRef.collected then
 				-- compare the actual standing against the current standing rather than raw vaules (friendships are variable)
 				local maxStanding = app.GetReputationStanding(t.maxReputation);
@@ -8352,7 +8382,7 @@ local questFields = {
 						return true;
 					-- otherwise incomplete breadcrumbs will not prevent picking up a quest if they are ignored
 					else
-						sq = app.SearchForObject("questID", sourceQuestID);
+						sq = app.SearchForObject("questID", sourceQuestID, "field");
 						if sq and not sq.isBreadcrumb and not (sq.locked or sq.altcollected) then
 							return true;
 						end
@@ -8372,7 +8402,7 @@ local questFields = {
 			wipe(prereqs);
 			for _,sourceQuestID in ipairs(sourceQuests) do
 				if not IsQuestFlaggedCompletedForce(sourceQuestID) then
-					sq = app.SearchForObject("questID", sourceQuestID);
+					sq = app.SearchForObject("questID", sourceQuestID, "field");
 					if sq then
 						filter = app.CurrentCharacterFilters(sq);
 						onQuest = C_QuestLog_IsOnQuest(sourceQuestID);
@@ -8615,21 +8645,6 @@ app.CheckForBreadcrumbPrevention = function(title, questID)
 	end
 end
 
-app.CreateQuest = function(id, t)
-	if t then
-		-- extract specific faction data
-		local aqd = rawget(t, "aqd");
-		if aqd then
-			-- Apply the faction specific quest data to this object.
-			if app.FactionID == Enum.FlightPathFaction.Horde then
-				for key,value in pairs(t.hqd) do t[key] = value; end
-			else
-				for key,value in pairs(aqd) do t[key] = value; end
-			end
-		end
-	end
-	return setmetatable(constructor(id, t, "questID"), app.BaseQuest);
-end
 --[[ Not used in Retail anymore
 app.CreateQuestWithFactionData = function(t)
 	local questData, otherQuestData, otherFaction;
@@ -8931,6 +8946,34 @@ app.BaseVignette = app.BaseObjectFields(fields, "BaseVignette");
 app.CreateVignette = function(id, t)
 	return setmetatable(constructor(id, t, "questID"), app.BaseVignette);
 end
+
+local TypeQuests = {
+	["v"] = app.BaseVignette,
+};
+app.CreateQuest = function(id, t)
+	if t then
+		-- extract specific faction data
+		local aqd = rawget(t, "aqd");
+		if aqd then
+			-- Apply the faction specific quest data to this object.
+			if app.FactionID == Enum.FlightPathFaction.Horde then
+				for key,value in pairs(t.hqd) do t[key] = value; end
+			else
+				for key,value in pairs(aqd) do t[key] = value; end
+			end
+		end
+		-- special type
+		local type = rawget(t, "type");
+		if type then
+			local q = TypeQuests[type];
+			if q then
+				app.PrintDebug("quest-type",type,id)
+				return setmetatable(constructor(id, t, "questID"), q);
+			end
+		end
+	end
+	return setmetatable(constructor(id, t, "questID"), app.BaseQuest);
+end
 end)();
 
 app:RegisterEvent("QUEST_SESSION_JOINED");
@@ -9056,19 +9099,15 @@ end
 
 -- Achievement Criteria Lib
 local function GetParentAchievementInfo(t, key)
-	local achievement = app.SearchForObject("achievementID", t.achievementID);
+	local achievement = app.SearchForObject("achievementID", t.achievementID, "key");
 	if achievement then
-		-- sourced criteria of an un-sourced achievement... tsk tsk
-		if achievement.criteriaID then
-			DelayedCallback(app.report, 1, "Missing Referenced Achievement!",t.achievementID);
-			return;
-		end
 		rawset(t, "c", achievement["c"]);
 		rawset(t, "classID", achievement["classID"]);
 		rawset(t, "races", achievement["races"]);
 		rawset(t, "r", achievement["r"]);
 		return rawget(t, key);
 	end
+	DelayedCallback(app.report, 1, "Missing Referenced Achievement!",t.achievementID);
 end
 local criteriaFields = {
 	["key"] = function(t)
@@ -11731,7 +11770,7 @@ local itemFields = {
 				if app.AccountWideReputations and ATTAccountWideData.Factions[t.factionID] then return 2; end
 
 				-- use the extended faction logic from the associated Faction for consistency
-				local cachedFaction = app.SearchForObject("factionID", t.factionID);
+				local cachedFaction = app.SearchForObject("factionID", t.factionID, "key");
 				if cachedFaction then return cachedFaction.collected; end
 
 				-- otherwise move on to the basic logic
@@ -11822,15 +11861,11 @@ local fields = RawCloneData(itemFields, {
 	["collected"] = itemFields.collectedAsTransmog;
 	-- directly-created source objects can attempt to determine & save their providing ItemID to benefit from the attached Item fields
 	["itemID"] = function(t)
-		local sourceInfo = C_TransmogCollection_GetSourceInfo(t.s);
-		if sourceInfo then
-			rawset(t, "itemID", sourceInfo.itemID);
-			-- since no good translation for itemModID to our modID/bonusID system only save for basic Item sources
-			if sourceInfo.itemModID == 0 then
-				app.SaveHarvestSource(t);
-			end
-		end
-		return rawget(t, "itemID");
+		if t.__autolink then return; end
+		-- async generation of the proper Item Link
+		-- itemID is set when Link is determined, so rawset in the group prior so that additional async calls are skipped
+		rawset(t, "__autolink", true);
+		app.FunctionRunner.Run(app.GenerateGroupLinkUsingSourceID, t);
 	end,
 });
 app.BaseItemSource = app.BaseObjectFields(fields, "BaseItemSource");
@@ -12102,7 +12137,7 @@ app.CacheHeirlooms = function()
 		if not uniques[itemID] then
 			uniques[itemID] = true;
 
-			heirloom = app.SearchForObject("itemID", itemID);
+			heirloom = app.SearchForObject("itemID", itemID, "field");
 			if heirloom then
 				upgrades = C_Heirloom_GetHeirloomMaxUpgradeLevel(itemID);
 				if upgrades then
@@ -12525,6 +12560,16 @@ app.ImportRawLink = function(group, rawlink)
 			-- if app.DEBUG_PRINT then app.PrintTable(group) end
 		end
 	end
+end
+-- Allows generating and capturing the specific ItemString which represents the SourceID of a group, if possible
+app.GenerateGroupLinkUsingSourceID = function(group)
+	local s = group and group.s;
+	if not s then return; end
+
+	local link = app.DetermineItemLink(s);
+	if not link then return; end
+
+	app.ImportRawLink(group, link);
 end
 -- Adds necessary SourceID information for Item data into the Harvest variable
 app.SaveHarvestSource = function(data)
@@ -13107,14 +13152,26 @@ local HeaderTypeAbbreviations = {
 -- Alternate functions to attach data into a table based on an id for a given type code
 local AlternateDataTypes = {
 	["ac"] = function(t, id)
-		local name = GetCategoryInfo(id);
-		t.name = name;
+		t.name = GetCategoryInfo(id);
 	end,
 	["crit"] = function(t, id)
 		local ach = math.floor(id);
 		local crit = math.floor(100 * (id - ach) + 0.005);
 		local name = GetAchievementCriteriaInfo(ach, crit);
 		t.name = name;
+	end,
+	["d"] = function(t, id)
+		local name, _, _, _, _, _, _, _, _, _, textureFilename = GetLFGDungeonInfo(id);
+		t.name = name;
+		t.icon = textureFilename;
+	end,
+	["df"] = function(t, id)
+		local aid = math.floor(id);
+		local hid = math.floor(10000 * (id - aid) + 0.005);
+		id = app.FactionID == Enum.FlightPathFaction.Alliance and tonumber(aid) or tonumber(hid);
+		local name, _, _, _, _, _, _, _, _, _, textureFilename = GetLFGDungeonInfo(id);
+		t.name = name;
+		t.icon = textureFilename;
 	end,
 };
 local cache = app.CreateCache("headerCode");
@@ -13128,7 +13185,7 @@ local function CacheInfo(t, field)
 		altFunc(_t, id);
 	else
 		local typeID = HeaderTypeAbbreviations[type] or type;
-		local obj = app.SearchForObject(typeID, id) or CreateObject({[typeID]=id});
+		local obj = app.SearchForObject(typeID, id, "key") or CreateObject({[typeID]=id});
 		if obj then
 			-- app.PrintDebug("Automatic Header",obj.name or obj.link)
 			_t.name = obj.name or obj.link;
@@ -15382,12 +15439,9 @@ function app:CreateMiniListForGroup(group)
 							-- print("Missing Appearance")
 							-- app.PrintTable(otherSourceInfo)
 							if otherSourceInfo then
-								-- TODO: this can create an item link whose appearance is actually different than the SourceID's Visual
-								local newItem = app.CreateItemSource(otherSourceID, otherSourceInfo.itemID);
-								-- newItem.collectible = otherSourceInfo.quality ~= nil;
+								local newItem = app.CreateItemSource(otherSourceID);
 								if otherSourceInfo.isCollected then
 									ATTAccountWideData.Sources[otherSourceID] = 1;
-									newItem.collected = true;
 								end
 								tinsert(g, newItem);
 							end
@@ -15466,11 +15520,9 @@ function app:CreateMiniListForGroup(group)
 						else
 							local otherSourceInfo = C_TransmogCollection_GetSourceInfo(sourceID);
 							if otherSourceInfo then
-								-- TODO: this can create an item link whose appearance is actually different than the SourceID's Visual
-								local newItem = app.CreateItemSource(sourceID, otherSourceInfo.itemID);
+								local newItem = app.CreateItemSource(sourceID);
 								if otherSourceInfo.isCollected then
 									ATTAccountWideData.Sources[sourceID] = 1;
-									newItem.collected = true;
 								end
 								tinsert(g, newItem);
 							end
@@ -17075,7 +17127,7 @@ RowOnEnter = function (self)
 				local nextq, nq = {};
 				for _,nextQuestID in ipairs(reference.nextQuests) do
 					if nextQuestID > 0 then
-						nq = app.SearchForObject("questID", nextQuestID);
+						nq = app.SearchForObject("questID", nextQuestID, "field");
 						-- existing quest group
 						if nq then
 							tinsert(nextq, nq);
@@ -17711,7 +17763,7 @@ function app:GetDataCache()
 		local cache = fieldCache[field];
 		for id,_ in pairs(cache) do
 			-- create a cloned version of the cached object, or create a new object from the Creator
-			cat = CreateObject(SearchForObject(field, id) or { [field] = id }, true);
+			cat = CreateObject(SearchForObject(field, id, "key") or { [field] = id }, true);
 			cat.parent = dynamicCategory;
 			cat.dynamic_withsubgroups = keepSubGroups;
 			-- don't copy maps into dynamic headers, since when the dynamic content is cached it can be weird
@@ -21366,7 +21418,7 @@ customWindowUpdates["list"] = function(self, force, got)
 				return func(id);
 			end
 			-- allow arbitrary type object constructors by searching for the field and cloning the found data
-			return CreateObject(SearchObject(type, id) or {[type]=id});
+			return CreateObject(SearchObject(type, id, "field") or {[type]=id});
 		end
 
 		-- info about the Window
@@ -22801,6 +22853,7 @@ local HookableTooltips = {
 	["ItemRefTooltip"]=1,
 	["ShoppingTooltip1"]=1,
 	["ShoppingTooltip2"]=1,
+	["PerksProgramTooltip"]=1,	-- tooltip used for items within the Trading Post UI
 	["EncounterJournalTooltipItem1Tooltip"]=1,	-- various tooltips in Adventure Guide, some are actually useful to attach ATT data
 	-- other addons which create user-visible tooltips that ATT should attach into
 	["SilverDragonLootTooltip"]=1,
@@ -25095,7 +25148,7 @@ local function AddVignette(vignetteGUID)
 				-- app.PrintTable(vignetteInfo)
 				app.CurrentVignettes[searchType][id] = true;
 				-- potentially can add groups into another window?
-				local vignetteGroup = app.SearchForObject(searchType,id);
+				local vignetteGroup = app.SearchForObject(searchType, id, "field");
 				if vignetteGroup then
 					-- app.PrintDebug("Found Vignette Group")
 					-- force the related vignette group to be visible (this currently would only affect the Main list...)

@@ -217,6 +217,7 @@ root(ROOTS.ExpansionFeatures, tier(DF_TIER, bubbleDown({ ["timeline"] = TIMELINE
 				["g"] = {
 					i(199772),	-- Titan Gatekeeper's Shield
 					i(199773),	-- Titan Watcher's Scepter
+					i(199774),	-- Ancient Titan Blunderbuss
 				},
 			}),
 				-- RENOWN 14 --
@@ -535,6 +536,11 @@ root(ROOTS.ExpansionFeatures, tier(DF_TIER, bubbleDown({ ["timeline"] = TIMELINE
 				["minReputation"] = { 2510, 21 },	-- Valdrakken Accord Renown 21
 				["qg"] = 185561,	-- Kaestrasz
 				["coord"] = { 46.8, 78.8, VALDRAKKEN },
+				["g"] = {
+					i(197145),	-- Highland Drake: Bronze Scales (DM!)
+					i(197391),	-- Renewed Proto-Drake: Bronze Scales (DM!)
+					i(197613),	-- Windborne Velocidrake: Bronze Scales (DM!)
+				},
 			}),
 				-- RENOWN 22 --
 			q(70915, {	-- Crowning Achievement

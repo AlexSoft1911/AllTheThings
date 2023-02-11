@@ -20,6 +20,11 @@ namespace ATT
         public static bool DebugMode = false;
 
         /// <summary>
+        /// The CustomConfiguration for the Parser
+        /// </summary>
+        internal static CustomConfiguration Config { get; set; } = new CustomConfiguration("parser.config");
+
+        /// <summary>
         /// The very first Phase ID as indicated in _main.lua.
         /// </summary>
         public static readonly Dictionary<string, int> FIRST_EXPANSION_PHASE = new Dictionary<string, int>
@@ -100,7 +105,7 @@ namespace ATT
             { "DF", new int[] { 10, 0, 7, 99999 } },
         };
 
-        public static readonly string CURRENT_RELEASE_PHASE_NAME =
+        public static string CURRENT_RELEASE_PHASE_NAME =
 #if DF
                 "DF"
 #elif SHADOWLANDS
@@ -248,7 +253,7 @@ namespace ATT
         /// <summary>
         /// Represents fields which can be consolidated upwards in heirarchy if all children groups have the same value for the field
         /// </summary>
-        private static readonly string[] HeirarchicalConsolidationFields = new string[]
+        private static string[] HeirarchicalConsolidationFields = new string[]
         {
             "sourceIgnored",
         };
@@ -308,6 +313,36 @@ namespace ATT
         /// the Item is Sourced elsewhere for the specific ATT Build
         /// </summary>
         internal static List<Dictionary<string, object>> ConditionalItemData { get; } = new List<Dictionary<string, object>>();
+
+        /// <summary>
+        /// Allows the optional Parser Config file to overwrite some built-in values for non-compile required manipulation of the Parser
+        /// </summary>
+        public static void InitConfigSettings()
+        {
+            CURRENT_RELEASE_PHASE_NAME = Config["CURRENT_RELEASE_PHASE_NAME"] ?? CURRENT_RELEASE_PHASE_NAME;
+            var configPatch = Config["LAST_EXPANSION_PATCH"];
+            if (configPatch != null)
+            {
+                LAST_EXPANSION_PATCH[CURRENT_RELEASE_PHASE_NAME] = configPatch;
+            }
+            var configUseCounts = Config["TrackUseCounts"];
+            if (configUseCounts != null)
+            {
+                foreach (string type in (string[])configUseCounts)
+                {
+                    TypeUseCounts[type] = new Dictionary<decimal, int>();
+                }
+            }
+            HeirarchicalConsolidationFields = Config["HeirarchicalConsolidationFields"] ?? HeirarchicalConsolidationFields;
+            var configDebugDBs = Config["DebugDB"];
+            if (configDebugDBs != null)
+            {
+                foreach (string key in (string[])configDebugDBs)
+                {
+                    DebugDBs[key] = new SortedDictionary<decimal, List<Dictionary<string, object>>>();
+                }
+            }
+        }
 
         /// <summary>
         /// Merge the data into the database.
@@ -551,19 +586,16 @@ namespace ATT
                 modID = Convert.ToInt64(objModID);
             }
 
-            // Clean up Encounters which only have a single creatureID assigned via 'crs'
-            if (data.ContainsKey("encounterID") && !data.ContainsKey("creatureID") && data.TryGetValue("crs", out List<object> crs))
-            {
-                if (crs.Count == 1)
-                {
-                    data["creatureID"] = Convert.ToInt64(crs[0]);
-                    data.Remove("crs");
-                }
-            }
+            Validate_Encounter(data);
 
             if (data.TryGetValue("categoryID", out long categoryID)) ProcessCategoryObject(data, categoryID);
             if (data.TryGetValue("creatureID", out long creatureID))
             {
+                if (data.TryGetValue("npcID", out object dupeNpcID))
+                {
+                    LogError($"Both CreatureID {creatureID} and NPCID {dupeNpcID}?{Environment.NewLine}-- {ToJSON(data)}");
+                }
+                data["npcID"] = creatureID;
                 NPCS_WITH_REFERENCES[creatureID] = true;
             }
             if (data.TryGetValue("npcID", out creatureID))
@@ -675,10 +707,6 @@ namespace ATT
             if (data.TryGetValue("s", out f))
             {
                 if (f < 1 || CURRENT_RELEASE_VERSION < ADDED_TRANSMOG_VERSION) data.Remove("s");
-            }
-            if (data.TryGetValue("encounterID", out f))
-            {
-                data["_encounterHash"] = f + NestedDifficultyID / 100M;
             }
 
             minLevel = LevelConsolidation(data, minLevel);
@@ -886,6 +914,38 @@ namespace ATT
             return true;
         }
 
+        private static void Validate_Encounter(Dictionary<string, object> data)
+        {
+            if (data.TryGetValue("encounterID", out long encounterID))
+            {
+                // Hash the Encounter for MergeIntos if needed
+                data["_encounterHash"] = encounterID + NestedDifficultyID / 100M;
+
+                // Clean up Encounters which only have a single creatureID assigned via 'crs'
+                if (!data.ContainsKey("creatureID") && data.TryGetValue("crs", out List<object> crs) && crs.Count == 1 && crs[0].TryConvert(out long creatureID))
+                {
+                    data["creatureID"] = creatureID;
+                    data.Remove("crs");
+                }
+
+                // Warn about Encounters with no NPCID assignment
+                if (!data.ContainsKey("creatureID") && !data.ContainsKey("crs"))
+                {
+                    switch (encounterID)
+                    {
+                        // weird encounters that are one encounter but drops are organized by NPCs in the encounter
+                        case 1547:  // Silithid Royalty (AQ40)
+                        case 1549:  // Twin Emperors (AQ40)
+                        case 1552:  // Servant's Quarters (Kara)
+                            break;
+                        default:
+                            LogError($"Encounter {encounterID} is missing an NPC assignment! (Could lead to unassigned Achievement data)");
+                            break;
+                    }
+                }
+            }
+        }
+
         private static void Validate_Criteria(Dictionary<string, object> data)
         {
             if (!data.TryGetValue("criteriaID", out long criteriaID))
@@ -922,7 +982,7 @@ namespace ATT
             {
                 if (data.TryGetValue("_quests", out object quests))
                 {
-                    LogDebug($"INFO: Remove _quests from Criteria {achID}:{criteriaID}. AchievementDB contains sourceQuest: {questID}");
+                    LogDebug($"INFO: Remove _quests {ToJSON(quests)} from Criteria {achID}:{criteriaID}. AchievementDB contains sourceQuest: {questID}");
                 }
                 else
                 {
@@ -938,7 +998,7 @@ namespace ATT
             //{
             //    var type = objectList[0] as string;
             //    objectList[1].TryConvert(out long id);
-            //    if (id > 0)
+            //    if (id > 0 && NPCS_WITH_REFERENCES[id])
             //    {
             //        if (type == "n")
             //        {
@@ -950,6 +1010,7 @@ namespace ATT
             //            {
             //                LogDebug($"INFO: Added _npcs to Criteria {achID}:{criteriaID} with NPCID: {id}");
             //            }
+
             //            data["_npcs"] = new List<long> { id };
             //        }
             //    }
@@ -958,7 +1019,6 @@ namespace ATT
 
         private static void Validate_Quest(Dictionary<string, object> data)
         {
-
             // Mark the quest as referenced
             if (data.TryGetValue("questID", out long questID))
             {
@@ -1041,7 +1101,7 @@ namespace ATT
             if (data.TryGetValue("_npcs", out object npcs))
             {
                 // TODO: consolidate when creature/npc are the same... if that ever happens
-                DuplicateDataIntoGroups(data, npcs, "creatureID");
+                //DuplicateDataIntoGroups(data, npcs, "creatureID");
                 DuplicateDataIntoGroups(data, npcs, "npcID");
                 cloned = true;
             }
@@ -2280,6 +2340,9 @@ namespace ATT
                     });
                 }
             }
+
+            // Notify of Post-Process Merge data which failed to merge...
+            Objects.NotifyPostProcessMergeFailures();
 
             Log("Processing Complete");
         }

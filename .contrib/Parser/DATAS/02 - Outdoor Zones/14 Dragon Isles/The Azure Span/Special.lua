@@ -21,13 +21,9 @@ root(ROOTS.Zones, m(DRAGON_ISLES, bubbleDown({ ["timeline"] = TIMELINE_DF_REL },
 				["questID"] = 74446,
 				["isDaily"] = true,
 				["g"] = {
-					i(200138), -- ancient dancers longspear
-					i(200758), -- breastplate of storied antiquity
 					i(200237), -- burnished lifewarders targe
-					i(197105), -- highland drake spined chin
 					i(200086), -- khazgorite infused resin
 					i(200154), -- rubyscale band
-					i(197586), -- windborne velocidrake spiked back
 				},
 			}),
 			n(196768, {	-- Primal Bear Cub

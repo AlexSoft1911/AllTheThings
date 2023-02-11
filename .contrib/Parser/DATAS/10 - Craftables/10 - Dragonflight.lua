@@ -27,7 +27,6 @@ root(ROOTS.Craftables, tier(DF_TIER, bubbleDownSelf({ ["timeline"] = TIMELINE_DF
 				i(193366, {	-- Advanced Phial Experimentation*
 					-- Move to Basic Phial Experimentation if possible discovery
 					r(370460),	-- Phial of Charged Isolation
-					r(370504),	-- Phial of Elemental Chaos
 					r(370462),	-- Phial of Glacial Fury
 					r(370463),	-- Phial of Static Empowerment
 					r(370453),	-- Phial of Still Air
@@ -73,6 +72,7 @@ root(ROOTS.Craftables, tier(DF_TIER, bubbleDownSelf({ ["timeline"] = TIMELINE_DF
 				r(370472),	-- Aerated Phial of Deftness
 				r(370476),	-- Charged Phial of Alacrity
 				r(370483),	-- Crystalline Phial of Perception
+				r(370504),	-- Phial of Elemental Chaos
 				-- Decay
 				r(370457, {	-- Iced Phial of Corrupting Rage
 					["description"] = "Requires Decayology."
@@ -1363,8 +1363,8 @@ root(ROOTS.Craftables, tier(DF_TIER, bubbleDownSelf({ ["timeline"] = TIMELINE_DF
 			i(197362),	-- Renewed Proto-Drake: Spined Crest (DM!)
 			i(197352),	-- Renewed Proto-Drake: Steel and Yellow Armor (DM!)
 			i(197597),	-- Windborne Velocidrake: Black Fur (DM!)
-			i(197592),	-- Windborne Velocidrake: Spined Head (DM!)
 			i(197578),	-- Windborne Velocidrake: Silver and Blue Armor (DM!)
+			i(197592),	-- Windborne Velocidrake: Spined Head (DM!)
 			i(197579),	-- Windborne Velocidrake: Steel and Orange Armor (DM!)
 			i(197634),	-- Windborne Velocidrake: Windswept Pattern (DM!)
 		}),
@@ -2723,6 +2723,7 @@ root(ROOTS.HiddenQuestTriggers, {
 			q(74127),	-- Skinning Karantun
 			q(74130),	-- Skinning Frigidpelt Den Mother
 			q(74131),	-- Skinning Mucka the Raker
+			q(74132),	-- Skinning Ravenous Tundra Bear
 			q(74134),	-- Skinning Grumbletrunk
 			q(74135),	-- Skinning Gruffy
 			q(74140),	-- Skinning Norbett (Grand Hunt)

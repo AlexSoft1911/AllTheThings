@@ -4,6 +4,7 @@
 root(ROOTS.ExpansionFeatures, tier(DF_TIER, bubbleDown({ ["timeline"] = TIMELINE_DF_REL }, {
 	n(ISKAARA_TUSKARR, {
 		q(70893, {	-- Community Feast
+			["provider"] = { "n", 196620 },	-- Pleeqi
 			["isWeekly"] = true,
 			["g"] = {
 				i(200095, {	-- Supply-Laden Soup Pot
@@ -41,8 +42,6 @@ root(ROOTS.ExpansionFeatures, tier(DF_TIER, bubbleDown({ ["timeline"] = TIMELINE
 							ach(16444, {	-- Leftovers' Revenge
 								i(200882),	-- Big Kinook's Spare Ladle
 							}),
-							i(197135),	-- Highland Drake: Toothy Mouth (DM!)
-							i(200163),	-- Ring of Embers
 						},
 					}),
 				}),

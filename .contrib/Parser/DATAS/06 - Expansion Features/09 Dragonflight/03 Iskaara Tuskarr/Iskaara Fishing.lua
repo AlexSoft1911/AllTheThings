@@ -340,7 +340,7 @@ root(ROOTS.ExpansionFeatures, tier(DF_TIER, bubbleDown({ ["timeline"] = TIMELINE
 				}),
 				n(197371, {	-- Ravenous Tundra Bear <Lunker>
 					["coord"] = { 58.8, 32.6, THE_AZURE_SPAN },
-					-- ["questID"] = ,
+					["questID"] = 73891,
 					["g"] = {
 						i(200086),	-- Khaz'gorite Infused Resin
 
@@ -350,12 +350,8 @@ root(ROOTS.ExpansionFeatures, tier(DF_TIER, bubbleDown({ ["timeline"] = TIMELINE
 					["coord"] = { 65.6, 73.8, THE_WAKING_SHORES },
 					["questID"] = 74074,
 					["g"] = {
-						i(197098),	-- Highland Drake: Finned Back (DM!)
 						i(200086),	-- Khaz'gorite Infused Resin
-						i(200245),	-- Leviathan Lure
-						i(200563),	-- Primal Ritual Shell
 						i(200187),	-- Rod of Glacial Force
-						i(200552),	-- Torrent Caller's Shell
 					},
 				}),
 				n(193706, {	-- Snufflegust <Lunker>
@@ -379,11 +375,8 @@ root(ROOTS.ExpansionFeatures, tier(DF_TIER, bubbleDown({ ["timeline"] = TIMELINE
 					["questID"] = 74084,
 					["g"] = {
 						i(200086),	-- Khaz'gorite-infused Resin
-						i(200552),	-- Torrent Caller's Shell
 						i(200448),	-- Abyssal Ward
 						i(200151),	-- Seamist Blade
-						i(197589),	-- Windborne Velocidrake: Large Head Fin
-						-- is part of the DF>Global Rare Loottable
 					},
 				}),
 			})),

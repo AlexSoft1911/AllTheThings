@@ -123,10 +123,6 @@ root(ROOTS.ExpansionFeatures, tier(DF_TIER, bubbleDown({ ["timeline"] = TIMELINE
 						},
 						["questID"] = 73943,
 						["isDaily"] = true,
-						["g"] = {
-							i(200246),	-- Lost Delving Lamp
-							-- is part of the DF>Global Rare Loottable
-						},
 					}),
 				}),
 				n(-1124, {	-- East
@@ -170,8 +166,6 @@ root(ROOTS.ExpansionFeatures, tier(DF_TIER, bubbleDown({ ["timeline"] = TIMELINE
 						["isDaily"] = true,
 						["g"] = {
 							i(200693),	-- Legguards of the Deep Strata
-							i(200246),	-- Lost Delving Lamp
-							-- is part of the DF>Global Rare Loottable
 						},
 					}),
 					n(194624, {	-- Zumakh
@@ -191,7 +185,6 @@ root(ROOTS.ExpansionFeatures, tier(DF_TIER, bubbleDown({ ["timeline"] = TIMELINE
 						["questID"] = 73912,
 						["isDaily"] = true,
 						["g"] = {
-							i(197125),	-- Highland Drake: Coiled Horns (DM!)
 							i(200233),	-- Paradox Saber
 							i(200204),	-- Sandshine Chestplate
 						},
@@ -200,9 +193,6 @@ root(ROOTS.ExpansionFeatures, tier(DF_TIER, bubbleDown({ ["timeline"] = TIMELINE
 						["coord"] = { 51.1, 49.3, THALDRASZUS },
 						["questID"] = 73925,
 						["isDaily"] = true,
-						["g"] = {
-							i(197125),	-- Highland Drake: Coiled Horns (DM!)
-						},
 					}),
 					n(195417, {	-- Tsokorg
 						["coord"] = { 50.0, 47.8, THALDRASZUS },
@@ -273,8 +263,6 @@ root(ROOTS.ExpansionFeatures, tier(DF_TIER, bubbleDown({ ["timeline"] = TIMELINE
 						["questID"] = 73907,
 						["isDaily"] = true,
 						["g"] = {
-							i(200303),	-- Dreamweaver Acolytes Staff
-							i(197100),	-- Highland Drake: Crested Brow (DM!)
 							i(200299),	-- Strange Clockwork Gladius
 
 						},
@@ -332,19 +320,13 @@ root(ROOTS.ExpansionFeatures, tier(DF_TIER, bubbleDown({ ["timeline"] = TIMELINE
 						["questID"] = 73910,
 						["isDaily"] = true,
 						["g"] = {
-							i(197098),	-- Highland Drake: Finned Back (DM!)
 							i(200187),	-- Rod of Glacial Force
-							i(200552),	-- Torrent Caller's Shell
 						},
 					}),
 					n(193853, {	-- Galnmor
 						["coord"] = { 69.6, 64.8, THE_WAKING_SHORES },
 						["questID"] = 73915,
 						["isDaily"] = true,
-						["g"] = {
-							i(200252),	-- Molten Flak Cannon
-							i(200163),	-- Ring of Embers
-						},
 					}),
 				}),
 				n(-1123, {	-- North
@@ -369,10 +351,7 @@ root(ROOTS.ExpansionFeatures, tier(DF_TIER, bubbleDown({ ["timeline"] = TIMELINE
 						["questID"] = 73927,
 						["isDaily"] = true,
 						["g"] = {
-							i(197098),	-- Highland Drake: Finned Back (DM!)
 							i(200187),	-- Rod of Glacial Force
-							i(200552),	-- Torrent Caller's Shell
-							-- is part of the DF>Global Rare Loottable
 						},
 					}),
 					n(193885, {	-- Salkii
@@ -381,7 +360,6 @@ root(ROOTS.ExpansionFeatures, tier(DF_TIER, bubbleDown({ ["timeline"] = TIMELINE
 						["isDaily"] = true,
 						["g"] = {
 							i(200237),	-- Burnished Lifewarder's Targe
-							i(197105),	-- Highland Drake: Spined Chin (DM!)
 						},
 					}),
 				}),
@@ -392,10 +370,6 @@ root(ROOTS.ExpansionFeatures, tier(DF_TIER, bubbleDown({ ["timeline"] = TIMELINE
 						["isDaily"] = true,
 						["g"] = {
 							i(200684),	-- Emerald Tailbone
-							i(200246),	-- Lost Delving Lamp
-							i(197149),	-- Highland Drake: Club Tail (DM!)
-							i(197624),	-- Windborne Velocidrake: Club Tail (DM!)
-							i(197608),	-- Windborne Velocidrake: Gray Horns (DM!)
 						},
 					}),
 					n(193722, {	-- Tomnu
@@ -404,7 +378,6 @@ root(ROOTS.ExpansionFeatures, tier(DF_TIER, bubbleDown({ ["timeline"] = TIMELINE
 						["isDaily"] = true,
 						["g"] = {
 							i(200682),	-- Hardened Scale Shoulderguards
-							i(197403),	-- Renewed Proto-Drake: Club Tail (DM!)
 						},
 					}),
 					n(193724, {	-- Uurtus
@@ -412,9 +385,7 @@ root(ROOTS.ExpansionFeatures, tier(DF_TIER, bubbleDown({ ["timeline"] = TIMELINE
 						["questID"] = 73945,
 						["isDaily"] = true,
 						["g"] = {
-							i(197098),	-- Highland Drake: Finned Back (DM!)
 							i(200187),	-- Rod of Glacial Force
-							i(200552),	-- Torrent Caller's Shell
 						},
 					}),
 				}),

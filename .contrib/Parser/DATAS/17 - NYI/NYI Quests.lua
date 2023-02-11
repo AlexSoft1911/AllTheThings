@@ -7025,7 +7025,6 @@ root(ROOTS.NeverImplemented, bubbleDown({["u"] = NEVER_IMPLEMENTED}, {
 				q(67749),	--
 				q(68086),	--
 				q(69292),	--
-				q(69590),	-- This was attached to Renewed Proto-Drake: Green Scales 197389 but it triggers different ID now
 				q(69669),	--
 				q(69840),	--
 				q(69841),	--
@@ -7069,8 +7068,6 @@ root(ROOTS.NeverImplemented, bubbleDown({["u"] = NEVER_IMPLEMENTED}, {
 				q(70065),	--
 				q(70071),	--
 				q(70072),	--
-				q(70104),	--
-				q(70107),	--
 				q(70108),	--
 				q(70109),	--
 				q(70113),	--
@@ -7130,18 +7127,6 @@ root(ROOTS.NeverImplemented, bubbleDown({["u"] = NEVER_IMPLEMENTED}, {
 				q(70554),	--
 				q(70555),	--
 				q(70556),	--
-				q(70573),	--
-				q(70574),	--
-				q(70575),	--
-				q(70576),	--
-				q(70577),	--
-				q(70578),	--
-				q(70579),	--
-				q(70580),	--
-				q(70581),	--
-				q(70583),	--
-				q(70584),	--
-				q(70585),	--
 				q(70588),	--
 				q(70590),	--
 				q(70596),	--
@@ -7299,9 +7284,6 @@ root(ROOTS.NeverImplemented, bubbleDown({["u"] = NEVER_IMPLEMENTED}, {
 				q(71863),	--
 				q(71865),	--
 				q(71867),	--
-				q(71917),	--
-				q(71918),	--
-				q(71925),	--
 				q(71926),	--
 				q(71927),	--
 				q(71928),	--
@@ -7378,7 +7360,6 @@ root(ROOTS.NeverImplemented, bubbleDown({["u"] = NEVER_IMPLEMENTED}, {
 				q(73224),	--
 				-- 10.0.2.46879
 				q(72119),	--
-				q(73891),	--
 				q(73897),	--
 				q(73904),	--
 				q(73905),	--
@@ -7429,7 +7410,6 @@ root(ROOTS.NeverImplemented, bubbleDown({["u"] = NEVER_IMPLEMENTED}, {
 				q(74123),	--
 				q(74128),	--
 				q(74129),	--
-				q(74132),	--
 				q(74133),	--
 				q(74136),	--
 				q(74137),	--
@@ -7628,19 +7608,14 @@ root(ROOTS.NeverImplemented, bubbleDown({["u"] = NEVER_IMPLEMENTED}, {
 				q(73083),
 				q(73084),
 				q(73089),
-				q(73095),
-				q(73100),
 				q(73107),
 				q(73108),
 				q(73109),
 				q(73110),
-				q(73111),
 				q(73112),
 				q(73113),
 				q(73114),
 				q(73115),
-				q(73117),
-				q(73118),
 				q(73127),
 				q(73129),
 				q(73136),
@@ -7653,13 +7628,9 @@ root(ROOTS.NeverImplemented, bubbleDown({["u"] = NEVER_IMPLEMENTED}, {
 				q(73144),
 				q(73145),
 				q(73146),
-				q(73147),
 				q(73148),
 				q(73149),
-				q(73150),
-				q(73152),
 				q(73153),
-				q(73154),
 				q(73155),
 				q(73157),
 				q(73158),
@@ -7703,15 +7674,9 @@ root(ROOTS.NeverImplemented, bubbleDown({["u"] = NEVER_IMPLEMENTED}, {
 				q(73217),
 				q(73218),
 				q(73219),
-				q(73222),
-				q(73225),
 				q(73226),
 				q(73229),
-				q(73366),
-				q(73367),
-				q(73385),
 				q(73398),
-				q(73409),
 				q(73547),
 				q(73550),
 				q(73692),
@@ -7727,7 +7692,6 @@ root(ROOTS.NeverImplemented, bubbleDown({["u"] = NEVER_IMPLEMENTED}, {
 				q(74118),
 				q(74119),
 				q(74282),
-				q(74283),
 				q(74293),
 				q(74294),
 				q(74296),
@@ -7767,22 +7731,6 @@ root(ROOTS.NeverImplemented, bubbleDown({["u"] = NEVER_IMPLEMENTED}, {
 				q(74331),
 				q(74332),
 				q(74333),
-				q(74336),
-				q(74337),
-				q(74338),
-				q(74339),
-				q(74340),
-				q(74341),
-				q(74342),
-				q(74343),
-				q(74344),
-				q(74345),
-				q(74346),
-				q(74347),
-				q(74348),
-				q(74349),
-				q(74350),
-				q(74351),
 				q(74355),
 				q(74357),
 				q(74358),
