@@ -866,7 +866,7 @@ for key,value in pairs({
 		[-1140] = "Valdrakkenabkommen",								-- Valdrakken Accord
 		--TODO: [-1143] = "DF Rare Rotation",						-- DF Rare Rotation
 		--TODO: [-1144] = "Weekly Profession Knowledge",			-- Weekly Profession Header
-		-- TODO: [-1150]											-- Winterpelt Furbolg
+		--TODO: [-1150]	= "Winterpelt Furbolg",						-- Winterpelt Furbolg
 	-- Warrior order hall lore items
 		[-2200] = "Der große Odyn und der Feuerlord",				-- Great Odyn and the Firelord
 		[-2201] = "Der Wanderer und die Schlange",					-- The Wanderer and the Serpent
@@ -3634,7 +3634,7 @@ for key,value in pairs({
 	--TODO: [381513] = "Old Pickaxe",	-- Old Pickaxe
 	[381514] = "Wassergeschliffener Basalt",	-- Sea-Polished Basalt
 	[381575] = "Entenfallen-Set",	-- Duck Trap Kit
-	[381579] = "Anfrage des Archivars",	-- Archivists' Request	--TODO: this was manually translated
+	[381579] = "Anfrage des Archivars",	-- Archivists' Request
 	[381650] = "Anfrage des Archivars",	-- Archivists' Request
 	[381653] = "Einschreibungen für Zahnflatterfeuer",	-- Fang Flap Fire Signups
 	[381661] = "Anfrage des Archivars",	-- Archivists' Request
