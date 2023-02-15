@@ -191,8 +191,6 @@ root(ROOTS.NeverImplemented, bubbleDown({["u"] = NEVER_IMPLEMENTED}, {
 		i(198156),	-- Wyrmhole Generator: Dragon Isles
 		i(198834),	-- Scribbled Bark Chunks
 		i(201934),	-- Nokhud Whittling Knife
-		i(202017),	-- Liberated Furbolg Artifacts
-		i(202018),	-- Intact Scribe Stick
 		i(202075),	-- Temp Currency
 		i(202088),	-- Powerful Flask of Renewal
 		i(202180),	-- Ripe Burcicle Berry
@@ -200,25 +198,13 @@ root(ROOTS.NeverImplemented, bubbleDown({["u"] = NEVER_IMPLEMENTED}, {
 		i(202185),	-- Chillwrought Worm Meat
 		i(202196),	-- Zskera Vault Key
 		i(202202),	-- Revealing Mask
-		i(202253),	-- Primal Stave of Claw and Fur
-		i(202255),	-- Driftling
-		i(202264),	-- Defender of the Winterpelt
-		i(202268),	-- Winterpelt Totem
-		i(202273),	-- Renewed Proto-Drake: Stubby Snout
 		i(202274),	-- Renewed Proto-Drake: Plated Brow
 		i(202275),	-- Renewed Proto-Drake: Plated Jaw
 		i(202277),	-- Renewed Proto-Drake: Bruiser Horns
 		i(202278),	-- Renewed Proto-Drake: Antlers
-		i(202279),	-- Renewed Proto-Drake: Malevolent Horns
 		i(202280),	-- Renewed Proto-Drake: Pronged Tail
-		i(202282),	-- Winterpelt Mending Totem
-		i(202283),	-- Reading Glasses
-		i(202287),	-- Paw-Made Winterpelt Reagent Bag
-		i(202289),	-- Recipe: Firewater Sorbet
 		i(202290),	-- Firewater Sorbet
 		i(202294),	-- Recipe Pages
-		i(202314),	-- Big Chunk o' Meat
-		i(202315),	-- Frozen Solid Tea
 		i(202360),	-- Dented Can
 		i(202361),	-- Farscale Supplies
 		i(202362),	-- Sapphire Focus
@@ -486,7 +472,6 @@ root(ROOTS.NeverImplemented, bubbleDown({["u"] = NEVER_IMPLEMENTED}, {
 		i(203986),	-- Ensemble: Bloodsoaked Plate
 		i(203988),	-- Warshard of the Hakkari, Unborn
 		i(203989),	-- Warshard of the Hakkari, Unborn
-		i(203995),	-- Winter Pelt Cloak
 		i(203997),	-- Raw Argali Flank
 		i(203998),	-- Beetle Juice
 		i(204000),	-- Storm Infused Stone
@@ -600,7 +585,102 @@ root(ROOTS.NeverImplemented, bubbleDown({["u"] = NEVER_IMPLEMENTED}, {
 		i(204312),	-- Ettin Skin
 		i(204313),	-- Handful of Scales
 		i(204330),	-- Inert Promordal Fragments
-
+		i(114942),	-- Cracked Draenic Mortar
+		i(202252),	-- Recipe Rat
+		i(203402),	-- Broken Gnomish Voicebox
+		i(203405),	-- Slyvern Pelt
+		i(203406),	-- Torn Morqut Kite
+		i(203411),	-- Gnomish Voicebox
+		i(203414),	-- Reinforced Leather Patch
+		i(203415),	-- Morqut Kite
+		i(203416),	-- Lifebloom Seeds
+		i(203417),	-- Sharpened Bone
+		i(203418),	-- Quaking Stone
+		i(203424),	-- Design: Gnomish Voicebox
+		i(203427),	-- Design: Reinforced Leather Patch
+		i(203428),	-- Design: Morqut Kite
+		i(203685),	-- Borrowed Potion of Invisibility
+		i(203852),	-- Spore-Bound Essence
+		i(204073),	-- Ratcipe: Deviously Deviled Eggs
+		i(204339),	-- Satchel of Coalescing Chaos
+		i(204340),	-- Torn Recipe Scrap
+		i(204343),	-- Trusty Dragonkin Rake
+		i(204352),	-- Leftover Elemental Slime
+		i(204353),	-- Primordial Jeweler's Kit
+		i(204354),	-- Hollowed Furbolg Food Pack
+		i(204355),	-- Hollowed Winterpelt Food Pack
+		i(204356),	-- Illustrious Gemdust
+		i(204359),	-- Reach Racer's Purse
+		i(204360),	-- Strange Petrified Orb
+		i(204363),	-- Particularly Ordinary Egg
+		i(204364),	-- Magically Altered Egg
+		i(204366),	-- Egg of Unknown Contents
+		i(204367),	-- Egg-Hatched Ancient Mammoth
+		i(204369),	-- Scrap of Black Dragonscales
+		i(204371),	-- Drop of Blue Dragon Magic
+		i(204372),	-- Speck of Bronze Dust
+		i(204374),	-- Emerald Dragon Brooch
+		i(204375),	-- Everburning Ruby Coals
+		i(204378),	-- Brimming Dragonscale Expedition Supply Pack
+		i(204379),	-- Brimming Iskaaran Supply Pack
+		i(204380),	-- Brimming Maruuk Centaur Supply Satchel
+		i(204381),	-- Brimming Valdrakken Accord Supply Pack
+		i(204383),	-- Sack of Oddities
+		i(204403),	-- Sack of Sack of Oddities
+		i(204404),	-- Square Holders
+		i(204405),	-- Stuffed Bear
+		i(204406),	-- Ancient Design: Square Holders
+		i(196974),	-- Cliffside Wylderdrake: Four-Horned Chin
+		i(203217),	-- Dragonscale Surplus Crate
+		i(203220),	-- Iskaara Surplus Bag
+		i(203222),	-- Maruuk Surplus Bundle
+		i(203224),	-- Valdrakken Surplus Chest
+		i(203381),	-- Sealed Letter to Neltharion
+		i(203420),	-- Recipe: Neutralizing Agent
+		i(203421),	-- Plans: Ceremonial Trident
+		i(203422),	-- Recipe: Sparkling Spice Pouch
+		i(203423),	-- Formula: Glowing Crystal Bookmark
+		i(203424),	-- Schematic: Gnomish Voicebox
+		i(203425),	-- Technique: Dispelling Rune
+		i(203427),	-- Pattern: Reinforced Leather Patch
+		i(203428),	-- Pattern: Morqut Kite
+		i(203466),	-- Dragonscale Surplus Crate
+		i(203722),	-- Experimental Dragon Pack
+		i(204213),	-- Short-Range Teleport
+		i(204305),	-- Neltharion-Signed Notes
+		i(204367),	-- Sleeping Ancient Mammoth
+		i(204438),	-- Arcana Vessel from Morqut Islet
+		i(204439),	-- Research Chest Key
+		i(204442),	-- Clump of Tar
+		i(204443),	-- Blacksteel Hammer
+		i(204481),	-- Morqut Hearth Totem
+		i(204558),	-- Reliquary Scroll of Perception
+		i(204559),	-- Essence of Divination
+		i(204560),	-- Azure Scrying Crystal
+		i(204561),	-- Primalist Cache keys
+		i(204562),	-- Maruuk Maul
+		i(204563),	-- Morqut Club
+		i(204564),	-- Dragonscale Expeditioner's Rifle
+		i(204566),	-- Journal of the Forbidden Reach
+		i(204569),	-- Valdrakken Talons
+		i(204570),	-- Valdrakken Pocketknife
+		i(204571),	-- Bulwark of the Forbidden Reach
+		i(204573),	-- Condensed Fire Magic
+		i(204574),	-- Condensed Frost Magic
+		i(204575),	-- Condensed Earth Magic
+		i(204576),	-- Condensed Shadow Magic
+		i(204577),	-- Condensed Nature Magic
+		i(204578),	-- Condensed Arcane Magic
+		i(204579),	-- Condensed Necromantic Magic
+		i(204632),	-- Tectonic Rock Fragment
+		i(204636),	-- Snarfang's Stomach Sac
+		i(204674),	-- Cursed Demonbone Longbow
+		i(204675),	-- A Drake's Big Basket of Eggs
+		i(204677),	-- Ogre Mining Pick
+		i(204678),	-- Pattern: Paw-Made Winterpelt Reagent Bag
+		i(204685),	-- Primordial Anvil
+		i(204687),	-- Lost Battle Horn
+		i(204691),	-- Living Book
 	})),
 	tier(DF_TIER, 0.5, bubbleDown({ ["timeline"] = { "created 10.0.5" } }, {
 		i(202309),	-- Defective Doomsday Device (TOY!)
@@ -614,17 +694,11 @@ root(ROOTS.NeverImplemented, bubbleDown({["u"] = NEVER_IMPLEMENTED}, {
 		mount(369480),	-- Cerulean Marsh Hopper (MOUNT!)
 		i(190539),	-- Coral-Stalker Waveray (MOUNT!)
 		i(190168),	-- Crusty Crawler (MOUNT!)
-		mount(366647),	-- Magenta Cloud Serpent (MOUNT!)
-		i(190169),	-- Quawks (MOUNT!)
-		i(190613),	-- Savage Green Battle Turtle (MOUNT!)
-
 		pet(03255),	-- Buttercup (PET!)
 		i(190604),	-- Buzzworth (PET!)
 		pet(3253),	-- Crushhoof (PET!)
 		i(190176),	-- Drazka'zet the Wrathful (PET!)
-		i(190603),	-- Egbob (PET!)
 		i(190173),	-- Lil' Maka'jin (PET!)
-		i(190175),	-- Pippin (PET!)
 		pet(3254),	-- Watcher of the Huntress (PET!)
 
 		-- Items
@@ -772,15 +846,6 @@ root(ROOTS.NeverImplemented, bubbleDown({["u"] = NEVER_IMPLEMENTED}, {
 		i(200921),	-- Void-Bound Greatcloak
 		i(200922),	-- Void-Bound Shroud
 		i(200923),	-- Void-Bound Drape
-		i(190065),	-- Gnomish Liquid Transfer Apparatus
-		i(190204),	-- Huntsman's Recurve Bow
-		i(190448),	-- Trapper's Shot Pouch
-		i(190449),	-- Trapper's Fur-Lined Quiver
-		i(190540),	-- Ensemble: Trapper's Munitions
-		i(190725),	-- Ensemble: Battlewraps of the Honored Valarjar
-		i(201229),	-- Ensemble: Kvaldir Scout Leathers
-
-
 		--
 		i(191143),	-- Mudfin Totem
 		i(191539),	-- Sarnai's Collar
@@ -788,7 +853,6 @@ root(ROOTS.NeverImplemented, bubbleDown({["u"] = NEVER_IMPLEMENTED}, {
 		i(191541),	-- Shikaar Supplies
 		i(193257),	-- Clump of Sacred Soil
 
-		i(199704),	-- Artifact Fragment
 		i(200842),	-- Power-Depleted Staff
 		i(201990),	-- Primal Mote
 		i(202035),	-- Self-Heating Rations
@@ -978,8 +1042,6 @@ root(ROOTS.NeverImplemented, bubbleDown({["u"] = NEVER_IMPLEMENTED}, {
 				-- Non Set Cosmetics
 				i(190093),	-- Elune's Fury
 				i(190094),	-- Elune's Wrath
-				i(190448),	-- Olive Huntsman's Shot Pouch
-				i(190449),	-- Olive Huntsman's Quiver
 				i(190674),	-- Leaky Bucket
 				i(190909),	-- Ruby Felfire Splitblade
 				i(190910),	-- Ruby Felfire Bulwark

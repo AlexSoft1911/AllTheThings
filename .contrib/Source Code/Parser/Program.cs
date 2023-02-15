@@ -13,6 +13,8 @@ namespace ATT
     {
         private static bool Errored { get; set; }
 
+        private static string[] PreProcessorTags { get; set; }
+
         static void Main(string[] args)
         {
             // Setup tracing to the console.
@@ -22,25 +24,32 @@ namespace ATT
             Framework.DebugMode = true;
 #endif
 
+            // Ensure the Retail Parser uses the default config always, input arg can change config values
+            Framework.InitConfigSettings("parser.config");
+
             // Determine if running in Debug Mode or not.
             if (args != null && args.Length > 0)
             {
+                char[] argSplit = new[] { '=' };
                 foreach (var arg in args)
                 {
                     if (arg == "debug") Framework.DebugMode = true;
+                    else if (arg.Contains("="))
+                    {
+                        string[] argPieces = arg.Split(argSplit);
+                        HandleParserArgument(argPieces[0], argPieces[1]);
+                    }
                 }
             }
 
-
             try
             {
-                Framework.InitConfigSettings();
-
+                PreProcessorTags = Framework.Config["PreProcessorTags"] ?? Array.Empty<string>();
                 // Prepare console output to a file.
 #if ANYCLASSIC
                 string databaseRootFolder = "../.db";
 #else
-                string databaseRootFolder = Framework.Config["root"] ?? ".";
+                string databaseRootFolder = Framework.Config["root-data"] ?? ".";
 #endif
 
 
@@ -197,6 +206,17 @@ namespace ATT
             }
         }
 
+        private static void HandleParserArgument(string name, string value)
+        {
+            switch (name)
+            {
+                case "config":
+                    if (!string.IsNullOrWhiteSpace(value))
+                        Framework.InitConfigSettings(value);
+                    break;
+            }
+        }
+
         public static int GetLineNumber(Exception ex)
         {
             var s = ex.Message.Split(':');
@@ -287,6 +307,10 @@ namespace ATT
             }
             else if (command.Length > 1)
             {
+                // Config PreProcessorTags
+                if (PreProcessorTags.Contains(command[1]))
+                    return true;
+
                 switch (command[1])
                 {
                     case "NOT":
@@ -325,12 +349,6 @@ namespace ATT
                             }
                         }
                         throw new Exception($"Malformed #IF AFTER statement. '{string.Join(" ", command)}'");
-                    case "RETAIL":
-#if RETAIL
-                        return true;
-#else
-                        return false;
-#endif
                     case "ANYCLASSIC":
 #if ANYCLASSIC
                         return true;
@@ -339,18 +357,6 @@ namespace ATT
 #endif
                     case "CRIEVE":
 #if CRIEVE
-                        return true;
-#else
-                        return false;
-#endif
-                    case "BETA":
-#if BETA
-                        return true;
-#else
-                        return false;
-#endif
-                    case "PTR":
-#if PTR
                         return true;
 #else
                         return false;

@@ -6597,8 +6597,6 @@ root(ROOTS.NeverImplemented, bubbleDown({["u"] = NEVER_IMPLEMENTED}, {
 				q(65454),	--
 				q(65458),	--
 				q(65459),	--
-				q(65502),	--
-				q(65533),	--
 				q(65568),	--
 				q(65569),	--
 				q(65596),	--
@@ -6609,12 +6607,10 @@ root(ROOTS.NeverImplemented, bubbleDown({["u"] = NEVER_IMPLEMENTED}, {
 				q(65675),	--
 				q(65676),	--
 				q(65692),	--
-				q(65696),	--
 				q(65710),	--
 				q(65712),	--
 				q(65714),	--
 				q(65716),	--
-				q(65718),	--
 				q(65719),	--
 				q(65722),	--
 				q(65734),	--
@@ -7183,7 +7179,6 @@ root(ROOTS.NeverImplemented, bubbleDown({["u"] = NEVER_IMPLEMENTED}, {
 				q(71214),	--
 				q(71236),	--
 				q(71237),	--
-				q(71240),	--
 				q(71262),	--
 				q(71311),	--
 				q(71312),	--
@@ -7398,7 +7393,6 @@ root(ROOTS.NeverImplemented, bubbleDown({["u"] = NEVER_IMPLEMENTED}, {
 				q(74072),	--
 				q(74081),	--
 				q(74083),	--
-				q(74093),	--
 				q(74094),	--
 				q(74098),	--
 				q(74099),	--
@@ -7417,7 +7411,6 @@ root(ROOTS.NeverImplemented, bubbleDown({["u"] = NEVER_IMPLEMENTED}, {
 				q(74139),	--
 				q(74151),	--
 				q(74165),	--
-				q(74166),	--
 				q(74178),	--
 				q(74185),	--
 				q(74187),	--
@@ -7467,19 +7460,14 @@ root(ROOTS.NeverImplemented, bubbleDown({["u"] = NEVER_IMPLEMENTED}, {
 			tier(DF_TIER, 0.5, bubbleDownSelf({ ["timeline"] = { "created 10.0.5" } }, {
 				-- 10.0.5.47799
 				q(66925),	-- [DNT] Boar-B-Q
-				q(72070),	--
-				q(72080),	--
 				q(72081),	--
 				q(72082),	--
 				q(72085),	--
-				q(72086),	--
 				q(72087),	--
 				q(72088),	--
 				q(72092),	--
 				q(72123),	--
 				q(72124),	--
-				q(72132),	--
-				q(72133),	--
 				q(72384),	-- Valdrakken Tour
 				q(72735),	--
 				q(72736),	--
@@ -7506,9 +7494,7 @@ root(ROOTS.NeverImplemented, bubbleDown({["u"] = NEVER_IMPLEMENTED}, {
 				q(72551),
 				q(72552),
 				q(72553),
-				q(72554),
 				q(72558),
-				q(72559),
 				q(72590),
 				q(72591),
 				q(72592),
@@ -7576,7 +7562,6 @@ root(ROOTS.NeverImplemented, bubbleDown({["u"] = NEVER_IMPLEMENTED}, {
 				q(73028),
 				q(73029),
 				q(73030),
-				q(73031),
 				q(73032),
 				q(73033),
 				q(73034),
@@ -7685,7 +7670,6 @@ root(ROOTS.NeverImplemented, bubbleDown({["u"] = NEVER_IMPLEMENTED}, {
 				q(73699),
 				q(73700),
 				q(73702),
-				q(73704),
 				q(73715),
 				q(74116),
 				q(74117),
