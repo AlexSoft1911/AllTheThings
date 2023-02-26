@@ -34,6 +34,7 @@ ROOTS = {
 	["Secrets"] = "Secrets",
 	["TradingPost"] = "TradingPost",
 	["Uncollectable"] = "Uncollectable",
+	["Unsorted"] = "Unsorted",
 	["WorldDrops"] = "WorldDrops",
 	["WorldEvents"] = "WorldEvents",
 	["Zones"] = "Zones",
@@ -710,7 +711,7 @@ ACHIEVEMENT_CATEGORY_PVP = 95;
 	ACHIEVEMENT_CATEGORY_SEETHING_SHORE = 15292;
 	ACHIEVEMENT_CATEGORY_DEEPWIND_GORGE = 15218;
 	ACHIEVEMENT_CATEGORY_RATED_BATTLEGOUND = 15092;
-	ACHIEVEMENT_CATEGORY_AREANA = 165;
+	ACHIEVEMENT_CATEGORY_ARENA = 165;
 	ACHIEVEMENT_CATEGORY_WORLD = 15283;
 ACHIEVEMENT_CATEGORY_QUESTS = 96;
 	ACHIEVEMENT_CATEGORY_EASTERN_KINGDOMS_QUESTS = 14861;
@@ -838,6 +839,8 @@ EMISSARY_QUESTS = -169;
 EXPLORATION = -15;
 FLIGHT_PATHS = -228;
 HIDDEN_QUESTS = -999;
+MAPS = -24;
+PARTY_SYNC = -11;
 QUESTS = -17;
 RARES = -16;
 REWARDS = -18;
@@ -1163,6 +1166,7 @@ DF_TIER = 10;
 NORMAL_DUNGEON = 1;
 HEROIC_DUNGEON = 2;
 MYTHIC_DUNGEON = 23;
+TIMEWALKING_DUNGEON = 24;
 LFR_RAID = 17;
 NORMAL_RAID = 14;
 HEROIC_RAID = 15;
@@ -1562,6 +1566,9 @@ POST_PROCESSING_FUNCTIONS = {};
 -- Construct a commonly formatted object.
 struct = function(field, id, t)
 	if not t then t = {};
+	elseif (t.g or t.groups) and t[1] then
+		print("ERROR: Don't use 'g' or 'groups' with an array of objects! Fix Group: "..field..":"..id);
+		return;
 	elseif not t.groups and t[1] then
 		t = { ["groups"] = bubbleUp(t) };
 	elseif t.groups then
@@ -2366,9 +2373,7 @@ title_gendered = function(id_m, id_f, t)				-- Create a TITLE Object which is 't
 	return struct("titleID", id_m * id_f * 100, t);		-- Arbitrary titleID from the combination of both titleID's
 end
 v = function(id, t)										-- Create a VIGNETTE Object
-	local v = struct("questID", id, t);
-	v.type = "v";
-	return v;
+	return struct("vignetteID", id, t);
 end
 
 -- SHORTCUTS for Field Modifiers (not objects, you can apply these anywhere)

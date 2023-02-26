@@ -199,6 +199,15 @@ root(ROOTS.Instances, tier(CLASSIC_TIER, {
 					}),
 					i(3228, {	-- Jimmied Handcuffs
 						["timeline"] = { "removed 4.0.1.12984" },
+						-- #if ANYCLASSIC
+						["OnUpdate"] = [[function(t)
+							if _.Level >= 40 and _.ClassIndex ~= ]] .. HUNTER .. [[ and _.ClassIndex ~= ]] .. SHAMAN .. [[ then
+								t.f = ]] .. PLATE .. [[;
+							else
+								t.f = ]] .. MAIL .. [[;
+							end
+						end]],
+						-- #endif
 					}),
 					i(2941, {	-- Prison Shank
 						["timeline"] = { "removed 4.0.1.12984" },
@@ -295,6 +304,9 @@ root(ROOTS.Instances, tier(CLASSIC_TIER, {
 				["timeline"] = { "added 4.0.1.12984" },
 				["groups"] = {
 					ach(633),	-- Stormwind Stockade
+					ach(5042, {	-- Stormwind Stockade Guild Run
+						["timeline"] = { "added 4.0.3" },
+					}),
 					i(1959),	-- Cold Iron Pick
 					i(151074, {	-- Turnkey's Pauldrons
 						["timeline"] = { "added 7.3.0.24484" },
@@ -316,6 +328,3 @@ root(ROOTS.HiddenQuestTriggers, {
 	}),
 });
 -- #endif
-root(ROOTS.NeverImplemented, bubbleDown({ ["u"] = NEVER_IMPLEMENTED }, {
-	i(3222),	-- Wicked Dagger
-}));

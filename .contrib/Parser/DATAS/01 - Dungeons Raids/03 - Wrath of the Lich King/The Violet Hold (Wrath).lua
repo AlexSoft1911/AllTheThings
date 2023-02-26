@@ -355,7 +355,13 @@ root(ROOTS.Instances, tier(WOTLK_TIER, applyclassicphase(WRATH_PHASE_ONE, {
 					e(632, {	-- Cyanigosa
 						["creatureID"] = 31134,	-- Cyanigosa
 						["groups"] = {
+							-- #if ANYCLASSIC
+							applyclassicphase(WRATH_PHASE_TWO, ach(17293)),	-- Defense Protocol Alpha: The Violet Hold
+							-- #endif
 							ach(494),	-- Heroic: The Violet Hold
+							ach(5100, {	-- Heroic: The Violet Hold Guild Run
+								["timeline"] = { "added 4.0.3" },
+							}),
 							ach(1816),	-- Defenseless
 							{	-- Cyanigosa slain (Champion of the Frozen Wastes)
 								["achievementID"] = 1658,	-- Champion of the Frozen Wastes

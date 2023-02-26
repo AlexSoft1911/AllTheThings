@@ -34,6 +34,22 @@ root(ROOTS.Instances, tier(WOTLK_TIER, applyclassicphase(WRATH_PHASE_ONE, {
 					}),
 					-- #endif
 				}),
+				-- #if ANYCLASSIC
+				applyclassicphase(WRATH_PHASE_TWO, ach(17299, {	-- Defense Protocol Alpha: Halls of Lightning
+					crit(57761, { -- General Bjarngrim
+						["_encounter"] = { 597, 2 },
+					}),
+					crit(57760, { -- Ionar
+						["_encounter"] = { 599, 2 },
+					}),
+					crit(57759, { -- Volkhan
+						["_encounter"] = { 598, 2 },
+					}),
+					crit(57756, { -- Loken
+						["_encounter"] = { 600, 2 },
+					}),
+				})),
+				-- #endif
 				ach(497,  {	-- Heroic: Halls of Lightning
 					crit(6831, { -- General Bjarngrim
 						["_encounter"] = { 597, 2 },
@@ -321,6 +337,9 @@ root(ROOTS.Instances, tier(WOTLK_TIER, applyclassicphase(WRATH_PHASE_ONE, {
 								["achievementID"] = 1658,	-- Champion of the Frozen Wastes
 								["criteriaID"] = 5616,			-- Loken slain
 							},
+							ach(5103, {	-- Heroic: Halls of Lightning Guild Run
+								["timeline"] = { "added 4.0.3" },
+							}),
 							ach(1867),	-- Timely Death
 							i(41799),	-- Design: Eternal Earthsiege Diamond
 							i(37848),	-- Lightning Giant Staff
@@ -360,7 +379,7 @@ root(ROOTS.Instances, tier(WOTLK_TIER, applyclassicphase(WRATH_PHASE_ONE, {
 				},
 			}),
 			-- #if AFTER 6.2.3.20601
-			d(24, {	-- Timewalking
+			d(TIMEWALKING_DUNGEON, {
 				["sym"] = {	-- link in Timewalking content
 					{"sub", "tw_instance", 275 },	-- this instance version of timewalking
 				},

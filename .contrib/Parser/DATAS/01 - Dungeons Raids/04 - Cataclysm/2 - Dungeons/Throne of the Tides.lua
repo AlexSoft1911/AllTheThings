@@ -163,6 +163,7 @@ _.Instances = { tier(CATA_TIER, {
 						{	-- Heroic: Throne of the Tides
 							["achievementID"] = 5061,	-- Heroic: Throne of the Tides
 						},
+						ach(5135),	-- Heroic: Throne of the Tides Guild Run
 						{	-- Prince of Tides
 							["achievementID"] = 5286,	-- Prince of Tides
 						},
@@ -181,7 +182,7 @@ _.Instances = { tier(CATA_TIER, {
 				},
 			}),
 			-- #if AFTER 6.2.3.20601
-			d(24, {	-- Timewalking
+			d(TIMEWALKING_DUNGEON, {
 				["sym"] = {	-- link in Timewalking content
 					{"sub", "tw_instance", 65 },	-- this instance version of timewalking
 				},

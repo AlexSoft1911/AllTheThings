@@ -757,7 +757,6 @@ root(ROOTS.Instances, tier(CLASSIC_TIER, {
 					["qg"] = 9544,	-- Yuka Screwspigot
 					["coord"] = { 66.1, 21.9, BURNING_STEPPES },
 					["timeline"] = { "removed 4.0.3" },
-					["races"] = ALLIANCE_ONLY,
 					["lvl"] = 48,
 					["groups"] = {
 						objective(1, {	-- 0/1 Ribbly's Head
@@ -2454,6 +2453,9 @@ root(ROOTS.Instances, tier(CLASSIC_TIER, {
 							},
 							["OnUpdate"] = [[_.CommonAchievementHandlers.ANY_SOURCE_QUEST]],
 							-- #endif
+						}),
+						ach(5051, {	-- Blackrock Depths Guild Run
+							["timeline"] = { "added 4.0.3" },
 						}),
 						i(11931),	-- Dreadforge Retaliatior
 						-- #if BEFORE 7.3.2

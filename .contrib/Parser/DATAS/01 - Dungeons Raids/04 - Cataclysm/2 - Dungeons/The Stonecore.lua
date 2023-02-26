@@ -169,6 +169,7 @@ _.Instances = { tier(CATA_TIER, {
 					})),
 					cr(42333, e(113, {	-- High Priestess Azil
 						ach(5063),	-- Heroic: The Stonecore
+						ach(5136),	-- Heroic: The Stonecore Guild Run
 						ach(5287),	-- Rotten to the Core
 						i(56343),	-- Darkling Staff
 						i(56346),	-- Elementium Fang
@@ -183,7 +184,7 @@ _.Instances = { tier(CATA_TIER, {
 				},
 			}),
 			-- #if AFTER 6.2.3.20601
-			d(24, {	-- Timewalking
+			d(TIMEWALKING_DUNGEON, {
 				["sym"] = {	-- link in Timewalking content
 					{"sub", "tw_instance", 67 },	-- this instance version of timewalking
 				},

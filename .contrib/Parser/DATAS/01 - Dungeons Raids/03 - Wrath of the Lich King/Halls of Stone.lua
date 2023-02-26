@@ -29,6 +29,22 @@ root(ROOTS.Instances, tier(WOTLK_TIER, applyclassicphase(WRATH_PHASE_ONE, {
 					}),
 					-- #endif
 				}),
+				-- #if ANYCLASSIC
+				applyclassicphase(WRATH_PHASE_TWO, ach(17297, {	-- Defense Protocol Alpha: Halls of Stone
+					crit(57752, { -- Maiden of Grief
+						["_encounter"] = { 605, 2 },
+					}),
+					crit(57748, { -- Sjonnir the Ironshaper
+						["_encounter"] = { 607, 2 },
+					}),
+					crit(57751, { -- Tribunal of Ages
+						["_encounter"] = { 606, 2 },
+					}),
+					crit(57749, { -- Krystallus
+						["_encounter"] = { 604, 2 },
+					}),
+				})),
+				-- #endif
 				ach(496,  {	-- Heroic: Halls of Stone
 					crit(6856, { -- Maiden of Grief
 						["_encounter"] = { 605, 2 },
@@ -232,6 +248,9 @@ root(ROOTS.Instances, tier(WOTLK_TIER, applyclassicphase(WRATH_PHASE_ONE, {
 								["criteriaID"] = 5615,			-- Sjonnir The Ironshaper slain
 							},
 							ach(2155),	-- Abuse the Ooze
+							ach(5102, {	-- Heroic: Halls of Stone Guild Run
+								["timeline"] = { "added 4.0.3" },
+							}),
 							i(41792, {	-- Design: Deft Monarch Topaz
 								["timeline"] = { "removed 4.0.3" },
 							}),

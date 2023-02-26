@@ -7,7 +7,7 @@ root(ROOTS.NeverImplemented, bubbleDown({["u"] = NEVER_IMPLEMENTED}, {
 	n(WEAPONS, {
 		filter(BOWS, {
 			tier(DF_TIER, {
-				tier(DF_TIER, 0.0, {
+				tier(DF_TIER, 0.01, {
 					i(189689),	-- 10.0 Dungeon Template - Bows - Ranged
 					i(189127),	-- 10.0 QRP Template <Descriptor> Longbow
 				}),
@@ -15,34 +15,40 @@ root(ROOTS.NeverImplemented, bubbleDown({["u"] = NEVER_IMPLEMENTED}, {
 		}),
 		filter(CROSSBOWS, {
 			tier(DF_TIER, {
-				tier(DF_TIER, 0.0, {
+				tier(DF_TIER, 0.01, {
 					i(189690),	-- 10.0 Dungeon Template - Crossbow - RangedRight
 					i(189128),	-- 10.0 QRP Template <Descriptor> Crossbow
 				}),
 			}),
 		}),
 		filter(DAGGERS, {
+			tier(CLASSIC_TIER, {
+				i(3222),	-- Wicked Dagger
+			}),
 			tier(DF_TIER, {
-				tier(DF_TIER, 0.0, {
+				tier(DF_TIER, 0.01, {
 					i(189680),	-- 10.0 Dungeon Template - Dagger - Agi - Weapon
 					i(189679),	-- 10.0 Dungeon Template - Dagger - Int - Weapon
 					i(189043),	-- 10.0 End Game Template <Descriptor> Kris
 					i(189045),	-- 10.0 End Game Template <Descriptor> Shank
 					i(189111),	-- 10.0 QRP Template <Descriptor> Dagger
 					i(189112),	-- 10.0 QRP Template <Descriptor> Dagger
+					i(201235),	-- Awakened Pick
+					i(201236),	-- Bonefed Emerald Shiv
+					i(200130),	-- Corpse Ripper
 				}),
 			}),
 		}),
 		filter(PROF_EQUIP, {	-- Fishing Poles
 			tier(DF_TIER, {
-				tier(DF_TIER, 0.0, {
+				tier(DF_TIER, 0.01, {
 					i(199898),	-- Iskaara Fishing Pole
 				}),
 			}),
 		}),
 		filter(FIST_WEAPONS, {
 			tier(DF_TIER, {
-				tier(DF_TIER, 0.0, {
+				tier(DF_TIER, 0.01, {
 					i(189699),	-- 10.0 Dungeon Template - FistWeapon - Weapon
 					i(189137),	-- 10.0 QRP Template <Descriptor> Fist
 				}),
@@ -50,37 +56,54 @@ root(ROOTS.NeverImplemented, bubbleDown({["u"] = NEVER_IMPLEMENTED}, {
 		}),
 		filter(GUNS, {
 			tier(DF_TIER, {
-				tier(DF_TIER, 0.0, {
+				tier(DF_TIER, 0.01, {
 					i(189675),	-- 10.0 Dungeon Template - Guns - RangedRight
 					i(189042),	-- 10.0 End Game Template <Descriptor> Gun
 					i(189107),	-- 10.0 QRP Template <Descriptor> Gun
+					i(201232),	-- Bonedust Spreader
+					i(200176),	-- Missingway Hand Canno
 				}),
 			}),
 		}),
 		filter(HELD_IN_OFF_HAND, {
 			tier(DF_TIER, {
-				tier(DF_TIER, 0.0, {
+				tier(DF_TIER, 0.01, {
 					i(189672),	-- 10.0 Dungeon Template - Generic - Holdable
 					i(189040),	-- 10.0 End Game Template <Descriptor> Offhand
 					i(189104),	-- 10.0 QRP Template <Descriptor> Offhand
+					i(201249),	-- Dreamfire Imbued Drakehorn
 				}),
 			}),
 		}),
 		filter(ONE_HANDED_AXES, {
 			tier(DF_TIER, {
-				tier(DF_TIER, 0.0, {
+				tier(DF_TIER, 0.01, {
 					i(189692),	-- 10.0 Dungeon Template - Axe1H - Agi - Weapon
 					i(189693),	-- 10.0 Dungeon Template - Axe1H - Int - Weapon
 					i(189691),	-- 10.0 Dungeon Template - Axe1H - Str - Weapon
 					i(189129),	-- 10.0 QRP Template <Descriptor> Axe
 					i(189130),	-- 10.0 QRP Template <Descriptor> Axe
 					i(189131),	-- 10.0 QRP Template <Descriptor> Axe
+					i(201241),	-- Green Dragonskull Crescent
+					i(201239),	-- Verdant Drakefire Cleaver
+					i(201240),	-- Viridescent Stalked Reaver
 				}),
 			}),
 		}),
 		filter(ONE_HANDED_MACES, {
+			tier(CLASSIC_TIER, {
+				i(17733),	-- Fist of Stone
+			}),
+			tier(BFA_TIER, {
+				tier(BFA_TIER, 0.1, {
+					i(161118),	-- Marrow Shatter
+				}),
+				tier(BFA_TIER, 1.0, {
+					i(166405),	-- Blindside
+				}),
+			}),
 			tier(DF_TIER, {
-				tier(DF_TIER, 0.0, {
+				tier(DF_TIER, 0.01, {
 					i(189688),	-- 10.0 Dungeon Template - Mace1H - Agi - Weapon
 					i(189694),	-- 10.0 Dungeon Template - Mace1H - Int - Weapon
 					i(189696),	-- 10.0 Dungeon Template - Mace1H - Str - Weapon
@@ -89,12 +112,25 @@ root(ROOTS.NeverImplemented, bubbleDown({["u"] = NEVER_IMPLEMENTED}, {
 					i(189121),	-- 10.0 QRP Template <Descriptor> Mace
 					i(189132),	-- 10.0 QRP Template <Descriptor> Mace
 					i(189134),	-- 10.0 QRP Template <Descriptor> Mace
+					i(201243),	-- Drakebone Tenderizer
+					i(201242),	-- Growth Evoking Furnace
+					i(201238),	-- Vision Enforcing Bludgeon
 				}),
 			}),
 		}),
 		filter(ONE_HANDED_SWORDS, {
+			tier(BFA_TIER, {
+				tier(BFA_TIER, 1.0, {
+					i(166364),	-- Song of the Fallen
+				}),
+			}),
+			tier(SL_TIER, {
+				tier(SL_TIER, 1.5, {
+					i(187568),	-- Duskwatch Arcblade
+				}),
+			}),
 			tier(DF_TIER, {
-				tier(DF_TIER, 0.0, {
+				tier(DF_TIER, 0.01, {
 					i(189681),	-- 10.0 Dungeon Template - Sword1H - Agi - Weapon
 					i(189695),	-- 10.0 Dungeon Template - Sword1H - Int - Weapon
 					i(189677),	-- 10.0 Dungeon Template - Sword1H - Str -Weapon
@@ -109,28 +145,34 @@ root(ROOTS.NeverImplemented, bubbleDown({["u"] = NEVER_IMPLEMENTED}, {
 		}),
 		filter(POLEARMS, {
 			tier(DF_TIER, {
-				tier(DF_TIER, 0.0, {
+				tier(DF_TIER, 0.01, {
 					i(189703),	-- 10.0 Dungeon Template - Polearms - Agi - 2 Hand
 					i(189678),	-- 10.0 Dungeon Template - Polearms - Int - 2 Hand
 					i(189054),	-- 10.0 End Game Template <Descriptor> Halberd
 					i(189041),	-- 10.0 End Game Template <Descriptor> Polearm
 					i(189110),	-- 10.0 QRP Template <Descriptor> Staff
 					i(189141),	-- 10.0 QRP Template <Descriptor> Staff
+					i(201234),	-- Draketooth Harpoon
+					i(201247),	-- Whaler's Fang
 				}),
 			}),
 		}),
 		filter(SHIELDS, {
+			tier(CLASSIC_TIER, {
+				i(7748),	-- Forcestone Buckler
+			}),
 			tier(DF_TIER, {
-				tier(DF_TIER, 0.0, {
+				tier(DF_TIER, 0.01, {
 					i(189671),	-- 10.0 Dungeon Template - Shield - Shield
 					i(189039),	-- 10.0 End Game Template <Descriptor> Shield
 					i(189103),	-- 10.0 QRP Template <Descriptor> Shield
+					i(201248),	-- Dreamfused Scaled Protector
 				}),
 			}),
 		}),
 		filter(STAVES, {
 			tier(DF_TIER, {
-				tier(DF_TIER, 0.0, {
+				tier(DF_TIER, 0.01, {
 					i(189674),	-- 10.0 Dungeon Template - Staff - Agi - 2 Hand
 					i(189687),	-- 10.0 Dungeon Template - Staff - Int - 2 Hand
 					i(189056),	-- 10.0 End Game Template <Descriptor> Staff
@@ -138,12 +180,14 @@ root(ROOTS.NeverImplemented, bubbleDown({["u"] = NEVER_IMPLEMENTED}, {
 					i(189106),	-- 10.0 QRP Template <Descriptor> Staff
 					i(189120),	-- 10.0 QRP Template <Descriptor> Staff
 					i(197806),	-- 10.0 Rare Reward TBD - Staff_2H_Titan_C_01 - Staff - Int
+					i(201231),	-- Bident of Hallucinations
+					i(201237),	-- Dreamer's Creator
 				}),
 			}),
 		}),
 		filter(TWO_HANDED_AXES, {
 			tier(DF_TIER, {
-				tier(DF_TIER, 0.0, {
+				tier(DF_TIER, 0.01, {
 					i(189697),	-- 10.0 Dungeon Template - Axe2H - Str - 2 Hand
 					i(189135),	-- 10.0 QRP Template <Descriptor> Axe
 				}),
@@ -151,7 +195,7 @@ root(ROOTS.NeverImplemented, bubbleDown({["u"] = NEVER_IMPLEMENTED}, {
 		}),
 		filter(TWO_HANDED_MACES, {
 			tier(DF_TIER, {
-				tier(DF_TIER, 0.0, {
+				tier(DF_TIER, 0.01, {
 					i(189700),	-- 10.0 Dungeon Template - Mace2H - Int - 2 Hand
 					i(189673),	-- 10.0 Dungeon Template - Mace2H - Str - 2 Hand
 					i(189048),	-- 10.0 End Game Template <Descriptor> Great Mace
@@ -163,55 +207,39 @@ root(ROOTS.NeverImplemented, bubbleDown({["u"] = NEVER_IMPLEMENTED}, {
 			}),
 		}),
 		filter(TWO_HANDED_SWORDS, {
+			tier(CLASSIC_TIER, {
+				i(13262),	-- Ashbringer
+			}),
 			tier(DF_TIER, {
-				tier(DF_TIER, 0.0, {
+				tier(DF_TIER, 0.01, {
 					i(189701),	-- 10.0 Dungeon Template - Sword2H - Int - 2 Hand
 					i(189698),	-- 10.0 Dungeon Template - Sword2H - Str - 2 Hand
 					i(189136),	-- 10.0 QRP Template <Descriptor> Greatsword
 					i(189139),	-- 10.0 QRP Template <Descriptor> Greatsword
+					i(201244),	-- Dreamfire-Infused Broadsword
+					i(201245),	-- Emerald Blessed Greatsword
 				}),
 			}),
 		}),
 		filter(WANDS, {
 			tier(DF_TIER, {
-				tier(DF_TIER, 0.0, {
+				tier(DF_TIER, 0.01, {
 					i(189702),	-- 10.0 Dungeon Template - Wand - RangedRight
 					i(199932),	-- 10.0 Enchanting - Weapon - Wand 1
 					i(199933),	-- 10.0 Enchanting - Weapon - Wand 2
 					i(189140),	-- 10.0 QRP Template <Descriptor> Wand
+					i(201246),	-- Coiled Green Draketail
 				}),
 			}),
 		}),
 		filter(WARGLAIVES, {
 			tier(DF_TIER, {
-				tier(DF_TIER, 0.0, {
+				tier(DF_TIER, 0.01, {
 					i(189676),	-- 10.0 Dungeon Template - Warglaives - Weapon
 					i(189057),	-- 10.0 End Game Template <Descriptor> Warglaive
 					i(189108),	-- 10.0 QRP Template <Descriptor> Glaive
+					i(201233),	-- Verdant Drakespine Glaive
 				}),
-			}),
-		}),
-	}),
-	tier(CLASSIC_TIER, {
-		n(WEAPONS, {
-			i(13262),	-- Ashbringer
-		}),
-	}),
-	tier(BFA_TIER, {
-		d(24, {	-- Timewalking
-			tier(BFA_TIER, 0.1, {
-				i(161118),	-- Marrow Shatter
-			}),
-			tier(BFA_TIER, 1.0, {
-				i(166405),	-- Blindside
-				i(166364),	-- Song of the Fallen
-			}),
-		}),
-	}),
-	tier(SL_TIER, {
-		d(24, {	-- Timewalking
-			tier(SL_TIER, 1.5, {
-				i(187568),	-- Duskwatch Arcblade (Removed during PTR...Was looking great)
 			}),
 		}),
 	}),

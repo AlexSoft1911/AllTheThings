@@ -249,6 +249,19 @@ root(ROOTS.Instances, tier(CLASSIC_TIER, {
 				i(10584),	-- Stormgale Fists
 				i(10578),	-- Thoughtcast Boots
 			}),
+			n(7895, {	-- Ambassador Bloodrage
+				-- #if BEFORE CATA
+				["coords"] = {
+					{ 46.2, 87.4, THE_BARRENS },
+					{ 48.0, 90.4, THE_BARRENS },
+					{ 48.6, 95.6, THE_BARRENS },
+				},
+				-- #else
+				["maps"] = { SOUTHERN_BARRENS },
+				-- #endif
+				["description"] = "This is a rare that is not always present.",
+				["timeline"] = { "removed 4.0.3" },
+			}),
 			-- #if BEFORE 6.0.2
 			n(7355, {	-- Tuten'kash
 				["timeline"] = { "removed 6.0.2" },
@@ -374,6 +387,9 @@ root(ROOTS.Instances, tier(CLASSIC_TIER, {
 						["OnUpdate"] = [[_.CommonAchievementHandlers.ANY_SOURCE_QUEST]],
 						-- #endif
 					}),
+					ach(5045, {	-- Razorfen Downs Guild Run
+						["timeline"] = { "added 4.0.3", "removed 6.0.2" },
+					}),
 					i(10420),	-- Skull of the Coldbringer
 					i(10761),	-- Coldrage Dagger
 					i(10763),	-- Icemetal Barbute
@@ -405,6 +421,9 @@ root(ROOTS.Instances, tier(CLASSIC_TIER, {
 				["timeline"] = { "added 6.0.1.18322" },
 				["groups"] = {
 					ach(636),	-- Razorfen Downs
+					ach(5045, {	-- Razorfen Downs Guild Run
+						["timeline"] = { "added 6.0.1.18322" },
+					}),
 					i(10761),	-- Coldrage Dagger
 					i(10763),	-- Icemetal Barbute
 					i(10764),	-- Deathchill Armor

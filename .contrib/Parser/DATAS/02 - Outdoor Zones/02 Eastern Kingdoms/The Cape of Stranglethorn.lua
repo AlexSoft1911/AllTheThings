@@ -41,7 +41,7 @@ root(ROOTS.Zones, m(EASTERN_KINGDOMS, {
 					["timeline"] = { "added 4.0.3" },
 				}),
 			}),
-			o(179697, {	-- Arena Treasure Chest
+			pvp(o(179697, {	-- Arena Treasure Chest
 				["description"] = "Chest is dropped in arena every 3 hours.\n\nWARNING: FREE-FOR-ALL PVP EVENT\n12AM, 3PM, 6PM, 9PM, 12PM, 3AM, 6AM, 9AM",
 				["coord"] = { 46.6, 26.1, THE_CAPE_OF_STRANGLETHORN },
 				["groups"] = {
@@ -62,7 +62,7 @@ root(ROOTS.Zones, m(EASTERN_KINGDOMS, {
 						["timeline"] = { "added 6.1.0.19480" },
 					}),
 				},
-			}),
+			})),
 			-- #if AFTER MOP
 			petbattle(filter(BATTLE_PETS, {
 				p(411, {	-- Baby Ape
@@ -243,7 +243,7 @@ root(ROOTS.Zones, m(EASTERN_KINGDOMS, {
 					["races"] = ALLIANCE_ONLY,
 					["lvl"] = 32,
 				}),
-				q(7838, {	-- Arena Grandmaster
+				pvp(q(7838, {	-- Arena Grandmaster
 					["qg"] = 14508,	-- Short John Mithril
 					["sourceQuest"] = 7810,	-- Arena Master
 					["coord"] = { 45.0, 25.4, THE_CAPE_OF_STRANGLETHORN },
@@ -255,7 +255,7 @@ root(ROOTS.Zones, m(EASTERN_KINGDOMS, {
 						}),
 						i(19024),	-- Arena Grand Master
 					},
-				}),
+				})),
 				q(7810, {	-- Arena Master
 					["provider"] = { "i", 18706 },	-- Arena Master (trinket)
 					["altQuests"] = { 7908 },	-- Arena Master
@@ -658,6 +658,19 @@ root(ROOTS.Zones, m(EASTERN_KINGDOMS, {
 					["timeline"] = { "added 6.2.0.20061" },
 					["requireSkill"] = ENGINEERING,
 					["isDaily"] = true,
+				}),
+				q(4785, {	-- Fine Gold Thread
+					["qg"] = 2670,	-- Xizk Goodstitch <Tailoring Supplies>
+					["coord"] = { 28.6, 76.8, STRANGLETHORN_VALE },
+					["timeline"] = { "removed 4.0.3" },
+					["classes"] = { WARLOCK },
+					["repeatable"] = true,
+					["lvl"] = 31,
+					["groups"] = {
+						i(12293, {	-- Fine Gold Thread
+							["timeline"] = { "removed 4.0.3" },
+						}),
+					},
 				}),
 				q(26624, {	-- Getting In With the Bloodsail
 					["qg"] = 2496,	-- Baron Revilgaz

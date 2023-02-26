@@ -21,6 +21,7 @@ _.Instances = { tier(MOP_TIER, {
 				["lvl"] = 85,	-- Confirmed by Lucetia November 5, 2018
 				["creatureID"] = 69099,	-- Nalak, the Storm Lord
 				["g"] = {
+					ach(8137),	-- Nalak Guild Run
 					ach(8028),	-- Praise the Sun!
 					-- Mounts, Caches, and Quest Items!
 					i(95057),	-- Thundering Cobalt Cloud Serpent (MOUNT!)
@@ -343,6 +344,7 @@ _.Instances = { tier(MOP_TIER, {
 				["creatureID"] = 69161,	-- Oondasta
 				["g"] = {
 					ach(8123),	-- Millions of Years of Evolution vs. My Fist
+					ach(8138),	-- Oondasta Guild Run
 					i(94228),	-- Cobalt Primordial Direhorn (MOUNT!)
 					i(95601, {	-- Shiny Pile of Refuse	-- TODO: should be symlink for duplicate rewards
 						i(95972),	-- Abandoned Zandalari Arrowlinks
@@ -427,6 +429,7 @@ _.Instances = { tier(MOP_TIER, {
 				["creatureID"] = 72057,	-- Ordos, Fire-God of the Yaungol
 				["g"] = {
 					ach(8533),	-- Ordos
+					ach(8790),	-- Ordos Guild Run
 					i(104273, {	-- Flame-Scarred Cache of Offerings
 						["description"] = "Awarded if you fail your loot roll. Usually contains gold or crafting materials. May follow your actual spec instead of loot spec, please provide more information to ATT Discord.",
 						["g"] = {
@@ -528,6 +531,7 @@ _.Instances = { tier(MOP_TIER, {
 				["creatureID"] = 62346,	-- Galleon
 				["g"] = {
 					ach(6517),	-- Extinction Event
+					ach(6708),	-- Salyis's Warband Guild Run
 					i(89783),	-- Son of Galleon (MOUNT!)
 					i(90840, {	-- Marauder's Gleaming Sack of Gold	-- TODO: should be symlink for duplicate rewards
 						-- Belts
@@ -663,6 +667,7 @@ _.Instances = { tier(MOP_TIER, {
 				["creatureID"] = 60491,	-- Sha of Anger
 				["g"] = {
 					ach(6480),	-- Settle Down, Bro
+					ach(6709),	-- Sha of Anger Guild Run
 					crit(5, {	-- Sha of Anger slain
 						["achievementID"] = 6926,	-- Tranquil Master
 					}),
@@ -880,7 +885,6 @@ _.Instances = { tier(MOP_TIER, {
 				},
 				["isRaid"] = true,
 				["coord"] = { 38.87, 55.29, TIMELESS_ISLE },
-				["lvl"] = 80,	-- Confirmed by Lucetia November 5, 2018
 				["crs"] = {
 					71952,	-- Chi-Ji, The Red Crane
 					71954,	-- Niuzao, The Black Ox
@@ -890,22 +894,31 @@ _.Instances = { tier(MOP_TIER, {
 				["g"] = {
 					ach(8535, {	-- Celestial Challenge
 						crit(1, {	-- Chi-Ji slain
-							["encounterID"] = 857,	-- Chi-Ji, The Red Crane
-							["isRaid"] = true,
+							["_encounter"] =  { 857 },
 						}),
 						crit(2, {	-- Niuzao slain
-							["encounterID"] = 859,	-- Niuzao, The Black Ox
-							["isRaid"] = true,
+							["_encounter"] =  { 859 },
 						}),
 						crit(3, {	-- Xuen slain
-							["encounterID"] = 860,	-- Xuen, The White Tiger
-							["isRaid"] = true,
+							["_encounter"] =  { 860 },
 						}),
 						crit(4, {	-- Yu'lon slain
-							["encounterID"] = 858,	-- Yu'lon, The Jade Serpent
-							["isRaid"] = true,
+							["_encounter"] =  { 858 },
 						}),
 					}),
+					ach(8789),	-- Celestial Challenge Guild Run
+					e(857, cr(71952, {	-- Chi-Ji, The Red Crane
+						["isRaid"] = true,
+					})),
+					e(859, cr(71954, {	-- Niuzao, The Black Ox
+						["isRaid"] = true,
+					})),
+					e(860, cr(71953, {	-- Xuen, The White Tiger
+						["isRaid"] = true,
+					})),
+					e(858, cr(71955, {	-- Yu'lon, The Jade Serpent
+						["isRaid"] = true,
+					})),
 					-- Caches / Boxes
 					i(104272, {	-- Celestial Treasure Box	-- TODO: should be symlink for duplicate rewards
 						i(105824),	-- Aeth's Swiftcinder Cloak

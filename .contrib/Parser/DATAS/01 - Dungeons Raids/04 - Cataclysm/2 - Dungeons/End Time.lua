@@ -127,6 +127,7 @@ _.Instances = { tier(CATA_TIER, {
 				})),
 				cr(54432, e(289, {	-- Murozond
 					ach(6117),	-- Heroic: End Time
+					ach(6120),	-- Heroic: End Time Guild Run
 					i(72822),	-- Jagged Edge of Time
 					i(72820),	-- Crown of Epochs
 					i(72823),	-- Timeway Headgear
@@ -142,7 +143,7 @@ _.Instances = { tier(CATA_TIER, {
 				})),
 			}),
 			-- #if AFTER 6.2.3.20601
-			d(24, {	-- Timewalking
+			d(TIMEWALKING_DUNGEON, {
 				["sym"] = {	-- link in Timewalking content
 					{"sub", "tw_instance", 184 },	-- this instance version of timewalking
 				},

@@ -158,6 +158,7 @@ _.Instances = { tier(CATA_TIER, {
 					cr(40484, e(134, {	-- Erudax
 						ach(5298),	-- Don't Need to Break Eggs to Make an Omelet
 						ach(5062),	-- Heroic: Grim Batol
+						ach(5138),	-- Heroic: Grim Batol Guild Run
 						i(56461),	-- Staff of Siphoned Essences
 						i(56456),	-- Wild Hammer
 						i(56459),	-- Mace of Transformed Bone
@@ -173,7 +174,7 @@ _.Instances = { tier(CATA_TIER, {
 				},
 			}),
 			-- #if AFTER 6.2.3.20601
-			d(24, {	-- Timewalking
+			d(TIMEWALKING_DUNGEON, {
 				["sym"] = {	-- link in Timewalking content
 					{"sub", "tw_instance", 71 },	-- this instance version of timewalking
 				},

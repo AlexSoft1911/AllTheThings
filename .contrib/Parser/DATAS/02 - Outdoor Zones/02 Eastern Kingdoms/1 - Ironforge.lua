@@ -1109,6 +1109,107 @@ root(ROOTS.Zones, m(EASTERN_KINGDOMS, {
 					},
 					-- #endif
 				}),
+				q(1645, {	-- The Tome of Divinity (1a/8)
+					["qg"] = 6179,	-- Tiza Battleforge
+					["coord"] = { 27.4, 12, IRONFORGE },
+					["timeline"] = { "removed 4.0.3" },
+					["races"] = { DWARF },
+					["classes"] = { PALADIN },
+					["lvl"] = 12,
+					["groups"] = {
+						i(6916),	-- Tome of Divinity
+					},
+				}),
+				q(1646, {	-- The Tome of Divinity (1b/8)
+					["provider"] = { "i", 6916 },	-- Tome of Divinity
+					["sourceQuest"] = 1645,	-- The Tome of Divinity (1a/8)
+					["timeline"] = { "removed 4.0.3" },
+					["races"] = { DWARF },
+					["classes"] = { PALADIN },
+					["lvl"] = 12,
+				}),
+				q(1647, {	-- The Tome of Divinity (2/8)
+					["qg"] = 6179,	-- Tiza Battleforge
+					["sourceQuest"] = 1646,	-- The Tome of Divinity (1b/8)
+					["coord"] = { 27.4, 12, IRONFORGE },
+					["timeline"] = { "removed 4.0.3" },
+					["races"] = { DWARF },
+					["classes"] = { PALADIN },
+					["lvl"] = 12,
+				}),
+				q(1648, {	-- The Tome of Divinity (3/8)
+					["qg"] = 6175,	-- John Turner
+					["sourceQuest"] = 1647,	-- The Tome of Divinity (2/8)
+					["coord"] = { 27.6, 70.6, IRONFORGE },
+					["timeline"] = { "removed 4.0.3" },
+					["cost"] = { { "i", 2589, 10 } },	-- Linen Cloth
+					["races"] = { DWARF },
+					["classes"] = { PALADIN },
+					["lvl"] = 12,
+				}),
+				q(1778, {	-- The Tome of Divinity (4/8)
+					["qg"] = 6175,	-- John Turner
+					["sourceQuest"] = 1648,	-- The Tome of Divinity (3/8)
+					["coord"] = { 27.6, 70.6, IRONFORGE },
+					["timeline"] = { "removed 4.0.3" },
+					["races"] = { DWARF },
+					["classes"] = { PALADIN },
+					["lvl"] = 12,
+				}),
+				q(1779, {	-- The Tome of Divinity (5/8)
+					["providers"] = {
+						{ "n", 6179 },	-- Tiza Battleforge
+						{ "i", 6866 },	-- Symbol of Life
+					},
+					["sourceQuest"] = 1778,	-- The Tome of Divinity (4/8)
+					["coord"] = { 27.4, 12, IRONFORGE },
+					["timeline"] = { "removed 4.0.3" },
+					["races"] = { DWARF },
+					["classes"] = { PALADIN },
+					["lvl"] = 12,
+				}),
+				q(1783, {	-- The Tome of Divinity (6/8)
+					["providers"] = {
+						{ "n", 6178 },	-- Muiredon Battleforge
+						{ "i", 6866 },	-- Symbol of Life
+					},
+					["sourceQuest"] = 1779,	-- The Tome of Divinity (5/8)
+					["coord"] = { 23.6, 8.6, IRONFORGE },
+					["timeline"] = { "removed 4.0.3" },
+					["races"] = { DWARF },
+					["classes"] = { PALADIN },
+					["lvl"] = 12,
+				}),
+				q(1784, {	-- The Tome of Divinity (7/8)
+					["qg"] = 6177,	-- Narm Faulk
+					["sourceQuest"] = 1783,	-- The Tome of Divinity (6/8)
+					["coord"] = { 78.2, 58.0, DUN_MOROGH },
+					["timeline"] = { "removed 4.0.3" },
+					["races"] = { DWARF },
+					["classes"] = { PALADIN },
+					["lvl"] = 12,
+					["groups"] = {
+						objective(1, {	-- 0/1 Dark Iron Script
+							["provider"] = { "i", 6847 },	-- Dark Iron Script
+							["coord"] = { 78.2, 59.8, DUN_MOROGH },
+							["cr"] = 6123,	-- Dark Iron Spy
+						}),
+					},
+				}),
+				q(1785, {	-- The Tome of Divinity (8/8)
+					["qg"] = 6178,	-- Muiredon Battleforge
+					["sourceQuest"] = 1784,	-- The Tome of Divinity (7/8)
+					["coord"] = { 23.6, 8.6, IRONFORGE },
+					["timeline"] = { "removed 4.0.3" },
+					["races"] = { DWARF },
+					["classes"] = { PALADIN },
+					["lvl"] = 12,
+					-- #if BEFORE 4.0.1
+					["groups"] = {
+						--recipe(7328),	-- Redemption [Rank 1]
+					},
+					-- #endif
+				}),
 				q(5284, {	-- The Way of the Weaponsmith (A)
 					["qg"] = 11146,	-- Ironus Coldsteel
 					["altQuests"] = {
@@ -1130,48 +1231,6 @@ root(ROOTS.Zones, m(EASTERN_KINGDOMS, {
 						{ "i", 7945, 2 },	-- Big Black Mace
 					},
 					["lvl"] = 40,
-				}),
-				q(1802, {	-- Tome of the Cabal (2/3 Alliance)
-					["qg"] = 6294,	-- Krom Stoutarm
-					["sourceQuest"] = 1758,	-- Tome of the Cabal (1/3 Alliance)
-					["coord"] = { 74.4, 9.4, IRONFORGE },
-					["timeline"] = { "removed 4.0.3" },
-					["maps"] = { HILLSBRAD_FOOTHILLS, THOUSAND_NEEDLES },
-					["classes"] = { WARLOCK },
-					["races"] = ALLIANCE_ONLY,
-					["lvl"] = 30,
-					["groups"] = {
-						objective(1, {	-- 0/1 Moldy Tome
-							["provider"] = { "i", 6931 },	-- Moldy Tome
-							["coord"] = { 27.8, 72.9, HILLSBRAD_FOOTHILLS },
-						}),
-						objective(2, {	-- 0/1 Tattered Manuscript
-							["provider"] = { "i", 6997 },	-- Tattered Manuscript
-							["coord"] = { 43.5, 32.7, THOUSAND_NEEDLES },
-						}),
-					},
-				}),
-				q(1804, {	-- Tome of the Cabal (3/3 Alliance)
-					["providers"] = {
-						{ "n", 6294 },	-- Krom Stoutarm
-						{ "i", 7006 },	-- Reconstructed Tome
-					},
-					["sourceQuest"] = 1802,	-- Tome of the Cabal (2/3 Alliance)
-					["coord"] = { 74.4, 9.4, IRONFORGE },
-					["timeline"] = { "removed 4.0.3" },
-					["maps"] = { WETLANDS, THE_BARRENS },
-					["classes"] = { WARLOCK },
-					["races"] = ALLIANCE_ONLY,
-					["lvl"] = 30,
-					["groups"] = {
-						objective(1, {	-- 0/3 Rod of Channeling
-							["provider"] = { "i", 6930 },	-- Rod of Channeling
-							["crs"] = {
-								1057,	-- Dragonmaw Bonewarder
-								1038,	-- Dragonmaw Shadowwarder
-							},
-						}),
-					},
 				}),
 				q(1680, {	-- Tormus Deepforge
 					["qg"] = 6114,	-- Muren Stormpike

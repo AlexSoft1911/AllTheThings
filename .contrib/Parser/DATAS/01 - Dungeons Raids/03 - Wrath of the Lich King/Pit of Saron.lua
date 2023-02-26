@@ -257,6 +257,9 @@ root(ROOTS.Instances, tier(WOTLK_TIER, applyclassicphase(WRATH_PHASE_FOUR, {
 					e(610, {	-- Scourgelord Tyrannus
 						["creatureID"] = 36658,	-- Scourgelord Tyrannus
 						["groups"] = {
+							ach(5113, {	-- Heroic: The Pit of Saron Guild Run
+								["timeline"] = { "added 4.0.3" },
+							}),
 							i(50273),	-- Engraved Gargoyle Femur
 							i(50267),	-- Tyrannical Beheader
 							i(50268),	-- Rimefang's Claw
@@ -292,7 +295,7 @@ root(ROOTS.Instances, tier(WOTLK_TIER, applyclassicphase(WRATH_PHASE_FOUR, {
 				},
 			}),
 			-- #if AFTER 6.2.3.20601
-			d(24, {	-- Timewalking
+			d(TIMEWALKING_DUNGEON, {
 				["sym"] = {	-- link in Timewalking content
 					{"sub", "tw_instance", 278 },	-- this instance version of timewalking
 				},

@@ -118,7 +118,7 @@ app.L = {
 	["DEBUG_LOGIN"] = "Awarded for logging in.\n\nGood job! YOU DID IT!\n\nOnly visible while in Debug Mode.";
 	["UNSORTED_1"] = "Unsorted";
 	["UNSORTED_2"] = " (Unsorted)";
-	["UNSORTED_DESC"] = "This data hasn't been implemented yet.";
+	["UNSORTED_DESC"] = "This data hasn't been Sourced yet within ATT.";
 	["NEVER_IMPLEMENTED"] = "Never Implemented";
 	["NEVER_IMPLEMENTED_DESC"] = "Items here technically exist within the game but have never been made available to players";
 	["HIDDEN_QUEST_TRIGGERS"] = "Hidden Quest Triggers";
@@ -883,7 +883,7 @@ app.L = {
 		[111] = GetItemClassInfo(16),							-- Glyph
 		[112] = FACTION,										-- Factions
 		[113] = INVTYPE_BAG,									-- Bags
-		[114] = MOUNT_EQUIPMENT_LEVEL_UP_FEATURE,				-- Mount Equipment
+		[114] = GetItemSubClassInfo(13,0),						-- Key
 
 		-- "Recipes"
 		[200] = AUCTION_CATEGORY_RECIPES,						-- Recipes

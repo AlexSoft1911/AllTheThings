@@ -29,6 +29,22 @@ root(ROOTS.Instances, tier(WOTLK_TIER, applyclassicphase(WRATH_PHASE_ONE, {
 					}),
 					-- #endif
 				}),
+				-- #if ANYCLASSIC
+				applyclassicphase(WRATH_PHASE_TWO, ach(17283, {	-- Defense Protocol Alpha: The Nexus
+					crit(57690, { -- Grand Magus Telestra
+						["_encounter"] = { 618, 2 },
+					}),
+					crit(57688, { -- Anomalus
+						["_encounter"] = { 619, 2 },
+					}),
+					crit(57687, { -- Ormorok the Tree-Shaper
+						["_encounter"] = { 620, 2 },
+					}),
+					crit(57689, { -- Keristrasza
+						["_encounter"] = { 621, 2 },
+					}),
+				})),
+				-- #endif
 				ach(490,  {	-- Heroic: The Nexus
 					crit(5245, { -- Grand Magus Telestra
 						["_encounter"] = { 618, 2 },
@@ -313,6 +329,9 @@ root(ROOTS.Instances, tier(WOTLK_TIER, applyclassicphase(WRATH_PHASE_ONE, {
 								["achievementID"] = 1658,	-- Champion of the Frozen Wastes
 								["criteriaID"] = 5609,		-- Keristrasza slain
 							},
+							ach(5096, {	-- Heroic: The Nexus Guild Run
+								["timeline"] = { "added 4.0.3" },
+							}),
 							ach(2036),	-- Intense Cold
 							i(41794, {	-- Design: Deadly Monarch Topaz
 								["timeline"] = { "removed 4.0.1" },
@@ -345,7 +364,7 @@ root(ROOTS.Instances, tier(WOTLK_TIER, applyclassicphase(WRATH_PHASE_ONE, {
 				},
 			}),
 			-- #if AFTER 6.2.3.20601
-			d(24, {	-- Timewalking
+			d(TIMEWALKING_DUNGEON, {
 				["sym"] = {	-- link in Timewalking content
 					{"sub", "tw_instance", 281 },	-- this instance version of timewalking
 				},

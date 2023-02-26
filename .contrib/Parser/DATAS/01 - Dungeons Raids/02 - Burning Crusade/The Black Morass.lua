@@ -220,6 +220,9 @@ root(ROOTS.Instances, tier(TBC_TIER, applyclassicphase(TBC_PHASE_ONE, {
 						["creatureID"] = 17881,
 						["groups"] = {
 							ach(676),	-- Heroic: Opening of the Dark Portal
+							ach(5076, {	-- Heroic: Opening of the Dark Portal Guild Run
+								["timeline"] = { "added 4.0.3" },
+							}),
 							i(28188),	-- Bloodfire Greatstaff
 							i(28189),	-- Latro's Shifting Sword
 							-- #if BEFORE 7.3.5
@@ -251,7 +254,7 @@ root(ROOTS.Instances, tier(TBC_TIER, applyclassicphase(TBC_PHASE_ONE, {
 				}
 			}),
 			-- #if AFTER 6.2.3.20601
-			d(24, {	-- Timewalking
+			d(TIMEWALKING_DUNGEON, {
 				["sym"] = {	-- link in Timewalking content
 					{"sub", "tw_instance", 255 },	-- this instance version of timewalking
 				},

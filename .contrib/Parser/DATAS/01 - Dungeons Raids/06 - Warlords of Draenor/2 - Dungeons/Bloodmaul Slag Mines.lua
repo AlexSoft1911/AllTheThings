@@ -130,6 +130,7 @@ _.Instances = { tier(WOD_TIER, {
 					},
 					["g"] = {
 						ach(9046),	-- Heroic: Bloodmaul Slag Mines
+						ach(9369),	-- Heroic: Bloodmaul Slag Mines Guild Run
 						ach(9008),	-- Is Draenor on Fire?
 						i(110042),	-- Gug'rokk's Smasher
 						i(110044),	-- Ogre Dinner Plate
@@ -196,7 +197,7 @@ _.Instances = { tier(WOD_TIER, {
 				}),
 			}),
 			-- #if AFTER 8.1.5.29701
-			d(24, {	-- Timewalking
+			d(TIMEWALKING_DUNGEON, {
 				["sym"] = {	-- link in Timewalking content
 					{"sub", "tw_instance", 385 },	-- this instance version of timewalking
 				},

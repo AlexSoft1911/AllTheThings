@@ -30,6 +30,22 @@ root(ROOTS.Instances, tier(WOTLK_TIER, applyclassicphase(WRATH_PHASE_ONE, {
 					}),
 					-- #endif
 				}),
+				-- #if ANYCLASSIC
+				applyclassicphase(WRATH_PHASE_TWO, ach(17213, {	-- Defense Protocol Alpha: Utgarde Keep
+					crit(57666, { -- Prince Keleseth
+						["_encounter"] = { 638, 2 },
+					}),
+					crit(57665, { -- Skarvald the Constructor
+						["_encounter"] = { 639, 2 },
+					}),
+					crit(57667, { -- Dalronn the Controller
+						["_encounter"] = { 639, 2 },
+					}),
+					crit(57668, { -- Ingvar the Plunderer
+						["_encounter"] = { 640, 2 },
+					}),
+				})),
+				-- #endif
 				ach(489,  {	-- Heroic: Utgarde Keep
 					crit(3701, { -- Prince Keleseth
 						["_encounter"] = { 638, 2 },
@@ -325,6 +341,9 @@ root(ROOTS.Instances, tier(WOTLK_TIER, applyclassicphase(WRATH_PHASE_ONE, {
 								["achievementID"] = 1658,	-- Champion of the Frozen Wastes
 								["criteriaID"] = 5608,		-- Ingvar the Plunderer slain
 							},
+							ach(5095, {	-- Heroic: Utgarde Keep Guild Run
+								["timeline"] = { "added 4.0.3" },
+							}),
 							i(41793),	-- Design: Fierce Monarch Topaz
 							i(37190),	-- Enraged Feral Staff
 							-- #if AFTER 7.3.5
@@ -351,7 +370,7 @@ root(ROOTS.Instances, tier(WOTLK_TIER, applyclassicphase(WRATH_PHASE_ONE, {
 				},
 			}),
 			-- #if AFTER 9.1.5
-			d(24, {	-- Timewalking
+			d(TIMEWALKING_DUNGEON, {
 				["sym"] = {	-- link in Timewalking content
 					{"sub", "tw_instance", 285 },	-- this instance version of timewalking
 				},

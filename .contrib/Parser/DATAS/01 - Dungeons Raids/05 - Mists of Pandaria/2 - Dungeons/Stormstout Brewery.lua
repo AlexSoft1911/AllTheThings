@@ -128,6 +128,7 @@ _.Instances = { tier(MOP_TIER, {
 					})),
 					cr(59479, e(670, {	-- Yan-Zhu the Uncasked
 						ach(6456),	-- Heroic: Stormstout Brewery
+						ach(6666),	-- Heroic: Stormstout Brewery Guild Run
 						ach(6457),	-- Stormstout Brewery
 						i(144124),	-- Wort Stirring Rod
 						i(144085),	-- Gao's Keg Tapper
@@ -154,7 +155,7 @@ _.Instances = { tier(MOP_TIER, {
 				},
 			}),
 			-- #if AFTER 7.1.5.23360
-			d(24, {	-- Timewalking
+			d(TIMEWALKING_DUNGEON, {
 				["sym"] = {	-- link in Timewalking content
 					{"sub", "tw_instance", 302 },	-- this instance version of timewalking
 				},

@@ -29,6 +29,25 @@ root(ROOTS.Instances, tier(WOTLK_TIER, applyclassicphase(WRATH_PHASE_ONE, {
 					}),
 					-- #endif
 				}),
+				-- #if ANYCLASSIC
+				applyclassicphase(WRATH_PHASE_TWO, ach(17291, {	-- Defense Protocol Alpha: Ahn'kahet: The Old Kingdom
+					crit(57733, { -- Prince Taldaram
+						["_encounter"] = { 581, 2 },
+					}),
+					crit(57731, { -- Elder Nadox
+						["_encounter"] = { 580, 2 },
+					}),
+					crit(57732, { -- Jedoga Shadowseeker
+						["_encounter"] = { 582, 2 },
+					}),
+					crit(57730, { -- Herald Volazj
+						["_encounter"] = { 584, 2 },
+					}),
+					crit(57734, { -- Amanitar
+						["_encounter"] = { 583, 2 },
+					}),
+				})),
+				-- #endif
 				ach(492, {	-- Heroic: Ahn'kahet: The Old Kingdom
 					crit(6851, { -- Prince Taldaram
 						["_encounter"] = { 581, 2 },
@@ -290,6 +309,9 @@ root(ROOTS.Instances, tier(WOTLK_TIER, applyclassicphase(WRATH_PHASE_ONE, {
 					e(584, {	-- Herald Volazj
 						["creatureID"] = 29311,	-- Herald Volazj
 						["groups"] = {
+							ach(5098, {	-- Heroic: Ahn'kahet: The Old Kingdom Guild Run
+								["timeline"] = { "added 4.0.3" },
+							}),
 							ach(1862),	-- Volazj's Quick Demise
 							{	-- Champion of the Frozen Wastes
 								["achievementID"] = 1658,	-- Champion of the Frozen Wastes
@@ -321,7 +343,7 @@ root(ROOTS.Instances, tier(WOTLK_TIER, applyclassicphase(WRATH_PHASE_ONE, {
 				},
 			}),
 			-- #if AFTER 6.2.3.20601
-			d(24, {	-- Timewalking
+			d(TIMEWALKING_DUNGEON, {
 				["sym"] = {	-- link in Timewalking content
 					{"sub", "tw_instance", 271 },	-- this instance version of timewalking
 				},
@@ -348,8 +370,5 @@ root(ROOTS.NeverImplemented, {
 		["timeline"] = { "created 3.0.1", "added 6.2.0" },
 	}),
 	-- #endif
-	q(29810, {	-- The Faceless Ones
-		["timeline"] = { "created 4.3.0.14732" },
-	}),
 });
 -- #endif

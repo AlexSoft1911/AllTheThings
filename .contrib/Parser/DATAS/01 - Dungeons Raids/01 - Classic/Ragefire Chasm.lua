@@ -418,6 +418,9 @@ root(ROOTS.Instances, tier(CLASSIC_TIER, {
 						["races"] = HORDE_ONLY,
 						-- #endif
 					}),
+					ach(5038, { -- Ragefire Chasm Guild Run
+						["timeline"] = { "added 4.0.3", "removed 5.0.4" },
+					}),
 					-- #endif
 					i(14540, {	-- Taragaman the Hungerer's Heart
 						["timeline"] = { "removed 5.0.4" },
@@ -444,6 +447,15 @@ root(ROOTS.Instances, tier(CLASSIC_TIER, {
 					}),
 					i(14147, {	-- Cavedweller Bracers
 						["timeline"] = { "removed 5.0.4" },
+						-- #if ANYCLASSIC
+						["OnUpdate"] = [[function(t)
+							if _.Level >= 40 and _.ClassIndex ~= ]] .. HUNTER .. [[ and _.ClassIndex ~= ]] .. SHAMAN .. [[ then
+								t.f = ]] .. PLATE .. [[;
+							else
+								t.f = ]] .. MAIL .. [[;
+							end
+						end]],
+						-- #endif
 					}),
 				},
 			}),
@@ -517,6 +529,9 @@ root(ROOTS.Instances, tier(CLASSIC_TIER, {
 				["timeline"] = { "added 5.0.4" },
 				["groups"] = {
 					ach(629),	-- Ragefire Chasm
+					ach(5038, { -- Ragefire Chasm Guild Run
+						["timeline"] = { "added 5.0.4" },
+					}),
 					i(82888, {	-- Heartboiler Staff
 						["timeline"] = { "added 5.0.4" },
 					}),

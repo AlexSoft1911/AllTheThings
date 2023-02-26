@@ -27,6 +27,19 @@ root(ROOTS.Instances, tier(WOTLK_TIER, applyclassicphase(WRATH_PHASE_ONE, {
 					}),
 					-- #endif
 				}),
+				-- #if ANYCLASSIC
+				applyclassicphase(WRATH_PHASE_TWO, ach(17285, {	-- Defense Protocol Alpha: Azjol-Nerub
+					crit(57699, {	-- Krik'thir the Gatewatcher
+						["_encounter"] = { 585, 2 },
+					}),
+					crit(57697, {	-- Hadronox
+						["_encounter"] = { 586, 2 },
+					}),
+					crit(57698, {	-- Anub'arak
+						["_encounter"] = { 587, 2 },
+					}),
+				})),
+				-- #endif
 				ach(491, { -- Heroic: Azjol-Nerub
 					crit(6848, {	-- Krik'thir the Gatewatcher
 						["_encounter"] = { 585, 2 },
@@ -280,6 +293,9 @@ root(ROOTS.Instances, tier(WOTLK_TIER, applyclassicphase(WRATH_PHASE_ONE, {
 						["creatureID"] = 29120,	-- Anub'arak
 						["groups"] = {
 							ach(1860),	-- Gotta Go!
+							ach(5097, {	-- Heroic: Azjol-Nerub Guild Run
+								["timeline"] = { "added 4.0.3" },
+							}),
 							crit(5610, {	-- Anub'arak slain
 								["achievementID"] = 1658,	-- Champion of the Frozen Wastes
 							}),
@@ -311,7 +327,7 @@ root(ROOTS.Instances, tier(WOTLK_TIER, applyclassicphase(WRATH_PHASE_ONE, {
 				},
 			}),
 			-- #if AFTER 9.1.5
-			d(24, {	-- Timewalking
+			d(TIMEWALKING_DUNGEON, {
 				["sym"] = {	-- link in Timewalking content
 					{"sub", "tw_instance", 272 },	-- this instance version of timewalking
 				},

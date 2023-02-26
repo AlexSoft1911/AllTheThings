@@ -658,6 +658,9 @@ root(ROOTS.Instances, tier(WOTLK_TIER, applyclassicphase(WRATH_PHASE_TWO, {
 							revampAch(3036, {	-- Observed (10 player)
 								title(129),	-- Starcaller
 							}),
+							ach(5020, {	-- Observed - Guild Edition
+								["timeline"] = { "added 4.0.3" },
+							}),
 							revampAch(3003, {	-- Supermassive (10 player)
 								crit(1),	-- Close 3 Black Holes within 10 seconds
 								crit(2),	-- Defeat Algalon the Observer
@@ -952,6 +955,9 @@ root(ROOTS.Instances, tier(WOTLK_TIER, applyclassicphase(WRATH_PHASE_TWO, {
 							-- #endif
 							revampAch(3159, {	-- Alone in the Darkness (10 player)
 								i(46312),	-- Vanquished Clutches of Yogg-Saron
+							}),
+							ach(5019, {	-- Alone in the Darkness - Guild Edition
+								["timeline"] = { "added 4.0.3" },
 							}),
 							revampAch(3158, {	-- One Light in the Darkness (10 player)
 								i(46067),	-- Hammer of Crushing Whispers
@@ -1563,6 +1569,9 @@ root(ROOTS.Instances, tier(WOTLK_TIER, applyclassicphase(WRATH_PHASE_TWO, {
 							revampAch(3037, {	-- Observed (25 player)
 								title(130),	-- the Astral Walker
 							}),
+							ach(5020, {	-- Observed - Guild Edition
+								["timeline"] = { "added 4.0.3" },
+							}),
 							revampAch(3002, {	-- Supermassive (25 player)
 								crit(1),	-- Close 3 Black Holes within 10 seconds
 								crit(2),	-- Defeat Algalon the Observer
@@ -1883,6 +1892,9 @@ root(ROOTS.Instances, tier(WOTLK_TIER, applyclassicphase(WRATH_PHASE_TWO, {
 									["filterID"] = MOUNTS,
 								}),
 								i(45693),	-- Mimiron's Head (MOUNT!)
+							}),
+							ach(5019, {	-- Alone in the Darkness - Guild Edition
+								["timeline"] = { "added 4.0.3" },
 							}),
 							revampAch(3163, {	-- One Light in the Darkness (25 player)
 								i(45533),	-- Dark Edge of Depravity
@@ -2832,6 +2844,9 @@ root(ROOTS.Instances, tier(WOTLK_TIER, applyclassicphase(WRATH_PHASE_TWO, {
 							i(45693),	-- Mimiron's Head (MOUNT!)
 							i(46312),	-- Vanquished Clutches of Yogg-Saron
 						}),
+						ach(5019, {	-- Alone in the Darkness - Guild Edition
+							["timeline"] = { "added 4.0.3" },
+						}),
 						ach(12387, {	-- One Light in the Darkness
 							i(45533),	-- Dark Edge of Depravity
 							i(46067),	-- Hammer of Crushing Whispers
@@ -2893,7 +2908,7 @@ root(ROOTS.Instances, tier(WOTLK_TIER, applyclassicphase(WRATH_PHASE_TWO, {
 					},
 				}),
 			}),
-			d(24, {	-- Timewalking
+			d(TIMEWALKING_DUNGEON, {
 				["sym"] = {	-- link in Timewalking content
 					{"sub", "tw_instance", 759 },	-- this instance version of timewalking
 				},

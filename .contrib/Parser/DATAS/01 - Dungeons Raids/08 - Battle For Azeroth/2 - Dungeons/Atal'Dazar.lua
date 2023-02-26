@@ -22,6 +22,14 @@ _.Instances = { tier(BFA_TIER, {
 					},
 				}),
 			}),
+			n(DROPS, {
+				i(159841, {	-- Tome of Hex: Skeletal Hatchling
+					["spellID"] = 269352,	-- Hex(Skeletal Hatchling)
+					["classes"] = { SHAMAN },
+					["f"] = RECIPES,
+					["crs"] = { 122963 },	-- Rezan
+				}),
+			}),
 			n(WORLD_QUESTS, {
 				q(49888, {	-- Atal'Dazar: A Little Mojo
 					["isWorldQuest"] = true,
@@ -66,11 +74,6 @@ _.Instances = { tier(BFA_TIER, {
 				e(2083, {	-- Rezan
 					["crs"] = { 122963 },	-- Rezan
 					["g"] = bubbleDown({["bonusID"] = 4776, ["lvl"] = 110}, {
-						i(159841, {	-- Tome of Hex: Skeletal Hatchling
-							["spellID"] = 269352,	-- Hex(Skeletal Hatchling)
-							["classes"] = { SHAMAN },
-							["f"] = RECIPES,
-						}),
 						i(168139),	-- Long Regal Sinew (LW reagent, has the highest drop chance from this boss)
 						i(160269),	-- Soulrending Claw
 						i(158711),	-- Hallowed Ossein Longbow
@@ -133,11 +136,6 @@ _.Instances = { tier(BFA_TIER, {
 						["crs"] = { 122963 },	-- Rezan
 						["g"] = {
 							i(168139),	-- Long Regal Sinew (LW reagent, has the highest drop chance from this boss)
-							i(159841, {	-- Tome of Hex: Skeletal Hatchling
-								["spellID"] = 269352,	-- Hex(Skeletal Hatchling)
-								["classes"] = { SHAMAN },
-								["f"] = RECIPES,
-							}),
 							i(160269),	-- Soulrending Claw
 							i(158711),	-- Hallowed Ossein Longbow
 							i(158713),	-- Disc of Indomitable Will
@@ -224,11 +222,6 @@ _.Instances = { tier(BFA_TIER, {
 								["achievementID"] = 12270,	-- Bringing Hexy Back
 							}),
 							i(168139),	-- Long Regal Sinew (LW reagent, has the highest drop chance from this boss)
-							i(159841, {	-- Tome of Hex: Skeletal Hatchling
-								["spellID"] = 269352,	-- Hex(Skeletal Hatchling)
-								["classes"] = { SHAMAN },
-								["f"] = RECIPES,
-							}),
 							i(160269),	-- Soulrending Claw
 							i(158711),	-- Hallowed Ossein Longbow
 							i(158713),	-- Disc of Indomitable Will
@@ -244,6 +237,7 @@ _.Instances = { tier(BFA_TIER, {
 						["crs"] = { 122968 },	-- Yazma
 						["g"] = {
 							ach(12826),	-- Mythic: Atal'Dazar
+							ach(13002),	-- Mythic: Atal'Dazar Guild Run
 							ach(12273),	-- It's Lit!
 							crit(4, {	-- Yazma defeated
 								["achievementID"] = 12270,	-- Bringing Hexy Back

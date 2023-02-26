@@ -5,6 +5,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
+using static ATT.Export;
 
 namespace ATT
 {
@@ -134,12 +135,12 @@ namespace ATT
         /// <summary>
         /// The current phase release ID of the current build type.
         /// </summary>
-        public static readonly int CURRENT_RELEASE_PHASE = FIRST_EXPANSION_PHASE[CURRENT_RELEASE_PHASE_NAME];
+        public static int CURRENT_RELEASE_PHASE { get; private set; }
 
         /// <summary>
         /// The last patch version of the current build type. [Format: ABBCCFFFFFF]
         /// </summary>
-        public static readonly long CURRENT_RELEASE_VERSION = LAST_EXPANSION_PATCH[CURRENT_RELEASE_PHASE_NAME].ConvertVersion();
+        public static long CURRENT_RELEASE_VERSION { get; private set; }
 
         /// <summary>
         /// The first patch they added Transmog as something you could collect.
@@ -328,12 +329,14 @@ namespace ATT
                 Config.ApplyFile(filepath);
             }
             Log($"config: {filepath}");
-            CURRENT_RELEASE_PHASE_NAME = Config["CURRENT_RELEASE_PHASE_NAME"] ?? CURRENT_RELEASE_PHASE_NAME;
-            int[] configPatch = Config["LAST_EXPANSION_PATCH"];
+            CURRENT_RELEASE_PHASE_NAME = Config["DataPhase"] ?? CURRENT_RELEASE_PHASE_NAME;
+            int[] configPatch = Config["DataPatch"];
             if (configPatch != null)
             {
                 LAST_EXPANSION_PATCH[CURRENT_RELEASE_PHASE_NAME] = configPatch;
             }
+            CURRENT_RELEASE_PHASE = FIRST_EXPANSION_PHASE[CURRENT_RELEASE_PHASE_NAME];
+            CURRENT_RELEASE_VERSION = LAST_EXPANSION_PATCH[CURRENT_RELEASE_PHASE_NAME].ConvertVersion();
             string[] configUseCounts = Config["TrackUseCounts"];
             if (configUseCounts != null)
             {
@@ -349,6 +352,18 @@ namespace ATT
                 foreach (string key in configDebugDBs)
                 {
                     DebugDBs[key] = new SortedDictionary<decimal, List<Dictionary<string, object>>>();
+                }
+            }
+            ImportConfiguredObjectTypes(Config["ObjectTypes"]);
+        }
+
+        private static void ImportConfiguredObjectTypes(CustomConfigurationNode objectTypesConfig)
+        {
+            if (objectTypesConfig?.CanEnumerate ?? false)
+            {
+                foreach (CustomConfigurationNode objectConfig in objectTypesConfig)
+                {
+                    ObjectData.Insert(objectConfig["objectType"], objectConfig["shortcut"], "_." + objectConfig["function"], objectConfig["convertedKey"], objectConfig["ignoredFields"]);
                 }
             }
         }
@@ -477,6 +492,7 @@ namespace ATT
                 if (ATT.Export.ObjectData.TryGetMostSignificantObjectType(data, out Export.ObjectData objectData, out object objKeyValue))
                     CurrentParentGroup = new KeyValuePair<string, object>(objectData.ObjectType, objKeyValue);
                 var previousDifficultyRoot = DifficultyRoot;
+                var previousDifficulty = NestedDifficultyID;
 
                 Process(groups, modID, minLevel);
 
@@ -486,6 +502,7 @@ namespace ATT
 
                 CurrentParentGroup = previousParent;
                 DifficultyRoot = previousDifficultyRoot;
+                NestedDifficultyID = previousDifficulty;
             }
 
             if (!MergeItemData)
@@ -856,6 +873,8 @@ namespace ATT
                 }
             }
 
+            ObjectData.TryFindAndConvertDataByObjectType(data);
+
             // Certain automatic header types may be converted from raw Lua data
             //if (data.TryGetValue("headerID", out decimal headerID) && data.TryGetValue("type", out string type))
             //{
@@ -885,33 +904,6 @@ namespace ATT
             // Merge all relevant Item Data into the global dictionaries after being validated
             Items.Merge(data);
             Objects.Merge(data);
-
-            // only clean the name after merging into the data dictionaries (since that is referenced elsewhere via itemID)
-            if (data.TryGetValue("name", out string name))
-            {
-                // Determine the Most-Significant ID Type (itemID, questID, npcID, etc)
-                if (ATT.Export.ObjectData.TryGetMostSignificantObjectType(data, out Export.ObjectData objectData, out object objKeyValue))
-                {
-                    long id = Convert.ToInt64(objKeyValue);
-                    // Store the name of this object (or whatever it is) in our table.
-                    if (!NAMES_BY_TYPE.TryGetValue(objectData.ObjectType, out Dictionary<long, object> names))
-                    {
-                        NAMES_BY_TYPE[objectData.ObjectType] = names = new Dictionary<long, object>();
-                    }
-                    names[id] = name;
-
-#if RETAIL
-                    switch (objectData.ObjectType)
-                    {
-                        // only certain types we will auto-localize, so remove the raw 'name' field
-                        case "questID":
-                        case "itemID":
-                            data.Remove("name");
-                            break;
-                    }
-#endif
-                }
-            }
 
             return true;
         }
@@ -1249,6 +1241,8 @@ namespace ATT
 
             CheckHeirloom(data);
 
+            ObjectData.TryDataConversion(data);
+
             //VerifyListContentOrdering(data);
 
             // when consolidating data, check for duplicate objects (instead of when merging)
@@ -1264,6 +1258,33 @@ namespace ATT
                         IncrementTypeUseCount(key, id);
                     if (data.TryGetValue("questIDH", out id))
                         IncrementTypeUseCount(key, id);
+                }
+            }
+
+            // only clean the name after other processing is complete
+            if (data.TryGetValue("name", out string name))
+            {
+                // Determine the Most-Significant ID Type (itemID, questID, npcID, etc)
+                if (ObjectData.TryGetMostSignificantObjectType(data, out ObjectData objectData, out object objKeyValue))
+                {
+                    long id = Convert.ToInt64(objKeyValue);
+                    // Store the name of this object (or whatever it is) in our table.
+                    if (!NAMES_BY_TYPE.TryGetValue(objectData.ObjectType, out Dictionary<long, object> names))
+                    {
+                        NAMES_BY_TYPE[objectData.ObjectType] = names = new Dictionary<long, object>();
+                    }
+                    names[id] = name;
+
+#if RETAIL
+                    switch (objectData.ObjectType)
+                    {
+                        // only certain types we will auto-localize, so remove the raw 'name' field
+                        case "questID":
+                        case "itemID":
+                            data.Remove("name");
+                            break;
+                    }
+#endif
                 }
             }
 
@@ -1965,8 +1986,11 @@ namespace ATT
             Log("Building Unsorted...");
             List<object> listing;
             long requireSkill;
-            var unsorted = new List<object>();
-            Objects.AllContainers["Unsorted"] = unsorted;
+            if (!Objects.AllContainers.TryGetValue("Unsorted", out List<object> unsorted))
+            {
+                unsorted = new List<object>();
+                Objects.AllContainers["Unsorted"] = unsorted;
+            }
             if (Items.GetNull(30000) == null) // Classic, no Tier Objects
             {
                 Dictionary<long, List<object>> FilteredLists = new Dictionary<long, List<object>>();
@@ -1993,11 +2017,15 @@ namespace ATT
                                     {
                                         if (!FilteredLists.TryGetValue(filterID, out listing))
                                         {
-                                            unsorted.Add(new Dictionary<string, object>
-                                        {
-                                            { "f", filterID },
-                                            { "g", listing = FilteredLists[filterID] = new List<object>() }
-                                        });
+                                            // ensure the filter group exists
+                                            Objects.Merge(unsorted, new Dictionary<string, object>
+                                                {
+                                                    { "f", filterID },
+                                                    { "g", new List<object>() },
+                                                });
+                                            // grab the resulting filter group 'g' list
+                                            unsorted.FindObject("f", filterID).TryGetValue("g", out listing);
+                                            FilteredLists[filterID] = listing;
                                         }
                                         if (item.TryGetValue("requireSkill", out object requireSkillRef))
                                         {
@@ -2005,10 +2033,10 @@ namespace ATT
                                             if (!ProfessionLists.TryGetValue(requireSkill, out List<object> sublisting))
                                             {
                                                 listing.Add(new Dictionary<string, object>
-                                            {
-                                                {"professionID", requireSkill },
-                                                { "g", listing = ProfessionLists[requireSkill] = new List<object>() }
-                                            });
+                                                {
+                                                    {"professionID", requireSkill },
+                                                    { "g", listing = ProfessionLists[requireSkill] = new List<object>() }
+                                                });
                                             }
                                             else
                                             {
@@ -2020,10 +2048,10 @@ namespace ATT
                                             if (!ProfessionLists.TryGetValue(-1, out List<object> sublisting))
                                             {
                                                 listing.Add(new Dictionary<string, object>
-                                            {
-                                                { "f", (int)Objects.Filters.Miscellaneous },
-                                                { "g", listing = ProfessionLists[-1] = new List<object>() }
-                                            });
+                                                {
+                                                    { "f", (int)Objects.Filters.Miscellaneous },
+                                                    { "g", listing = ProfessionLists[-1] = new List<object>() }
+                                                });
                                             }
                                             else
                                             {
@@ -2034,9 +2062,9 @@ namespace ATT
                                         if (item.TryGetValue("itemID", out long itemID))
                                         {
                                             var newItem = new Dictionary<string, object>
-                                        {
-                                            {"itemID", itemID },
-                                        };
+                                            {
+                                                {"itemID", itemID },
+                                            };
                                             Items.MergeInto(itemID, item, newItem);
                                             listing.Add(newItem);
                                         }
@@ -2050,19 +2078,23 @@ namespace ATT
                                         {
                                             if (!FilteredLists.TryGetValue(filterID, out listing))
                                             {
-                                                unsorted.Add(new Dictionary<string, object>
-                                            {
-                                                { "f", filterID },
-                                                { "g", listing = FilteredLists[filterID] = new List<object>() }
-                                            });
+                                                // ensure the filter group exists
+                                                Objects.Merge(unsorted, new Dictionary<string, object>
+                                                {
+                                                    { "f", filterID },
+                                                    { "g", new List<object>() },
+                                                });
+                                                // grab the resulting filter group 'g' list
+                                                unsorted.FindObject("f", filterID).TryGetValue("g", out listing);
+                                                FilteredLists[filterID] = listing;
                                             }
 
                                             if (item.TryGetValue("itemID", out long itemID))
                                             {
                                                 var newItem = new Dictionary<string, object>
-                                            {
-                                                {"itemID", itemID },
-                                            };
+                                                {
+                                                    {"itemID", itemID },
+                                                };
                                                 Items.MergeInto(itemID, item, newItem);
                                                 listing.Add(newItem);
                                             }
@@ -2077,13 +2109,22 @@ namespace ATT
             else
             {
                 var tierLists = new Dictionary<int, TierList>();
-                for (int tierID = 1; tierID <= 9; ++tierID)
+                int maxTierID = 10;// LAST_EXPANSION_PATCH[CURRENT_RELEASE_PHASE_NAME][0];
+                for (int tierID = 1; tierID <= maxTierID; ++tierID)
                 {
-                    unsorted.Add(new Dictionary<string, object>
+                    // ensure the tier group exists
+                    Objects.Merge(unsorted, new Dictionary<string, object>
                     {
                         { "tierID", tierID },
-                        { "g", (tierLists[tierID] = new TierList()).Groups },
+                        { "g", new List<object>() },
                     });
+                    // grab the resulting tier group 'g' list
+                    unsorted.FindObject("tierID", tierID).TryGetValue("g", out listing);
+                    // create a new TierList object tracking the specified g listing
+                    tierLists[tierID] = new TierList
+                    {
+                        Groups = listing
+                    };
                 }
                 TierList tier = tierLists[1];
                 var moreThanOne = tierLists.Count > 1;
@@ -2091,9 +2132,23 @@ namespace ATT
                 {
                     if (moreThanOne)
                     {
-                        // sort by level into tier
                         var level = GetDataMinLevel(item);
-                        if (level.HasValue)
+                        // try to sort by itemID
+                        if (item.TryGetValue("itemID", out long itemID))
+                        {
+                            if (itemID < 22727) tier = tierLists[1]; // Classic
+                            else if (itemID < 29205) tier = tierLists[2];   // Burning Crusade
+                            else if (itemID < 37649) tier = tierLists[3];   // Wrath of the Lich King
+                            else if (itemID < 72019) tier = tierLists[4];   // Cataclysm
+                            else if (itemID < 100855) tier = tierLists[5];   // Mists of Pandaria
+                            else if (itemID < 130731) tier = tierLists[6];   // Warlords of Draenor
+                            else if (itemID < 156823) tier = tierLists[7];   // Legion
+                            else if (itemID < 174366) tier = tierLists[8];   // Battle For Azeroth
+                            else if (itemID < 190311) tier = tierLists[9];   // Shadowlands
+                            else tier = tierLists[10];   // Dragonflight
+                        }
+                        // sort by level into tier if not an item
+                        else if (level.HasValue)
                         {
                             if (level <= 25) tier = tierLists[1]; // Classic
                             else if (level <= 27) tier = tierLists[2];   // Burning Crusade
@@ -2103,123 +2158,99 @@ namespace ATT
                             else if (level <= 40) tier = tierLists[6];   // Warlords of Draenor
                             else if (level <= 45) tier = tierLists[7];   // Legion
                             else if (level <= 50) tier = tierLists[8];   // Battle For Azeroth
-                            else tier = tierLists[9];   // Shadowlands
-                        }
-                        // else try to sort by itemID
-                        else if (item.TryGetValue("itemID", out object itemIDRef))
-                        {
-                            var itemID = Convert.ToInt64(itemIDRef);
-                            if (itemID < 22727) tier = tierLists[1]; // Classic
-                            else if (itemID < 29205) tier = tierLists[2];   // Burning Crusade
-                            else if (itemID < 37649) tier = tierLists[3];   // Wrath of the Lich King
-                            else if (itemID < 72019) tier = tierLists[4];   // Cataclysm
-                            else if (itemID < 100855) tier = tierLists[5];   // Mists of Pandaria
-                            else if (itemID < 130731) tier = tierLists[6];   // Warlords of Draenor
-                            else if (itemID < 156823) tier = tierLists[7];   // Legion
-                            else if (itemID < 174366) tier = tierLists[8];   // Battle For Azeroth
-                            else tier = tierLists[9];   // Shadowlands
+                            else if (level <= 60) tier = tierLists[9];   // Shadowlands
+                            else tier = tierLists[10];   // Dragonflight
                         }
                         // default tier assignment
                         else tier = tierLists[1];
                     }
 
-                    if (item.TryGetValue("f", out object objRef))
+                    if (item.TryGetValue("f", out long filterID) && filterID >= 0 && (filterID < 56 || filterID > 90))
                     {
-                        long filterID = Convert.ToInt64(objRef);
-                        if (filterID >= 0 && (filterID < 56 || filterID > 90))
+                        switch ((Objects.Filters)filterID)
                         {
-                            switch ((Objects.Filters)filterID)
-                            {
-                                /*
-                                case Objects.Filters.Invalid:
-                                case Objects.Filters.Ignored:
-                                case Objects.Filters.Toy:
-                                case Objects.Filters.Illusion:
-                                case Objects.Filters.Mount:
-                                case Objects.Filters.Quest:
-                                case Objects.Filters.Holiday:
-                                */
-                                case Objects.Filters.Recipe:
+                            case Objects.Filters.Invalid:
+                            case Objects.Filters.Ignored:
+                            case Objects.Filters.Quest:
+                            case Objects.Filters.Holiday:
+                                // specific types we don't really care to Source unless they are actually determined to be useful
+                                break;
+                            case Objects.Filters.Recipe:
+                                {
+                                    if (!tier.FilteredLists.TryGetValue(filterID, out listing))
                                     {
-                                        if (!tier.FilteredLists.TryGetValue(filterID, out listing))
-                                        {
-                                            tier.Groups.Add(new Dictionary<string, object>
+                                        tier.Groups.Add(new Dictionary<string, object>
                                         {
                                             { "f", filterID },
                                             { "g", listing = tier.FilteredLists[filterID] = new List<object>() }
                                         });
-                                        }
-                                        if (item.TryGetValue("requireSkill", out object requireSkillRef))
+                                    }
+                                    if (item.TryGetValue("requireSkill", out object requireSkillRef))
+                                    {
+                                        requireSkill = Convert.ToInt64(requireSkillRef);
+                                        if (!tier.ProfessionLists.TryGetValue(requireSkill, out List<object> sublisting))
                                         {
-                                            requireSkill = Convert.ToInt64(requireSkillRef);
-                                            if (!tier.ProfessionLists.TryGetValue(requireSkill, out List<object> sublisting))
-                                            {
-                                                listing.Add(new Dictionary<string, object>
+                                            listing.Add(new Dictionary<string, object>
                                             {
                                                 {"professionID", requireSkill },
                                                 { "g", listing = tier.ProfessionLists[requireSkill] = new List<object>() }
                                             });
-                                            }
-                                            else
-                                            {
-                                                listing = sublisting;
-                                            }
                                         }
                                         else
                                         {
-                                            if (!tier.ProfessionLists.TryGetValue(-1, out List<object> sublisting))
-                                            {
-                                                listing.Add(new Dictionary<string, object>
+                                            listing = sublisting;
+                                        }
+                                    }
+                                    else
+                                    {
+                                        if (!tier.ProfessionLists.TryGetValue(-1, out List<object> sublisting))
+                                        {
+                                            listing.Add(new Dictionary<string, object>
                                             {
                                                 { "f", (int)Objects.Filters.Miscellaneous },
                                                 { "g", listing = tier.ProfessionLists[-1] = new List<object>() }
                                             });
-                                            }
-                                            else
-                                            {
-                                                listing = sublisting;
-                                            }
                                         }
-
-                                        if (item.TryGetValue("itemID", out long itemID))
+                                        else
                                         {
-                                            var newItem = new Dictionary<string, object>
+                                            listing = sublisting;
+                                        }
+                                    }
+
+                                    if (item.TryGetValue("itemID", out long itemID))
+                                    {
+                                        var newItem = new Dictionary<string, object>
                                         {
                                             {"itemID", itemID },
                                         };
-                                            Items.MergeInto(itemID, item, newItem);
-                                            listing.Add(newItem);
-                                        }
-                                        break;
+                                        Items.MergeInto(itemID, item, newItem);
+                                        listing.Add(newItem);
                                     }
-                                default:
+                                    break;
+                                }
+                            default:
+                                {
+                                    item.Remove("spellID");
+                                    if (!tier.FilteredLists.TryGetValue(filterID, out listing))
                                     {
-                                        item.Remove("spellID");
-                                        if ((item.TryGetValue("q", out objRef) && Convert.ToInt64(objRef) >= 2)
-                                        || (filterID == 101 || filterID == 102 || filterID == 100 || filterID == 108 || filterID == 10))
+                                        tier.Groups.Add(new Dictionary<string, object>
                                         {
-                                            if (!tier.FilteredLists.TryGetValue(filterID, out listing))
-                                            {
-                                                tier.Groups.Add(new Dictionary<string, object>
-                                            {
-                                                { "f", filterID },
-                                                { "g", listing = tier.FilteredLists[filterID] = new List<object>() }
-                                            });
-                                            }
-
-                                            if (item.TryGetValue("itemID", out long itemID))
-                                            {
-                                                var newItem = new Dictionary<string, object>
-                                            {
-                                                {"itemID", itemID },
-                                            };
-                                                Items.MergeInto(itemID, item, newItem);
-                                                listing.Add(newItem);
-                                            }
-                                        }
-                                        break;
+                                            { "f", filterID },
+                                            { "g", listing = tier.FilteredLists[filterID] = new List<object>() }
+                                        });
                                     }
-                            }
+
+                                    if (item.TryGetValue("itemID", out long itemID))
+                                    {
+                                        var newItem = new Dictionary<string, object>
+                                        {
+                                            {"itemID", itemID },
+                                        };
+                                        Items.MergeInto(itemID, item, newItem);
+                                        listing.Add(newItem);
+                                    }
+                                    break;
+                                }
                         }
                     }
                 }
@@ -2348,7 +2379,7 @@ namespace ATT
                 }
                 if (unsortedQuests.Count > 0)
                 {
-                    unsorted.Add(new Dictionary<string, object>
+                    Objects.Merge(unsorted, new Dictionary<string, object>
                     {
                         { "npcID", -17 },
                         { "g", unsortedQuests },
@@ -3067,7 +3098,7 @@ namespace ATT
                                 {
                                     if (o is Dictionary<string, object> illusion)
                                     {
-                                        Items.Merge(illusion);
+                                        ConditionalItemData.Add(illusion);
                                     }
                                 }
                             }

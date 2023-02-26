@@ -704,11 +704,8 @@ root(ROOTS.WorldDrops, bubbleDown({ ["timeline"] = ADDED_DF_0_5, ["description"]
 		}),
 		n(WEAPONS, {
 			filter(ONE_HANDED_AXES, {
-				i(2047),	-- Anvilmar Hand Axe
-				i(20850),	-- Arcane Forged Axe
 				i(3443),	-- Ceremonial Tomahawk
 				i(2029),	-- Cleaver
-				i(2845),	-- Copper Axe
 				i(2522),	-- Crescent Axe
 				i(44642),	-- Dalaran Axe
 				i(3293),	-- Deadman Cleaver
@@ -719,10 +716,8 @@ root(ROOTS.WorldDrops, bubbleDown({ ["timeline"] = ADDED_DF_0_5, ["description"]
 				i(778),		-- Kobold Excavation Pick
 				i(768),		-- Lumberjack Axe
 				i(30751),	-- Mag'hari Light Axe
-				i(4923),	-- Primitive Hatchet
 				i(1011),	-- Sharp Axe
 				i(1383),	-- Stone Tomahawk
-				i(20837),	-- Sunstrider Axe
 				i(2490),	-- Tomahawk
 				i(2054),	-- Trogg Hand Axe
 			}),
@@ -750,32 +745,24 @@ root(ROOTS.WorldDrops, bubbleDown({ ["timeline"] = ADDED_DF_0_5, ["description"]
 				i(2505),	-- Polished Shortbow
 				i(12449),	-- Primitive Bow
 				i(3026),	-- Reinforced Bow
-				i(20910),	-- Stiff Shortbow
-				i(20838),	-- Sunstrider Bow
 				i(12447),	-- Thistlewood Bow
 				i(39522),	-- Wolvar Shortbow
-				i(23398),	-- Worn Ranger's Bow
 			}),
 			filter(CROSSBOWS, {
 				i(24433),	-- Crossbow of the Albatross
 				i(44637),	-- Dalaran Crossbow
 				i(30757),	-- Draenic Light Crossbow
-				i(24441),	-- Exodar Crossbow
 				i(15808),	-- Fine Light Crossbow
 				i(15809),	-- Heavy Crossbow
 				i(15807),	-- Light Crossbow
 			}),
 			filter(DAGGERS, {
 				i(20983),	-- Acolyte's Dagger
-				i(23923),	-- Amani Sacrificial Dagger
-				i(2195),	-- Anvilmar Knife
-				i(20852),	-- Arcane Forged Dirk
 				i(3225),	-- Bloodstained Knife
 				i(10547),	-- Camping Knife
 				i(7166),	-- Copper Dagger
 				i(44652),	-- Dalaran Dagger
 				i(2139),	-- Dirk
-				i(23391),	-- Exodar Dagger
 				i(40005),	-- Forsaken Blade
 				i(3268),	-- Forsaken Dagger
 				i(2207),	-- Jambiya
@@ -795,7 +782,6 @@ root(ROOTS.WorldDrops, bubbleDown({ ["timeline"] = ADDED_DF_0_5, ["description"]
 				i(4565),	-- Simple Dagger
 				i(4302),	-- Small Green Dagger
 				i(2494),	-- Stiletto
-				i(20836),	-- Sunstrider Dagger
 				i(5392),	-- Thistlewood Dagger
 				i(2787),	-- Trogg Dagger
 				i(2137),	-- Whittling Knife
@@ -818,7 +804,6 @@ root(ROOTS.WorldDrops, bubbleDown({ ["timeline"] = ADDED_DF_0_5, ["description"]
 			}),
 			filter(GUNS, {
 				i(30758),	-- Aldor Guardian Rifle
-				i(12446),	-- Anvilmar Musket
 				i(3025),	-- BKP 42 "Ultra"
 				i(3024),	-- BKP 2700 "Enforcer"
 				i(44635),	-- Dalaran Rifle
@@ -861,7 +846,6 @@ root(ROOTS.WorldDrops, bubbleDown({ ["timeline"] = ADDED_DF_0_5, ["description"]
 			}),
 			filter(ONE_HANDED_MACES, {
 				i(30754),	-- Ancient Bone Mace
-				i(20851),	-- Arcane Forged Mace
 				i(4563),	-- Billy Club
 				i(6651),	-- Broken Wine Bottle
 				i(2130),	-- Club
@@ -886,12 +870,10 @@ root(ROOTS.WorldDrops, bubbleDown({ ["timeline"] = ADDED_DF_0_5, ["description"]
 				i(4924),	-- Primitive Club
 				i(3262),	-- Putrid Wooden Hammer
 				i(1382),	-- Rock Mace
-				i(22956),	-- Rusty Mace
 				i(2055),	-- Small Wooden Hammer
 				i(3329),	-- Spiked Wooden Plank
 				i(781),		-- Stone Gnoll Hammer
 				i(1913),	-- Studded Blackjack
-				i(20840),	-- Sunstrider Mace
 				i(10544),	-- Thistlewood Maul
 				i(2064),	-- Trogg Club
 				i(2524),	-- Truncheon
@@ -915,18 +897,14 @@ root(ROOTS.WorldDrops, bubbleDown({ ["timeline"] = ADDED_DF_0_5, ["description"]
 			filter(MISC, {
 				i(46069),	-- Alliance Lance
 				i(6219),	-- Arclight Spanner
-				i(46106),	-- Argent Lance
 				i(5956),	-- Blacksmith Hammer
-				i(45861),	-- Diamond-Tipped Cane
 				i(85663),	-- Herbalist's Spade	-- TODO Mists of Pandaria
-				i(46070),	-- Horde Lance
 				i(2901),	-- Mining Pick
 				i(4616),	-- Ryedol's Lucky Pick
 				i(7005),	-- Skinning Knife
 				i(37708),	-- Stick
 			}),
 			filter(POLEARMS, {
-				i(44654),	-- Dalaran Spear
 				i(15811),	-- Heavy Spear
 				i(15810),	-- Short Spear
 				i(39987),	-- Tuskarr Fishing Spear
@@ -965,7 +943,6 @@ root(ROOTS.WorldDrops, bubbleDown({ ["timeline"] = ADDED_DF_0_5, ["description"]
 				i(17186),	-- Small Targe
 				i(4263),	-- Standard Issue Shield
 				i(2900),	-- Stone Buckler
-				i(20841),	-- Sunstrider Shield
 				i(9444),	-- Techbot CPU Shell
 				i(4911),	-- Thick Bark Buckler
 				i(6203),	-- Thuggish Shield
@@ -992,7 +969,6 @@ root(ROOTS.WorldDrops, bubbleDown({ ["timeline"] = ADDED_DF_0_5, ["description"]
 				i(23553),	-- Living Branch
 				i(767),		-- Long Bo Staff
 				i(928),		-- Long Staff
-				i(20853),	-- Mana Gathering Staff
 				i(1159),	-- Militia Quarterstaff
 				i(79740),	-- Plain Wooden Staff	-- TODO Mists of Pandaria
 				i(5778),	-- Primitive Walking Stick
@@ -1000,19 +976,13 @@ root(ROOTS.WorldDrops, bubbleDown({ ["timeline"] = ADDED_DF_0_5, ["description"]
 				i(2132),	-- Short Staff
 				i(22959),	-- Smooth Metal Staff
 				i(5581),	-- Smooth Walking Staff
-				i(20839),	-- Sunstrider Staff
 				i(24434),	-- The Discipline Stick
 				i(5393),	-- Thistlewood Staff
-				i(23371),	-- Velania's Walking Stick
 				i(2495),	-- Walking Stick
 				i(2535),	-- War Staff
 			}),
 			filter(ONE_HANDED_SWORDS, {
-				i(29518),	-- Amani Scimitar
-				i(20849),	-- Arcane Forged Shortsword
-				i(24448),	-- Battle Tested Blade
 				i(2520),	-- Broadsword
-				i(2847),	-- Copper Shortsword
 				i(851),		-- Cutlass
 				i(44638),	-- Dalaran Sword
 				i(3295),	-- Deadman Blade
@@ -1028,19 +998,14 @@ root(ROOTS.WorldDrops, bubbleDown({ ["timeline"] = ADDED_DF_0_5, ["description"]
 				i(4932),	-- Harpy Wing Clipper
 				i(18610),	-- Keen Machete
 				i(39371),	-- Keleseth's Persuader
-				i(23370),	-- Ley-Keeper's Blade
 				i(23373),	-- Long Knife
 				i(923),		-- Longsword
-				i(1161),	-- Militia Shortsword
 				i(2057),	-- Pitted Defias Shortsword
-				i(22957),	-- Rusty Sin'dorei Sword
 				i(2027),	-- Scimitar
 				i(57146),	-- Scythe Blade
 				i(3319),	-- Short Sabre
 				i(2131),	-- Shortsword
-				i(23396),	-- Slightly Used Ranger's Blade
 				i(3935),	-- Smotts' Cutlass
-				i(20835),	-- Sunstrider Sword
 				i(5586),	-- Thistlewood Blade
 			}),
 			filter(TWO_HANDED_SWORDS, {
@@ -1080,48 +1045,5 @@ root(ROOTS.WorldDrops, bubbleDown({ ["timeline"] = ADDED_DF_0_5, ["description"]
 			}),
 		}),
 	}),
-}));
--- All these Items are white/greys that are removed from the game & are sourced too
--- Listed them here for now. I want an easy unobtainable view ~~Gold
-root(ROOTS.NeverImplemented, bubbleDown({ ["u"] = NEVER_IMPLEMENTED }, {
-	-- Cloth
-	i(7095),	-- Bog Boots
-	i(3320),	-- Bonecaster Sash
-	i(6202),	-- Fingerless Gloves
-	i(2110),	-- Light Magesmith Robe
-	i(15794),	-- Ripped Ogre Loincloth
-	i(3260),	-- Scarlet Initiate Robes
-	i(2114),	-- Snowy Robe
-	i(4261),	-- Solliden's Trousers
-	i(3263),	-- Webbed
-	i(3261),	-- Webbed Cloak
-
-	-- Dagger
-	i(3445),	-- Ceremonial Knife
-	i(3296),	-- Deadman Dagger
-
-	-- Staff
-	i(4961),	-- Dreamwatcher Staff
-	i(2067),	-- Frostbit Staff
-	i(3327),	-- Vile Fin Oracle Staff
-
-	-- One Handed Axes
-	i(2260),	-- Frostmane Hand Axe
-	i(2066),	-- Skull Hatchet
-	i(3071),	-- Striking Hatchet
-
-	-- One Handed Sword
-	i(3455),	-- Deathstalker Shortsword
-	i(2065),	-- Rockjaw Blade
-	i(2282),	-- Rodentia Shortsword
-	i(1008),	-- Well-Used Sword
-
-	-- Two Handed Axes
-	i(6206),	-- Rock Chipper
-	i(3325),	-- Vile Fin Battle Axe
-
-	-- Two Handed Sword
-	i(6741),	-- Orcish War Sword
-	i(2754),	-- Tarnished Bastard Sword
 }));
 -- #endif

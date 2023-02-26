@@ -8,15 +8,6 @@
 root(ROOTS.ExpansionFeatures, tier(DF_TIER, bubbleDown({ ["timeline"] = TIMELINE_DF_REL }, {
 	n(PROFESSIONS, {
 		n(ACHIEVEMENTS, {
-			ach(17316, {	-- Dragon Isles Crafting Order Apprentice
-				["timeline"] = { ADDED_DF_0_5 },
-			}),
-			ach(17317, {	-- Dragon Isles Crafting Order Journeyman
-				["timeline"] = { ADDED_DF_0_5 },
-			}),
-			ach(17318, {	-- Dragon Isles Crafting Order Master
-				["timeline"] = { ADDED_DF_0_5 },
-			}),
 			ach(16683, {	-- In Tyr's Footsteps
 				crit(1, {	-- Lock and Shock
 					["_quests"] = { 70180 },	-- Jump-Start? Jump-Starting!
@@ -41,6 +32,12 @@ root(ROOTS.ExpansionFeatures, tier(DF_TIER, bubbleDown({ ["timeline"] = TIMELINE
 					["_quests"] = { 70900 },	-- Innovating the Engine
 					["timeline"] = { ADDED_DF_0_5 }
 				}),
+			}),
+			ach(16791, {	-- Merchant Artisan
+				title(485),	-- Merchant Artisan %s
+			}),
+			ach(16799, {	-- Personal Crafter
+				title(486),	-- Personal Crafter %s
 			}),
 		}),
 		n(QUESTS, {
@@ -424,7 +421,7 @@ root(ROOTS.ExpansionFeatures, tier(DF_TIER, bubbleDown({ ["timeline"] = TIMELINE
 				["coord"] = { 60.3, 72.2, THE_WAKING_SHORES },
 				["cost"] = { { "i", 191570, 2 }, },	-- 2x Dragon's Alchemical Solution
 				["g"] = {
-					i(191462),	-- Hochenblume+++
+					-- i(191462),	-- Hochenblume+++
 				},
 			}),
 			q(70183, { -- Specialized Secrets: Alchemy
@@ -1177,6 +1174,7 @@ root(ROOTS.ExpansionFeatures, tier(DF_TIER, bubbleDown({ ["timeline"] = TIMELINE
 				["isWeekly"] = true,
 				["groups"] = {
 					-- objectives don't exist in Retail because game has quest tracking by default
+					-- maybe plot a 2nd set of coordinates w/ a note so people know good spots for the quest :thinking:
 					objective(1, {	-- 0/20 Springy Horns
 						["provider"] = { "i", 201816 },	-- Springy Horn
 						["crs"] = {
@@ -1754,8 +1752,8 @@ root(ROOTS.ExpansionFeatures, tier(DF_TIER, bubbleDown({ ["timeline"] = TIMELINE
 				["provider"] = { "n", 192121 },	-- Falron Greygold
 				["coord"] = { 25.4, 54.2, THE_WAKING_SHORES },
 				["g"] = {
-					i(192851),	-- Eternity Amber+++
-					i(192845),	-- Vibrant Emerald+++
+					-- i(192851),	-- Eternity Amber+++
+					-- i(192845),	-- Vibrant Emerald+++
 				},
 			}),
 			q(70189, { -- Specialized Secrets: Jewelcrafting
@@ -2175,7 +2173,7 @@ root(ROOTS.ExpansionFeatures, tier(DF_TIER, bubbleDown({ ["timeline"] = TIMELINE
 				["coord"] = { 76.3, 34.6, THE_WAKING_SHORES },
 				["cost"] = { { "i", 197754, 5 }, },	-- 5xSalt Deposit
 				["g"] = {
-					i(190394),	-- Tyrivite Ore+++
+					-- i(190394),	-- Tyrivite Ore+++
 				}
 			}),
 			q(70258, {	-- Hidden Profession Master Mining

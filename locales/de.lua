@@ -1353,6 +1353,7 @@ for key,value in pairs({
 	[181638] = "Steckbrief",	-- Wanted Poster
 	[181643] = "Federbarts Überreste",	-- Featherbeard's Remains
 	[181649] = "Federbarts Tagebuch",	-- Featherbeard's Journal
+	[181665] = "Grabtruhe",	-- Burial Chest
 	[181672] = "Weidenmann",	-- Wickerman Effigy
 	[181681] = "Elunes Kelch",	-- Chalice of Elune
 	[181687] = "Holzstapel",	-- Lumber Pile
@@ -1387,6 +1388,7 @@ for key,value in pairs({
 	[184465] = "Behälter der Legion",	-- Cache of the Legion
 	[184660] = "Steckbrief",	-- Wanted Poster
 	[184684] = "Ei eines gefräßigen Schinders",	-- Ravenous Flayer Egg
+	[184793] = "Primitive Truhe",	-- Primitive Chest
 	[184825] = "Foliant der Lashh'an",	-- Lashh'an Tome
 	[184945] = "Steckbrief",	-- Wanted Poster
 	[184946] = "Steckbrief",	-- Wanted Poster
@@ -3542,10 +3544,10 @@ for key,value in pairs({
 	[380556] = "Harmonische Truhe",	-- Harmonic Chest
 	[380558] = "Verzauberte Trümmer",	-- Enchanted Debris
 	[380559] = "Frostgeschmiedeter Trank",	-- Frostforged Potion
-	--TODO: [380560] = "Disabled Tesla Coil",	-- Disabled Tesla Coil
+	[380560] = "Deaktivierte Teslaspule",	-- Disabled Tesla Coil
 	[380567] = "Sturm-Acht",	-- Eight of Storms
 	[380569] = "Kristalliner Überwuchs",	-- Crystalline Overgrowth
-	--TODO: [380570] = "Curious Glyph",	-- Curious Glyph
+	[380570] = "Merkwürdige Glyphe",	-- Curious Glyph
 	[380571] = "Bummthyrrakete",	-- Boomthyr Rocket
 	[380577] = "Erhabener Malygit",	-- Lofty Malygite
 	[380578] = "Welplingzähmen leicht gemacht",	-- How to Train Your Whelpling
@@ -3607,7 +3609,7 @@ for key,value in pairs({
 	[381108] = "Yennus Karte",	-- Yennu's Map
 	--TODO: [381110] = "Forgotten Jewel Box",	-- Forgotten Jewel Box
 	--TODO: [381153] = "Ruby Gem Cluster",	-- Ruby Gem Cluster
-	--TODO: [381157] = "Sapphire Gem Cluster",	-- Sapphire Gem Cluster
+	[381157] = "Saphiredelsteinklumpen",	-- Sapphire Gem Cluster
 	--TODO: [381158] = "Gnoll Fiend Flail",	-- Gnoll Fiend Flail
 	[381160] = "Verlorener Kompass",	-- Lost Compass
 	[381216] = "Landvermesserlupe",	-- Surveyor's Magnifying Glass
@@ -3630,7 +3632,7 @@ for key,value in pairs({
 	[381510] = "Knochen fliegender Fische",	-- Flying Fish Bones
 	[381511] = "Harpunenspitze",	-- Harpoon Head
 	[381512] = "Holzstab",	-- Wooden Pole
-	--TODO: [381513] = "Old Pickaxe",	-- Old Pickaxe
+	[381513] = "Alte Spitzhacke",	-- Old Pickaxe
 	[381514] = "Wassergeschliffener Basalt",	-- Sea-Polished Basalt
 	[381575] = "Entenfallen-Set",	-- Duck Trap Kit
 	[381579] = "Anfrage des Archivars",	-- Archivists' Request
@@ -3664,7 +3666,7 @@ for key,value in pairs({
 	[384318] = "Unauffälliges Lesezeichen",	-- Inconspicuous Bookmark
 	[384370] = "Vorsätzlich schlampige Notizen",	-- Deliberately Delinquent Notes
 	[384405] = "Halbgarer Fisch",	-- Half-Boiled Fish
-	--TODO: [385001] = "Empty Fish Barrel",	-- Empty Fish Barrel
+	[385001] = "Leeres Fischfass",	-- Empty Fish Barrel
 	[385021] = "Versteinertes Drachenei",	-- Petrified Dragon Egg
 	[385022] = "Erodiertes Fossil",	-- Eroded Fossil
 	--TODO: [999111] = "Amber Gem Cluster",	-- Amber Gem Cluster

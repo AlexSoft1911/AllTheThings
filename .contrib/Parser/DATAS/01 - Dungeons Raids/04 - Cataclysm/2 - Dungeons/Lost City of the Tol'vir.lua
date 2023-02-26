@@ -227,6 +227,7 @@ _.Instances = { tier(CATA_TIER, {
 						["g"] = {
 							ach(5292),	-- Headed South
 							ach(5066),	-- Heroic: Lost City of the Tol'vir
+							ach(5140),	-- Heroic: Lost City of the Tol'vir Guild Run
 							i(56396),	-- Hammer of Sparks
 							i(157599),	-- Sceptre of Swirling Winds
 							i(56402),	-- Zora's Ward
@@ -243,7 +244,7 @@ _.Instances = { tier(CATA_TIER, {
 				},
 			}),
 			-- #if AFTER 6.2.3.20601
-			d(24, {	-- Timewalking
+			d(TIMEWALKING_DUNGEON, {
 				["sym"] = {	-- link in Timewalking content
 					{"sub", "tw_instance", 69 },	-- this instance version of timewalking
 				},

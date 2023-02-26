@@ -236,6 +236,7 @@ _.Instances = { tier(LEGION_TIER, {
 					})),
 					cr(95888, e(1470, {	-- Cordana Felsong
 						ach(10803),	-- Mythic: Vault of the Wardens
+						ach(10861),	-- Mythic: Vault of the Wardens Guild Run
 						ach(10680),	-- Who's Afraid of the Dark?
 						i(137852),	-- Design: Vindictive Pandemonite Choker [Rank 3] (RECIPE!)
 						i(128607),	-- Formula: Enchant Cloak - Binding of Strength [Rank 3] (RECIPE!)
@@ -262,7 +263,7 @@ _.Instances = { tier(LEGION_TIER, {
 				},
 			}),
 			-- #if AFTER 9.1.5
-			d(24, {	-- Timewalking
+			d(TIMEWALKING_DUNGEON, {
 				["sym"] = {	-- link in Timewalking content
 					{"sub", "tw_instance", 707 },	-- this instance version of timewalking
 				},

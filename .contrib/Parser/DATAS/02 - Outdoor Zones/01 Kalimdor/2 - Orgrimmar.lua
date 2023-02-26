@@ -640,6 +640,18 @@ root(ROOTS.Zones, m(KALIMDOR, {
 					["coord"] = { 52.6, 88.2, ORGRIMMAR },
 					["races"] = { BLOODELF },
 				}),
+				q(1508, {	-- Blind Cazul
+					["qg"] = 5909,	-- Cazul
+					["sourceQuests"] = {
+						1507,	-- Devourer of Souls [Orgrimmar]
+						1472,	-- Devourer of Souls [Undercity]
+					},
+					["coord"] = { 47.2, 46.6, ORGRIMMAR },
+					["timeline"] = { "removed 4.0.3" },
+					["races"] = { ORC, UNDEAD },
+					["classes"] = { WARLOCK },
+					["lvl"] = 20,
+				}),
 				q(29401, {	-- Blown Away
 					["qg"] = 54004,	-- Jaga
 					["coord"] = { 48.1, 46.8, ORGRIMMAR },
@@ -715,18 +727,21 @@ root(ROOTS.Zones, m(KALIMDOR, {
 						}),
 					},
 				}),
+				q(1507, {	-- Devourer of Souls [Orgrimmar]
+					["qg"] = 5875,	-- Dan'rul Bloodeye
+					["altQuests"] = { 1472 },	-- Devourer of Souls [Undercity]
+					["timeline"] = { "removed 4.0.3" },
+					["races"] = { ORC, UNDEAD },
+					["classes"] = { WARLOCK },
+					["isBreadcrumb"] = true,
+					["lvl"] = 20,
+				}),
 				q(49855, {	-- Disaster at Mount Hyjal
 					["sourceQuest"] = 28805,	-- The Eye of the Storm
 					["isBreadcrumb"] = true,
 					["qg"] = 45244,	-- Farseer Krogar
 					["coord"] = { 50.4, 38.2, ORGRIMMAR },
 					["races"] = HORDE_ONLY,
-				}),
-				q(6385, {	-- Doras the Wind Rider Master
-					["sourceQuest"] = 6384,	-- Ride to Orgrimmar
-					["qg"] = 6929,	-- Innkeeper Gryshka
-					["coord"] = { 53.5, 78.7, ORGRIMMAR },
-					["races"] = { ORC, TROLL, MAGHAR },
 				}),
 				q(13842, {	-- Dread Head Redemption
 					["sourceQuest"] = 13841,	-- All Apologies
@@ -825,9 +840,20 @@ root(ROOTS.Zones, m(KALIMDOR, {
 					},
 				})),
 				q(1945, {	-- Laughing Sisters
+					["qg"] = 5885,	-- Deino <Mage Trainer>
+					["sourceQuest"] = 1944,	-- Waters of Xavian
+					["coord"] = { 38.6, 86.0, ORGRIMMAR },
+					["timeline"] = { "removed 4.0.3" },
+					["maps"] = { ASHENVALE },
+					["races"] = { UNDEAD, TROLL },
 					["classes"] = { MAGE },
-					["races"] = HORDE_ONLY,
-					["u"] = REMOVED_FROM_GAME,
+					["lvl"] = 15,
+					["groups"] = {
+						objective(1, {	-- 0/12 Laughing Sister's Hair
+							["provider"] = { "i", 7270 },	-- Laughing Sister's Hair
+							["cr"] = 4054,	-- Laughing Sister
+						}),
+					},
 				}),
 				q(32673, {	-- Learn To Ride
 					["DisablePartySync"] = true,
@@ -1071,27 +1097,11 @@ root(ROOTS.Zones, m(KALIMDOR, {
 					["coord"] = { 48.6, 71.0, ORGRIMMAR },
 					["races"] = { GOBLIN },
 				}),
-				q(6386, {	-- Return to Razor Hill
-					["sourceQuest"] = 6385,	-- Doras the Wind Rider Master
-					["qg"] = 3310,	-- Doras
-					["coord"] = { 49.5, 59.2, ORGRIMMAR },
-					["races"] = { ORC, TROLL, MAGHAR },
-				}),
 				q(26840, {	-- Return to the Highlands
 					["sourceQuest"] = 26830,	-- Traitor's Bait
 					["qg"] = 3144,	-- Eitrigg
 					["coord"] = { 48.6, 71.0, ORGRIMMAR },
 					["races"] = HORDE_ONLY,
-				}),
-				q(3924, {	-- Samophlange Manual
-					["qg"] = 9317,	-- Rilli Greasygob
-					["coord"] = { 56.8, 56.4, ORGRIMMAR },
-					["races"] = HORDE_ONLY,
-					["u"] = REMOVED_FROM_GAME,
-					["groups"] = {
-						un(REMOVED_FROM_GAME, i(11854)),	-- Samophlange Screwdriver
-						un(REMOVED_FROM_GAME, i(11855)),	-- Tork Wrench
-					},
 				}),
 				q(28909, {	-- Sauranok Will Point the Way
 					["sourceQuest"] = 26294,	-- Weapons of Mass Dysfunction
@@ -1111,12 +1121,14 @@ root(ROOTS.Zones, m(KALIMDOR, {
 						i(65630),	-- Headcover of the Speaker
 					},
 				}),
-				q(1823, {	-- Speak with Ruga
-					["qg"] = 3354,	-- Sorek
-					["classes"] = { WARRIOR },
-					["coord"] = { 80.0, 32.2, ORGRIMMAR },
-					["races"] = HORDE_ONLY,
-					["u"] = REMOVED_FROM_GAME,
+				q(1943, {	-- Speak with Deino
+					["qg"] = 4568,	-- Anastasia Hartwell <Mage Trainer>
+					["coord"] = { 85, 10.2, UNDERCITY },
+					["timeline"] = { "removed 4.0.3" },
+					["races"] = { UNDEAD, TROLL },
+					["classes"] = { MAGE },
+					["isBreadcrumb"] = true,
+					["lvl"] = 26,
 				}),
 				q(66253, bubbleDownSelf({ ["timeline"] = { "added 9.2.5" } }, {	-- Stolen Shipments
 					["qg"] = 187758,	-- Zaa'je
@@ -1317,12 +1329,6 @@ root(ROOTS.Zones, m(KALIMDOR, {
 					},
 					["races"] = HORDE_ONLY,
 				}),
-				q(1146, {	-- The Swarm Grows
-					["sourceQuest"] = 1145,	-- The Swarm Grows
-					["qg"] = 4485,	-- Belgrom Rockmaul
-					["races"] = HORDE_ONLY,
-					["u"] = REMOVED_FROM_GAME,
-				}),
 				q(29220, {	-- To Bambala
 					["qg"] = 52234,	-- Bwemba
 					["coord"] = { 32.6, 68.2, ORGRIMMAR },
@@ -1373,6 +1379,8 @@ root(ROOTS.Zones, m(KALIMDOR, {
 					},
 				}),
 				q(1944, {	-- Waters of Xavian
+					["qg"] = 5885,	-- Deino <Mage Trainer>
+					["sourceQuest"] = 1943,	-- Speak with Deino
 					["classes"] = { MAGE },
 					["races"] = HORDE_ONLY,
 					["u"] = REMOVED_FROM_GAME,
@@ -5001,6 +5009,32 @@ root(ROOTS.Zones, m(KALIMDOR, {
 						-- SHAMAN --
 						i(52545),	-- Primal Pants
 						i(52544),	-- Primal Robe
+						
+						-- Unsure Which Class --
+						i(2398),	-- Light Chain Armor
+						i(2399),	-- Light Chain Belt
+						i(2400),	-- Light Chain Leggings
+						i(2401),	-- Light Chain Boots
+						i(2402),	-- Light Chain Bracers
+						i(2403),	-- Light Chain Gloves
+						i(17185),	-- Round Buckler
+						i(2376),	-- Worn Heater Shield
+						i(847),		-- Chainmail Armor
+						i(1845),	-- Chainmail Belt
+						i(848),		-- Chainmail Pants
+						i(849),		-- Chainmail Boots
+						i(1846),	-- Chainmail Bracers
+						i(850),		-- Chainmail Gloves
+						i(17187),	-- Banded Buckler
+						i(1202),	-- Wall Shield
+						i(285),		-- Scalemail Vest
+						i(1853),	-- Scalemail Belt
+						i(286),		-- Scalemail Pants
+						i(287),		-- Scalemail Boots
+						i(1852),	-- Scalemail Bracers
+						i(718),		-- Scalemail Gloves
+						i(17188),	-- Ringed Buckler
+						i(2445),	-- Large Metal Shield
 					}),
 				}),
 				-- #endif
@@ -5577,6 +5611,37 @@ root(ROOTS.Zones, m(KALIMDOR, {
 						i(87800, {	-- Red Dragon Turtle (MOUNT!) (NON-P)
 							["races"] = exclude({ PANDAREN_NEUTRAL, PANDAREN_ALLIANCE, PANDAREN_HORDE }, ALL_RACES),
 						}),
+					},
+				}),
+				n(3314, {	-- Urtharo <Weapon Merchant>
+					--TODO: No idea if this is how we're going to format these but I figured I'd start adding in the basics as I found them
+					["coord"] = { 46.6, 73.8, ORGRIMMAR },
+					["races"] = HORDE_ONLY,
+					["groups"] = {
+						i(2131),	-- Shortsword
+						i(1194),	-- Bastard Sword
+						i(2134),	-- Hand Axe
+						i(2479),	-- Broad Axe
+						i(2130),	-- Club
+						i(2480),	-- Large Club
+						i(2139),	-- Dirk
+						i(2132),	-- Short Staff
+						i(2489),	-- Two-Handed Sword
+						i(2492),	-- Cudgel
+						i(2491),	-- Large Axe
+						i(2494),	-- Stiletto
+						i(2495),	-- Walking Stick
+						i(2488),	-- Gladius
+						i(2490),	-- Tomahawk
+						i(2493),	-- Wooden Mallet
+						i(851),		-- Cutlass
+						i(1198),	-- Claymore
+						i(853),		-- Hatchet
+						i(1196),	-- Tabar
+						i(852),		-- Mace
+						i(1197),	-- Giant Mace
+						i(2207),	-- Jambiya
+						i(854),		-- Quarter Staff
 					},
 				}),
 				n(45546, {	-- Vizna Bangwrench <Engineering Supplies>

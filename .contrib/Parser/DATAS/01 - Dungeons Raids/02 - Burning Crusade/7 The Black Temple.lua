@@ -447,6 +447,9 @@ root(ROOTS.Instances, tier(TBC_TIER, applyclassicphase(TBC_PHASE_THREE, {
 								["OnUpdate"] = [[_.CommonAchievementHandlers.ANY_SOURCE_QUEST]],
 								-- #endif
 							}),
+							ach(5091, {	-- The Black Temple Guild Run
+								["timeline"] = { "added 4.0.3" },
+							}),
 							applyclassicphase(TBC_PHASE_THREE_GLAIVEPRIO, classicAch(426, {	-- Warglaives of Azzinoth
 								["providers"] = {
 									{ "i", 32837 },	-- Warglaive of Azzinoth (LEGENDARY! MH)
@@ -494,7 +497,7 @@ root(ROOTS.Instances, tier(TBC_TIER, applyclassicphase(TBC_PHASE_THREE, {
 			-- #if AFTER LEGION
 				},
 			}),
-			d(24, {	-- Timewalking
+			d(TIMEWALKING_DUNGEON, {
 				-- #if ANYCLASSIC
 				["u"] = LEGION_PHASE_ONE,
 				-- #endif

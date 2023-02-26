@@ -223,6 +223,7 @@ _.Instances = { tier(CATA_TIER, {
 					cr(39705, e(109, {	-- Ascendent Lord Obsidius
 						ach(5284),	-- Ascendant Descending
 						ach(5060),	-- Heroic: Blackrock Caverns
+						ach(5134),	-- Heroic: Blackrock Caverns Guild Run
 						i(56317),	-- Amber Messenger
 						i(56322),	-- Crepuscular Shield
 						i(56321),	-- Willowy Crown
@@ -236,7 +237,7 @@ _.Instances = { tier(CATA_TIER, {
 				},
 			}),
 			-- #if AFTER 9.1.5
-			d(24, {	-- Timewalking
+			d(TIMEWALKING_DUNGEON, {
 				["sym"] = {	-- link in Timewalking content
 					{"sub", "tw_instance", 66 },	-- this instance version of timewalking
 				},

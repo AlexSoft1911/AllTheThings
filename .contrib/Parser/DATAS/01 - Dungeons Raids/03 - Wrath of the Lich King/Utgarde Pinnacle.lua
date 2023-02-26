@@ -30,6 +30,22 @@ root(ROOTS.Instances, tier(WOTLK_TIER, applyclassicphase(WRATH_PHASE_ONE, {
 					}),
 					-- #endif
 				}),
+				-- #if ANYCLASSIC
+				applyclassicphase(WRATH_PHASE_TWO, ach(17301, {	-- Defense Protocol Alpha: Utgarde Pinnacle
+					crit(57767, { -- Svala Sorrowgrave
+						["_encounter"] = { 641, 2 },
+					}),
+					crit(57769, { -- Gortok Palehoof
+						["_encounter"] = { 642, 2 },
+					}),
+					crit(57768, { -- Skadi the Ruthless
+						["_encounter"] = { 643, 2 },
+					}),
+					crit(57766, { -- King Ymiron
+						["_encounter"] = { 644, 2 },
+					}),
+				})),
+				-- #endif
 				ach(499, { -- Heroic: Utgarde Pinnacle
 					crit(6864, { -- Svala Sorrowgrave
 						["_encounter"] = { 641, 2 },
@@ -277,6 +293,9 @@ root(ROOTS.Instances, tier(WOTLK_TIER, applyclassicphase(WRATH_PHASE_ONE, {
 					e(644, {	-- King Ymiron
 						["creatureID"] = 26861,	-- King Ymiron
 						["groups"] = {
+							ach(5105, {	-- Heroic: Utgarde Pinnacle Guild Run
+								["timeline"] = { "added 4.0.3" },
+							}),
 							ach(2157),	-- King's Bane
 							{	-- Champion of the Frozen Wastes
 								["achievementID"] = 1658,	-- Champion of the Frozen Wastes
@@ -317,7 +336,7 @@ root(ROOTS.Instances, tier(WOTLK_TIER, applyclassicphase(WRATH_PHASE_ONE, {
 				},
 			}),
 			-- #if AFTER 6.2.3.20601
-			d(24, {	-- Timewalking
+			d(TIMEWALKING_DUNGEON, {
 				["sym"] = {	-- link in Timewalking content
 					{"sub", "tw_instance", 286 },	-- this instance version of timewalking
 				},

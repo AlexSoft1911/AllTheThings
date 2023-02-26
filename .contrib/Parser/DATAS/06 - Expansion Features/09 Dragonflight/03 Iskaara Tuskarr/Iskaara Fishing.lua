@@ -5,6 +5,7 @@ root(ROOTS.ExpansionFeatures, tier(DF_TIER, bubbleDown({ ["timeline"] = TIMELINE
 	n(ISKAARA_TUSKARR, {
 		n(ISKAARA_FISHING, {
 			n(ACHIEVEMENTS, {
+				ach(16531),	-- A Whole Heap of Lunkers
 				ach(16322, {	-- Best in Slot
 					crit(1, {	-- Harpoon handle
 						["_quests"] = { 70795 },	-- Reinforced Irontree Harpoon Handle
@@ -23,17 +24,20 @@ root(ROOTS.ExpansionFeatures, tier(DF_TIER, bubbleDown({ ["timeline"] = TIMELINE
 					}),
 				}),
 				ach(16321),	-- Cutting Tusk Equipment
-				ach(16317),	-- Secret Fishing Spots
-				ach(16561),	-- Lunkers, Lunkers Everywhere
-				ach(16562),	-- That's not a Fish...
-				ach(16563),	-- We're Going to Need a Bigger Harpoon
+				ach(16550),	-- Giving Back to Nature
+				ach(16552),	-- Giving Even More Back to Nature
+				ach(16551),	-- Giving More Back to Nature
+				ach(16548),	-- It Takes a Tuskarr Buddy
 				ach(16564),	-- It Takes a Tuskarr Family
 				ach(16565),	-- It Takes a Tuskarr Village
-
-				ach(16550),	-- Giving Back to Nature
-				ach(16551),	-- Giving More Back to Nature
-				ach(16552),	-- Giving Even More Back to Nature
+				ach(16533),	-- Lots of Lunkers
+				ach(16561),	-- Lunkers, Lunkers Everywhere
+				ach(16547),	-- Pulled!
+				ach(16317),	-- Secret Fishing Spots
 				ach(16553),	-- Taking From Nature
+				ach(16562),	-- That's not a Fish...
+				ach(16563),	-- We're Going to Need a Bigger Harpoon
+				ach(16546),	-- What's Down There?
 			}),
 			n(QUESTS, {
 					-- RENOWN 4 --
@@ -241,6 +245,24 @@ root(ROOTS.ExpansionFeatures, tier(DF_TIER, bubbleDown({ ["timeline"] = TIMELINE
 					["minReputation"] = { 2511, 13 },	-- Iskaara Tuskarr Renown 13
 					["isRepeatable"] = true,
 				}),
+				q(72786, {	-- Contribue Supplies: Strong Seavine
+					["provider"] = { "n", 195935 },	-- Tavio
+					["coord"] = { 12.8, 49.1, THE_AZURE_SPAN },
+					["minReputation"] = { 2511, 13 },	-- Iskaara Tuskarr Renown 13
+					["isRepeatable"] = true,
+				}),
+				q(72788, {	-- Contribue Supplies: Irontree Branch
+					["provider"] = { "n", 195935 },	-- Tavio
+					["coord"] = { 12.8, 49.1, THE_AZURE_SPAN },
+					["minReputation"] = { 2511, 13 },	-- Iskaara Tuskarr Renown 13
+					["isRepeatable"] = true,
+				}),
+				q(72791, {	-- Contribute Supplies: Khaz'gorite Wire
+					["provider"] = { "n", 195935 },	-- Tavio
+					["coord"] = { 12.8, 49.1, THE_AZURE_SPAN },
+					["minReputation"] = { 2511, 13 },	-- Iskaara Tuskarr Renown 13
+					["isRepeatable"] = true,
+				}),
 			}),
 			prof(TUSKARR_FISHING_GEAR, sharedData({
 				["requireSkill"] = FISHING,	-- Minimum 25, but it shows in the tooltip
@@ -249,14 +271,21 @@ root(ROOTS.ExpansionFeatures, tier(DF_TIER, bubbleDown({ ["timeline"] = TIMELINE
 				["coord"] = { 12.8, 49.2, THE_AZURE_SPAN },
 				["g"] = {
 					-- These "Recipes" show as learned, but when you have learned them, they dissapear causing ATT to think you no longer have them learned.
-					-- ToDo: Cost
 					i(199847, {	-- Braided Seavine Harpoon Rope
 						["spellID"] = 388251,	-- Braided Seavine Harpoon Rope
 						["questID"] = 70799,	-- Triggered after crafting 'Braided Seavine Harpoon Rope'
+						["cost"] = {
+							{ "i", 200081, 6 },	-- 6x Strong Seavine
+							{ "i", 200086, 1 },	-- 1x Khaz'gorite-infused Resin
+						},
 					}),
 					i(199849, {	-- Dense Draconium Net Weight
 						["spellID"] = 388253,	-- Dense Draconium Net Weights
 						["questID"] = 70801,	-- Triggered after crafting 'Dense Draconium Net Weights'
+						["cost"] = {
+							{ "i", 200080, 6 },	-- 6x Draconium Nugget
+							{ "i", 200085, 1 },	-- 1x Khaz'gorite Wire
+						},
 					}),
 					i(199851, {	-- Double Imbu Knot
 						["spellID"] = 388255,	-- Double Imbu Knot
@@ -269,50 +298,91 @@ root(ROOTS.ExpansionFeatures, tier(DF_TIER, bubbleDown({ ["timeline"] = TIMELINE
 					i(199848, {	-- Draconium Net Weights
 						["spellID"] = 388252,	-- Draconium Net Weights
 						["questID"] = 70800,	-- Triggered after crafting 'Draconium Net Weights'
+						["cost"] = {
+							{ "i", 200080, 3 },	-- 3x Draconium Nugget
+						},
 					}),
 					i(199694, {	-- Flying Fish Bone Charm
 						["spellID"] = 387827,	-- Flying Fish Bone Charm
 						["questID"] = 67139,	-- Triggered after crafting 'Flying Fish Bone Charm'
+						["cost"] = {
+							{ "i", 200075, 1 },	-- 1x Flying Fish Bones
+						},
 					}),
 					i(199850, {	-- Imbu Knot
 						["spellID"] = 388254,	-- Imbu Knot
 						["questID"] = 70802,	-- Triggered after crafting 'Imbu Knot'
+						["cost"] = {
+							{ "i", 200082, 3 },	-- 3x Battered Imbu-made Net
+						},
 					}),
 					i(199698, {	-- Irontree Harpoon Handle
 						["spellID"] = 387836,	-- Irontree Harpoon Handle
 						["questID"] = 70794,	-- Triggered after crafting 'Irontree Harpoon Handle'
+						["cost"] = {
+							{ "i", 200083, 3 },	-- 3x Irontree Branch
+						},
 					}),
 					i(199695, {	-- Iskaaran Fishing Net
 						["spellID"] = 387828,	-- Iskaaran Fishing Net
-						["questID"] = 70793,	-- Triggered after crafting Iskaaran Fishing Net during Iskaaran Fishing Net (questID 70871)
+						["questID"] = 70793,	-- Triggered after crafting 'Iskaaran Fishing Net'
+						["cost"] = {
+							{ "i", 199925, 2 },	-- 2x Stone With Hole
+							{ "i", 199924, 3 },	-- 3x Strong Sea Kelp
+						},
 					}),
 					i(194510, {	-- Iskaaran Harpoon
 						["spellID"] = 387831,	-- Iskaaran Harpoon
-						["questID"] = 70792,	-- Triggered after crafting Iskaaran Harpoon
+						["questID"] = 70792,	-- Triggered after crafting 'Iskaaran Harpoon'
+						["cost"] = {
+							{ "i", 200076, 1 },	-- 1x Harpoon Head
+							{ "i", 198070, 1 },	-- 1x Tattered Seavine
+							{ "i", 200077, 1 },	-- 1x Wooden Pole
+						},
 					}),
 					i(199696, {	-- Iskaaran Ice Axe
 						["spellID"] = 387832,	-- Iskaaran Ice Axe
 						["questID"] = 67141,	-- Triggered after crafting 'Iskaaran Ice Axe'
+						["cost"] = {
+							{ "i", 200078, 1 },	-- 1x Pickaxe Blade
+						},
 					}),
 					i(199845, {	-- Jagged Serevite Harpoon Head
 						["spellID"] = 388249,	-- Jagged Serevite Harpoon Head
 						["questID"] = 70797,	-- Triggered after crafting 'Jagged Serevite Harpoon Head'
+						["cost"] = {
+							{ "i", 200084, 6 },	-- 6x Salinated Serevite
+							{ "i", 200086, 1 },	-- 1x Khaz'gorite-infused Resin
+						},
 					}),
 					i(199697, {	-- Polished Basalt Bracelet
 						["spellID"] = 387833,	-- Polished Basalt Bracelet
 						["questID"] = 67140,	-- Triggered after crafting 'Polished Basalt Bracelet'
+						["cost"] = {
+							{ "i", 200079, 3 },	-- 3x Sea-Polished Basalt
+						},
 					}),
 					i(199641, {	-- Reinforced Irontree Harpoon Handle
 						["spellID"] = 387594,	-- Reinforced Irontree Harpoon Handle
 						["questID"] = 70795,	-- Triggered after crafting 'Reinforced Irontree Harpoon Handle'
+						["cost"] = {
+							{ "i", 200083, 6 },	-- 6x Irontree Branch
+							{ "i", 200086, 1 },	-- 1x Khaz'gorite-infused Resin
+						},
 					}),
 					i(199846, {	-- Seavine Harpoon Rope
 						["spellID"] = 388250,	-- Seavine Harpoon Rope
 						["questID"] = 70798,	-- Triggered after crafting 'Seavine Harpoon Rope'
+						["cost"] = {
+							{ "i", 200081, 3 },	-- 3x Strong Seavine
+						},
 					}),
 					i(199844, {	-- Serevite Harpoon Head
 						["spellID"] = 387375,	-- Serevite Harpoon Head
 						["questID"] = 70796,	-- Triggered after crafting 'Serevite Harpoon Head'
+						["cost"] = {
+							{ "i", 200084, 3 },	-- 3x Salinated Serevite
+						},
 					}),
 				},
 			})),
@@ -513,9 +583,12 @@ root(ROOTS.HiddenQuestTriggers, m(DRAGON_ISLES, {
 		q(72280),	-- Triggered with 'Hook, Line, and Swelter!' (70948)
 		q(72640),	-- Triggered with 'Abandoned... or Hidden Caches' (70952)
 		--
-		q(74370),	-- Triggered with 'Contribute Supplies: Battered Imbu-made Net'
-		q(74369),	-- Triggered with 'Contribute Supplies: Salinated Serevite'
-		q(74368),	-- Triggered with 'Contribute Supplies: Khaz'gorite-infused Resin'
+		q(74370),	-- First weekly completion of 'Contribute Supplies: Battered Imbu-made Net'
+		q(74369),	-- First weekly completion of 'Contribute Supplies: Salinated Serevite'
+		q(74368),	-- First weekly completion of 'Contribute Supplies: Khaz'gorite-infused Resin'
+		q(74371),	-- First weekly completion of 'Contribute Supplies: Khaz'gorite Wire'
+		q(74372),	-- First weekly completion of 'Contribute Supplies: Strong Seavine'
+		q(74367),	-- First weekly completion of 'Contribute Supplies: Irontree Branch'
 		--
 		q(72828),	-- First weekly completion of 'Catch and Release: Scalebell Mackerel' (70199)
 		q(72827),	-- First weekly completion of 'Catch and Release: Thousandbite Piranha' (70200)

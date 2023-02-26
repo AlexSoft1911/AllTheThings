@@ -135,6 +135,7 @@ _.Instances = { tier(MOP_TIER, {
 					cr(56884, e(686, {	-- Taran Zhu
 						ach(6471),	-- Hate Leads to Suffering
 						ach(6470),	-- Heroic: Shado-Pan Monastery
+						ach(6767),	-- Heroic: Shado-Pan Monastery Guild Run
 						ach(6469),	-- Shado-Pan Monastery
 						i(144109),	-- Warmace of Taran Zhu
 						i(144215),	-- Ka'eng, Breath of the Shadow
@@ -160,7 +161,7 @@ _.Instances = { tier(MOP_TIER, {
 				},
 			}),
 			-- #if AFTER 7.1.5.23360
-			d(24, {	-- Timewalking
+			d(TIMEWALKING_DUNGEON, {
 				["sym"] = {	-- link in Timewalking content
 					{"sub", "tw_instance", 312 },	-- this instance version of timewalking
 				},

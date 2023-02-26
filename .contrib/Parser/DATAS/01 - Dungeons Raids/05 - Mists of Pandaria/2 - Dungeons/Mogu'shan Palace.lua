@@ -154,6 +154,7 @@ _.Instances = { tier(MOP_TIER, {
 						["crs"] = { 61398 },	-- Xin the Weaponmaster
 						["g"] = {
 							ach(6756),	-- Heroic: Mogu'shan Palace
+							ach(6766),	-- Heroic: Mogu'shan Palace Guild Run
 							ach(6736),	-- What Does This Button Do?
 							i(144150),	-- Ghostheart
 							i(144214),	-- Mogu'Dar, Blade of the Thousand Slaves
@@ -180,7 +181,7 @@ _.Instances = { tier(MOP_TIER, {
 				},
 			}),
 			-- #if AFTER 7.1.5.23360
-			d(24, {	-- Timewalking
+			d(TIMEWALKING_DUNGEON, {
 				["sym"] = {	-- link in Timewalking content
 					{"sub", "tw_instance", 321 },	-- this instance version of timewalking
 				},

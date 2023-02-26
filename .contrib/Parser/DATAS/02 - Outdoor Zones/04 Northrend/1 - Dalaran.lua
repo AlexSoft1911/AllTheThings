@@ -4156,6 +4156,17 @@ root(ROOTS.Zones, {
 							}),
 						},
 					}),
+					ach(1010, {	-- Northrend Vanguard
+						["maps"] = {
+							DRAGONBLIGHT,
+							ICECROWN,
+						},
+						-- #if ANYCLASSIC
+						["OnClick"] = [[_.CommonAchievementHandlers.EXALTED_REPS_OnClick]],
+						["OnTooltip"] = [[_.CommonAchievementHandlers.EXALTED_REPS_OnTooltip]],
+						["OnUpdate"] = [[function(t) return _.CommonAchievementHandlers.EXALTED_REPS_OnUpdate(t, 1106, 1090, 1098, 1091); end]],
+						-- #endif
+					}),
 					ach(1782, {	-- Our Daily Bread (A)
 						["requireSkill"] = COOKING,
 						["races"] = ALLIANCE_ONLY,
@@ -4326,6 +4337,16 @@ root(ROOTS.Zones, {
 					i(43659, {	-- Bloodied Prison Shank
 						["timeline"] = { "added 3.0.2.8982" },
 					}),
+					o(193402, {	-- Rusted Prisoner's Footlocker
+						["coord"] = { 64.5, 73.8, NORTHREND_DALARAN },
+						["cost"] = {{ "i", 43650, 1 }},	-- Rusty Prison Key
+						["groups"] = {
+							i(37891),	-- Cast Iron Shackles
+							i(37890),	-- Chain Gang Legguards
+							i(37889),	-- Prison Manifest
+						},
+					}),
+					i(43650),	-- Rusty Prison Key
 				}),
 				n(FLIGHT_PATHS, {
 					fp(310, {	-- Dalaran
@@ -6505,6 +6526,14 @@ root(ROOTS.Zones, {
 							i(10609, {	-- Schematic: Mithril Mechanical Dragonling
 								["isLimited"] = true,
 							}),
+						},
+					}),
+					n(29496, {	-- Kerta the Bold <Axe & Polearm Merchant>
+						["coord"] = { 54.4, 62.0, NORTHREND_DALARAN },
+						["groups"] = {
+							i(44642),	-- Dalaran Axe
+							i(44640),	-- Dalaran Great Axe
+							i(44654),	-- Dalaran Spear
 						},
 					}),
 					n(29511, {	-- Lalla Brightweave <Spellfire Tailoring Specialist>

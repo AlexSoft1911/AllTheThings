@@ -165,6 +165,7 @@ _.Instances = { tier(WOD_TIER, {
 					},
 					["g"] = {
 						ach(9053),	-- Heroic: The Everbloom
+						ach(9374),	-- Heroic: The Everbloom Guild Run
 						ach(9223),	-- Weed Whacker
 						i(119181),	-- Hoof of Yalnu
 						i(110004),	-- Coagulated Genesaur Blood
@@ -240,7 +241,7 @@ _.Instances = { tier(WOD_TIER, {
 				}),
 			}),
 			-- #if AFTER 8.1.5.29701
-			d(24, {	-- Timewalking
+			d(TIMEWALKING_DUNGEON, {
 				["sym"] = {	-- link in Timewalking content
 					{"sub", "tw_instance", 556 },	-- this instance version of timewalking
 				},

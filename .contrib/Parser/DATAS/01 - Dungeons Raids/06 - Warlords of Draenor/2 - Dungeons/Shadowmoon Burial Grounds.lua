@@ -123,6 +123,7 @@ _.Instances = { tier(WOD_TIER, {
 					},
 					["g"] = {
 						ach(9054),	-- Heroic: Shadowmoon Burial Grounds
+						ach(9375),	-- Heroic: Shadowmoon Burial Grounds Guild Run
 						ach(9026),	-- Souls of the Lost
 						i(138806),	-- Illusion: Mark of Shadowmoon
 						i(110039),	-- Portal-Ripper's Staff
@@ -179,7 +180,7 @@ _.Instances = { tier(WOD_TIER, {
 				}),
 			}),
 			-- #if AFTER 8.1.5.29701
-			d(24, {	-- Timewalking
+			d(TIMEWALKING_DUNGEON, {
 				["sym"] = {	-- link in Timewalking content
 					{"sub", "tw_instance", 537 },	-- this instance version of timewalking
 				},

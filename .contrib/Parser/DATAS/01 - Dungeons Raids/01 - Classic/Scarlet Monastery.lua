@@ -45,6 +45,9 @@ root(ROOTS.Instances, tier(CLASSIC_TIER, {
 							["_npcs"] = { 4543 },	-- Bloodmage Thalnos
 						}),
 					}),
+					ach(5046, {	-- Scarlet Monastery Guild Run
+						["timeline"] = { "added 4.0.3" },
+					}),
 				}),
 				-- #endif
 				-- #endif
@@ -354,6 +357,15 @@ root(ROOTS.Instances, tier(CLASSIC_TIER, {
 									}),
 									i(7688, {	-- Ironspine's Ribcage
 										["timeline"] = { "removed 5.0.4" },
+										-- #if ANYCLASSIC
+										["OnUpdate"] = [[function(t)
+											if _.Level >= 40 and _.ClassIndex ~= ]] .. HUNTER .. [[ and _.ClassIndex ~= ]] .. SHAMAN .. [[ then
+												t.f = ]] .. PLATE .. [[;
+											else
+												t.f = ]] .. MAIL .. [[;
+											end
+										end]],
+										-- #endif
 									}),
 									i(7686, {	-- Ironspine's Eye
 										["timeline"] = { "removed 5.0.4" },
@@ -865,6 +877,9 @@ root(ROOTS.Instances, tier(CLASSIC_TIER, {
 					["timeline"] = { "added 5.0.4" },
 					["groups"] = {
 						ach(637),	-- Scarlet Monastery
+						ach(5046, {	-- Scarlet Monastery Guild Run
+							["timeline"] = { "added 5.0.4" },
+						}),
 						i(88301),	-- Greatstaff of Righteousness
 						i(88297),	-- Lightbreaker Greatsword
 						i(88299),	-- Whitemane's Embroidered Chapeau
@@ -1005,6 +1020,7 @@ root(ROOTS.Instances, tier(CLASSIC_TIER, {
 								["provider"] = { "n", 58605 },	-- Scarlet Judicator
 							}),
 							ach(6761),	-- Heroic: Scarlet Monastery
+							ach(6770),	-- Heroic: Scarlet Monastery Guild Run
 							ach(637),	-- Scarlet Monastery
 							i(144189, {	-- Greatstaff of Righteousness
 								["timeline"] = { "added 7.1.5.23360" },
@@ -1095,6 +1111,3 @@ root(ROOTS.HiddenQuestTriggers, {
 	-- #endif
 });
 -- #endif
-root(ROOTS.NeverImplemented, bubbleDown({ ["u"] = NEVER_IMPLEMENTED }, {
-	i(7748),	-- Forcestone Buckler
-}));

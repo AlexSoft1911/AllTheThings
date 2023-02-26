@@ -14,6 +14,7 @@ root(ROOTS.Zones, m(DRAGON_ISLES, bubbleDown({ ["timeline"] = TIMELINE_DF_REL },
 		faction(2550, {	-- Cobalt Assembly
 			n(ACHIEVEMENTS, {
 				ach(16569),	-- Cobalt Enthusiast
+				ach(16537),	-- Maximum Power!
 			}),
 			n(BONUS_OBJECTIVES, sharedData({
 				["isDaily"] = true,
@@ -21,6 +22,11 @@ root(ROOTS.Zones, m(DRAGON_ISLES, bubbleDown({ ["timeline"] = TIMELINE_DF_REL },
 				q(74457, {	-- Grand Artificer Zeerak
 					["coord"] = { 47.5, 23.6, THE_AZURE_SPAN },
 					["provider"] = { "n", 201553 },	-- Grand Artificer Zeerak
+					["timeline"] = { ADDED_DF_0_5 },
+				}),
+				q(74455, {	-- Unstable Arcanogolem
+					["coord"] = { 47.0, 25.3, THE_AZURE_SPAN },
+					["provider"] = { "n", 201554 },	-- Unstable Arcanogolem
 					["timeline"] = { ADDED_DF_0_5 },
 				}),
 			})),
@@ -60,31 +66,34 @@ root(ROOTS.Zones, m(DRAGON_ISLES, bubbleDown({ ["timeline"] = TIMELINE_DF_REL },
 					["coord"] = { 49.0, 23.1, THE_AZURE_SPAN },
 				}),
 			}),
-			n(RARES, {
-				n(201553, bubbleDownSelf({ ["timeline"] = { ADDED_DF_0_5 } }, {	-- Grand Artificer Zeerak
+			n(RARES, sharedData({
+				["isDaily"] = true,
+			},{
+				n(201553,	-- Grand Artificer Zeerak
+				bubbleDownSelf({ ["timeline"] = { ADDED_DF_0_5 } }, {
 					["coord"] = { 47.5, 23.6, THE_AZURE_SPAN },
 					["questID"] = 74545,
 					["groups"] = {
 						i(203664),	-- Wild Magic Insulating Bands
 					},
 				})),
-				n(201555, bubbleDownSelf({ ["timeline"] = { ADDED_DF_0_5 } }, {	-- Srivantor
+				n(201555,	-- Srivantor
+				bubbleDownSelf({ ["timeline"] = { ADDED_DF_0_5 } }, {
 					["coord"] = { 47.0, 22.0, THE_AZURE_SPAN },
 					["questID"] = 74543,
-					["isDaily"] = true,
 					["g"] = {
 						i(203663),	-- Cinch of the Sundered Flame
 					},
 				})),
-				n(201554, bubbleDownSelf({ ["timeline"] = { ADDED_DF_0_5 } }, {	-- Unstable Arcanogolem
-					--["coord"] = { , , THE_AZURE_SPAN },
-					["questID"] = 74455,
-					["isDaily"] = true,
+				n(201554,	-- Unstable Arcanogolem
+				bubbleDownSelf({ ["timeline"] = { ADDED_DF_0_5 } }, {
+					["coord"] = { 47.0, 25.3, THE_AZURE_SPAN },
+					["questID"] = 74536,
 					["g"] = {
 						i(203662),	-- Arcanogolem Crystalblade
 					},
 				})),
-			}),
+			})),
 			n(VENDORS, {
 				n(194832, {	-- Steiz <Quartermaster>
 					["coord"] = { 49.4, 22.6, THE_AZURE_SPAN },
@@ -297,6 +306,11 @@ root(ROOTS.Zones, m(DRAGON_ISLES, bubbleDown({ ["timeline"] = TIMELINE_DF_REL },
 						}),
 					},
 				}),
+			}),
+			n(ZONE_DROPS, {
+				i(198604),	-- Arcane Gem
+				i(198603),	-- Arcane Rune
+				i(198563),	-- Arcane Spark
 			}),
 		}),
 	}),

@@ -335,6 +335,9 @@ root(ROOTS.Instances, tier(TBC_TIER, applyclassicphase(TBC_PHASE_ONE, {
 						["creatureID"] = 17882,
 						["groups"] = {
 							ach(670),	-- Heroic: Underbog
+							ach(5070, {	-- Heroic: Underbog Guild Run
+								["timeline"] = { "added 4.0.3" },
+							}),
 							i(27769),	-- Endbringer
 							-- #if AFTER 7.3.5
 							i(24464),	-- The Stalker's Fangs
@@ -370,7 +373,7 @@ root(ROOTS.Instances, tier(TBC_TIER, applyclassicphase(TBC_PHASE_ONE, {
 				},
 			}),
 			-- #if AFTER 9.1.5
-			d(24, {	-- Timewalking
+			d(TIMEWALKING_DUNGEON, {
 				["sym"] = {	-- link in Timewalking content
 					{"sub", "tw_instance", 262 },	-- this instance version of timewalking
 				},

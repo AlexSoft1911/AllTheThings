@@ -76,6 +76,7 @@ root(ROOTS.Instances, tier(CATA_TIER, {
 		["lvl"] = 85,
 		["g"] = {
 			ach(5802),	-- Firelands
+			ach(5983),	-- Firelands Guild Run
 			n(LEGENDARY_QUESTLINE, {
 				["classes"] = { PRIEST, SHAMAN, MAGE, WARLOCK, DRUID, EVOKER },
 				["title"] = "Dragonwrath, Tarecgosa's Rest",
@@ -840,7 +841,9 @@ root(ROOTS.Instances, tier(CATA_TIER, {
 							ach(5803, {	-- Heroic: Ragnaros
 								title(190),	-- Firelord
 							}),
+							ach(5984),	-- Heroic: Ragnaros Guild Run
 							ach(5855),	-- Ragnar-O's
+							un(REMOVED_FROM_GAME, ach(5985)),	-- Realm First! Ragnaros
 							i(71677),	-- Crown of the Fiery Conqueror
 							i(71684),	-- Crown of the Fiery Protector
 							i(71670),	-- Crown of the Fiery Vanquisher
@@ -862,7 +865,7 @@ root(ROOTS.Instances, tier(CATA_TIER, {
 				},
 			}),
 			-- #if AFTER 8.2.5.31958
-			d(24, {	-- Timewalking
+			d(TIMEWALKING_DUNGEON, {
 				["sym"] = {	-- link in Timewalking content
 					{"sub", "tw_instance", 78 },	-- this instance version of timewalking
 				},

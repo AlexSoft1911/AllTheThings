@@ -769,13 +769,13 @@ root(ROOTS.Instances, tier(CLASSIC_TIER, applyclassicphase(PHASE_FIVE, {
 					})),
 
 					-- Enchants
+					i(20736),	-- Formula: Enchant Cloak - Dodge (RECIPE!)
+					i(20734),	-- Formula: Enchant Cloak - Stealth (RECIPE!)
 					i(20729),	-- Formula: Enchant Gloves - Fire Power (RECIPE!)
 					i(20728),	-- Formula: Enchant Gloves - Frost Power (RECIPE!)
 					i(20730),	-- Formula: Enchant Gloves - Healing Power (RECIPE!)
 					i(20727),	-- Formula: Enchant Gloves - Shadow Power (RECIPE!)
 					i(20731),	-- Formula: Enchant Gloves - Superior Agility (RECIPE!)
-					i(20736),	-- Formula: Enchant Cloak - Dodge (RECIPE!)
-					i(20734),	-- Formula: Enchant Cloak - Stealth (RECIPE!)
 				},
 			}),
 			n(COMMON_BOSS_DROPS, {
@@ -976,6 +976,9 @@ root(ROOTS.Instances, tier(CLASSIC_TIER, applyclassicphase(PHASE_FIVE, {
 						["sourceQuest"] = 8791,	-- The Fall of Ossirian
 						["OnUpdate"] = [[_.CommonAchievementHandlers.ANY_SOURCE_QUEST]],
 						-- #endif
+					}),
+					ach(5059, {	-- Ruins of Ahn'Qiraj Guild Run
+						["timeline"] = { "added 4.0.3" },
 					}),
 					i(21220),	-- Head of Ossirian the Unscarred
 					i(21452),	-- Staff of the Ruins

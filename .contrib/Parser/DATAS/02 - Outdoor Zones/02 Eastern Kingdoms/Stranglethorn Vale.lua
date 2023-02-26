@@ -125,7 +125,7 @@ root(ROOTS.Zones, m(EASTERN_KINGDOMS, {
 					-- #endif
 				}),
 			}),
-			o(179697, {	-- Arena Treasure Chest
+			pvp(o(179697, {	-- Arena Treasure Chest
 				["description"] = "Chest is dropped in arena every 3 hours.\n\nWARNING: FREE-FOR-ALL PVP EVENT\n12AM, 3PM, 6PM, 9PM, 12PM, 3AM, 6AM, 9AM",
 				-- #if AFTER CATA
 				["coord"] = { 46.6, 26.1, THE_CAPE_OF_STRANGLETHORN },
@@ -154,7 +154,7 @@ root(ROOTS.Zones, m(EASTERN_KINGDOMS, {
 						["timeline"] = { "added 6.1.0.19480" },
 					}),
 				},
-			}),
+			})),
 			-- #if ANYCLASSIC
 			n(EXPLORATION, explorationBatch({
 				["105:110:311:131"] = 129,	-- Mizjah Ruins
@@ -369,7 +369,7 @@ root(ROOTS.Zones, m(EASTERN_KINGDOMS, {
 					["races"] = ALLIANCE_ONLY,
 					["lvl"] = 32,
 				}),
-				q(7838, {	-- Arena Grandmaster
+				pvp(q(7838, {	-- Arena Grandmaster
 					["qg"] = 14508,	-- Short John Mithril
 					["sourceQuest"] = 7810,	-- Arena Master
 					-- #if AFTER CATA
@@ -389,7 +389,7 @@ root(ROOTS.Zones, m(EASTERN_KINGDOMS, {
 						}),
 						i(19024),	-- Arena Grand Master
 					},
-				}),
+				})),
 				q(7810, {	-- Arena Master
 					["provider"] = { "i", 18706 },	-- Arena Master (trinket)
 					["altQuests"] = { 7908 },	-- Arena Master
@@ -878,6 +878,19 @@ root(ROOTS.Zones, m(EASTERN_KINGDOMS, {
 					["cost"] = { { "i", 4278, 4 } },	-- Lesser Bloodstone Ore
 					["races"] = ALLIANCE_ONLY,
 					["lvl"] = 32,
+				}),
+				q(4785, {	-- Fine Gold Thread
+					["qg"] = 2670,	-- Xizk Goodstitch <Tailoring Supplies>
+					["coord"] = { 28.6, 76.8, STRANGLETHORN_VALE },
+					["timeline"] = { "removed 4.0.3" },
+					["classes"] = { WARLOCK },
+					["repeatable"] = true,
+					["lvl"] = 31,
+					["groups"] = {
+						i(12293, {	-- Fine Gold Thread
+							["timeline"] = { "removed 4.0.3" },
+						}),
+					},
 				}),
 				q(2764, {	-- Galvan's Finest Pupil
 					["qg"] = 7802,	-- Galvan the Ancient

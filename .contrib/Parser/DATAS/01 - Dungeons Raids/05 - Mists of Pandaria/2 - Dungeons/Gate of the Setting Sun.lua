@@ -113,6 +113,7 @@ _.Instances = { tier(MOP_TIER, {
 					cr(56877, e(649, {	-- Raigonn
 						ach(10010),	-- Gate of the Setting Sun
 						ach(6759),	-- Heroic: Gate of the Setting Sun
+						ach(6768),	-- Heroic: Gate of the Setting Sun Guild Run
 						{	-- Mantid Swarm
 							["achievementID"] = 6945,	-- Mantid Swarm
 						},
@@ -142,7 +143,7 @@ _.Instances = { tier(MOP_TIER, {
 				},
 			}),
 			-- #if AFTER 7.1.5.23360
-			d(24, {	-- Timewalking
+			d(TIMEWALKING_DUNGEON, {
 				["sym"] = {	-- link in Timewalking content
 					{"sub", "tw_instance", 303 },	-- this instance version of timewalking
 				},

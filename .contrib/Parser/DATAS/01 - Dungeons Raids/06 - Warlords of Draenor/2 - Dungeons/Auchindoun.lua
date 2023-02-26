@@ -126,6 +126,7 @@ _.Instances = { tier(WOD_TIER, {
 					},
 					["g"] = {
 						ach(9049),	-- Heroic: Auchindoun
+						ach(9371),	-- Heroic: Auchindoun Guild Run
 						ach(9552),	-- No Tag-backs!
 						i(110049),	-- Bloodblade of Teron'Gor
 						i(110050),	-- Dagger of the Sanguine Emeralds
@@ -186,7 +187,7 @@ _.Instances = { tier(WOD_TIER, {
 				}),
 			}),
 			-- #if AFTER 8.1.5.29701
-			d(24, {	-- Timewalking
+			d(TIMEWALKING_DUNGEON, {
 				["sym"] = {	-- link in Timewalking content
 					{"sub", "tw_instance", 547 },	-- this instance version of timewalking
 				},

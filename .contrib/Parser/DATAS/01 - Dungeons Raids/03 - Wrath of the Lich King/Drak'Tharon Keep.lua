@@ -23,6 +23,22 @@ root(ROOTS.Instances, tier(WOTLK_TIER, applyclassicphase(WRATH_PHASE_ONE, {
 						["_encounter"] = { 591, 1 },
 					}),
 				}),
+				-- #if ANYCLASSIC
+				applyclassicphase(WRATH_PHASE_TWO, ach(17292, {	-- Defense Protocol Alpha: Drak'Tharon Keep
+					crit(57735, { -- Trollgore
+						["_encounter"] = { 588, 2 },
+					}),
+					crit(57736, { -- Novos the Summoner
+						["_encounter"] = { 589, 2 },
+					}),
+					crit(57737, { -- King Dred
+						["_encounter"] = { 590, 2 },
+					}),
+					crit(57738, { -- The Prophet Tharon'ja
+						["_encounter"] = { 591, 2 },
+					}),
+				})),
+				-- #endif
 				ach(493,  {	-- Heroic: Drak'Tharon Keep
 					crit(6813, { -- Trollgore
 						["_encounter"] = { 588, 2 },
@@ -318,6 +334,9 @@ root(ROOTS.Instances, tier(WOTLK_TIER, applyclassicphase(WRATH_PHASE_ONE, {
 								["achievementID"] = 1658,	-- Champion of the Frozen Wastes
 								["criteriaID"] = 9261,		-- The Prophet Tharon'ja slain
 							},
+							ach(5099, {	-- Heroic: Drak'Tharon Keep Guild Run
+								["timeline"] = { "added 4.0.3" },
+							}),
 							i(41795, {	-- Design: Timeless Twilight Opal
 								["timeline"] = { "removed 4.0.1" },
 							}),

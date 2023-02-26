@@ -125,6 +125,7 @@ _.Instances = { tier(WOD_TIER, {
 					},
 					["g"] = {
 						ach(8844),	-- Heroic: Skyreach
+						ach(9372),	-- Heroic: Skyreach Guild Run
 						ach(9034),	-- Magnify... Enhance
 						ach(9036),	-- Monomania
 						i(110033),	-- Arcanic of the High Sage
@@ -189,7 +190,7 @@ _.Instances = { tier(WOD_TIER, {
 				}),
 			}),
 			-- #if AFTER 8.1.5.29701
-			d(24, {	-- Timewalking
+			d(TIMEWALKING_DUNGEON, {
 				["sym"] = {	-- link in Timewalking content
 					{"sub", "tw_instance", 476 },	-- this instance version of timewalking
 				},

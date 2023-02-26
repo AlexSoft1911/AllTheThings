@@ -32,6 +32,9 @@ root(ROOTS.Instances, tier(CLASSIC_TIER, {
 							["_npcs"] = { 1853 },	-- Darkmaster Gandling
 						}),
 					}),
+					ach(5054, {	-- Scholomance Guild Run
+						["timeline"] = { "added 4.0.3" },
+					}),
 				}),
 				-- #endif
 				-- #endif
@@ -1313,6 +1316,9 @@ root(ROOTS.Instances, tier(CLASSIC_TIER, {
 					["timeline"] = { "added 5.0.4" },
 					["groups"] = {
 						ach(645),	-- Scholomance
+						ach(5054, {	-- Scholomance Guild Run
+							["timeline"] = { "added 5.0.4" },
+						}),
 						i(88362),	-- Shoulderguards of Painful Lessons
 						i(88357),	-- Vigorsteel Spaulders
 						i(88361),	-- Gloves of Explosive Pain
@@ -1537,8 +1543,12 @@ root(ROOTS.Instances, tier(CLASSIC_TIER, {
 						["timeline"] = { "added 5.0.4" },
 						["groups"] = {
 							ach(6762),	-- Heroic: Scholomance
+							ach(6771),	-- Heroic: Scholomance Guild Run
 							ach(6821),	-- School's Out Forever
 							ach(645),	-- Scholomance
+							ach(5054, {	-- Scholomance Guild Run
+								["timeline"] = { "added 5.0.4" },
+							}),
 							i(144211, {	-- Headmaster's Will
 								["timeline"] = { "added 7.1.5.23360" },
 							}),
@@ -1599,7 +1609,7 @@ root(ROOTS.Instances, tier(CLASSIC_TIER, {
 				},
 			}),
 			-- #if AFTER 9.1.5
-			d(24, {	-- Timewalking
+			d(TIMEWALKING_DUNGEON, {
 				["sym"] = {	-- link in Timewalking content
 					{"sub", "tw_instance", 246 },	-- this instance version of timewalking
 				},
