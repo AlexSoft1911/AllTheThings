@@ -5368,7 +5368,7 @@ local function SkipFillingGroup(group, FillData)
 	end
 
 	-- mark this group as being filled since it is not being skipped
-	included[groupHash] = true;
+	if groupHash then included[groupHash] = true; end
 end
 -- Iterates through all groups of the group, filling them with appropriate data, then recursively follows the next layer of groups
 local function FillGroupsRecursive(group, FillData)
@@ -13517,6 +13517,7 @@ app.SkillIDToSpellID = {
 	[960] = 53428,  -- Runeforging
 	[40] = 2842,	-- Poisons
 	[633] = 1809,	-- Lockpicking
+	[921] = 921,	-- Pickpocketing
 
 	-- Specializations
 	[20219] = 20219,	-- Gnomish Engineering
