@@ -1,0 +1,9 @@
+9.2.0.41726
+title(453),	-- %s the [PH] TBD Title
+10.0.2.45779
+title(480),	-- %s, Knight of Feathersworth
+10.0.7.47910
+title(489),	-- Forbidden Reach Racer %s
+title(494),	-- %s the Key Master
+10.0.7.48220
+title(495),	-- %s the Forbidden

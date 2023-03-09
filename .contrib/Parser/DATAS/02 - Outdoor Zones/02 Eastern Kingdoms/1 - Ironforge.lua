@@ -1057,7 +1057,7 @@ root(ROOTS.Zones, m(EASTERN_KINGDOMS, {
 					["altQuests"] = { 3638, 3642 },	-- The Pledge of Secrecy
 					["description"] = "Requires 200 Engineering to start this quest.",
 					["coord"] = { 69.8, 50.2, IRONFORGE },
-					["timeline"] = { "removed 4.0.3.2000" },
+					["timeline"] = { "removed 3.0.2" },	-- Originally supposed to be removed in 4.0.3, but Wrath Classic was weird.
 					["requireSkill"] = ENGINEERING,
 					["races"] = ALLIANCE_ONLY,
 					["lvl"] = 30,
@@ -1111,6 +1111,7 @@ root(ROOTS.Zones, m(EASTERN_KINGDOMS, {
 				}),
 				q(1645, {	-- The Tome of Divinity (1a/8)
 					["qg"] = 6179,	-- Tiza Battleforge
+					["altQuests"] = { 1646 },	-- The Tome of Divinity (2/8)
 					["coord"] = { 27.4, 12, IRONFORGE },
 					["timeline"] = { "removed 4.0.3" },
 					["races"] = { DWARF },

@@ -19442,3 +19442,8 @@
 200284@@@Spellsworn Keeper
 202725@@@Paper Zeppelin
 203689@@@Misha
+10.0.7.48295
+203859@@@[DNT] Kill Credit
+203994@@@Tarantula Hatchling
+10.0.7.48439
+204075@@@Spellsworn Crechebound

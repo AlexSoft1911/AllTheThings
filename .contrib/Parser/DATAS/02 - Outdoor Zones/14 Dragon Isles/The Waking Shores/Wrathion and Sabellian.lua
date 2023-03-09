@@ -483,6 +483,7 @@ root(ROOTS.Zones, m(DRAGON_ISLES, bubbleDown({ ["timeline"] = TIMELINE_DF_REL },
 				o(377534, {	-- Delivered Vault
 					["questID"] = 73223,
 					["coord"] = { 24.8, 60.5, THE_WAKING_SHORES },
+					["isWeekly"] = true,
 				}),
 			}),
 			n(VENDORS, {
@@ -902,7 +903,6 @@ root(ROOTS.HiddenQuestTriggers, m(DRAGON_ISLES, bubbleDown({ ["timeline"] = TIME
 			q(64277),	-- Triggered when choosing anyone in Allegiance To One (66419) -- triggered for both in 2 weeks
 			q(66808),	-- Triggered when choosing Seballian in Allegiance To One (66419) -- triggered for Seballian only
 			q(66802),	-- Triggered when choosing Wrathion in Allegiance To One (66419) -- triggered for Wrathion only
-			q(72284),	-- Triggered when reaching max rank friendship with Sabellian after also being max rank with Wrathion (also popped with four Drake Armor triggers)
 			q(67168),	-- Triggered with completion of 67051 'Dragon Eyes' (alternate version???)
 			q(72378),	-- Triggered when refusing to activate the Wrathion and Sabellian skip for alts
 		}),

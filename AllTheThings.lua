@@ -2541,91 +2541,6 @@ local function GetFixedItemSpecInfo(itemID)
 end
 
 -- Quest Completion Lib
--- Builds a table to be used in the SetupReportDialog to display text which is copied into Discord for player reports
-app.BuildDiscordQuestInfoTable = function(id, infoText, questChange, questRef)
-	local coord;
-	local mapID = app.GetCurrentMapID();
-	local position = mapID and C_Map.GetPlayerMapPosition(mapID, "player");
-	local covID, covData, covRenown = C_Covenants.GetActiveCovenantID();
-	if covID and covID > 0 then
-		covData = C_Covenants.GetCovenantData(covID);
-		covRenown = C_CovenantSanctumUI.GetRenownLevel();
-	end
-	local DFmajorFactionIDs, majorFactionInfo, info = C_MajorFactions.GetMajorFactionIDs(9), {};
-	if DFmajorFactionIDs then
-		for _,factionID in ipairs(DFmajorFactionIDs) do
-			info = C_MajorFactions.GetMajorFactionData(factionID);
-			tinsert(majorFactionInfo, "|");
-			tinsert(majorFactionInfo, info.name:sub(1,4));
-			tinsert(majorFactionInfo, ":");
-			tinsert(majorFactionInfo, info.renownLevel);
-		end
-	end
-	if position then
-		local x,y = position:GetXY();
-		x = math.floor(x * 1000) / 10;
-		y = math.floor(y * 1000) / 10;
-		coord = x..", "..y;
-	end
-	local u = questRef and questRef.u;
-	local completed = app.CurrentCharacter.Quests[id];
-	local skills = {};
-	for profID,known in pairs(app.CurrentCharacter.Professions) do
-		-- professions inherently known by all characters are marked 1 specifically; dynamic ones are true
-		if known ~= 1 then
-			tinsert(skills, "|");
-			tinsert(skills, C_TradeSkillUI.GetTradeSkillDisplayName(profID):sub(1,4));
-		end
-	end
-	return
-	{
-		"**"..(infoText or "quest-info")..":"..id.."**",
-		"```",	-- discord fancy box
-
-		questChange.." '"..(C_TaskQuest.GetQuestInfoByQuestID(id) or C_QuestLog.GetTitleForQuestID(id) or "???").."'",
-		"lvl:"..app.Level.." race:"..app.RaceID.." ("..app.Race..") class:"..app.ClassIndex.." ("..app.Class..") cov:"..(covData and covData.name or "N/A")..(covRenown and ":"..covRenown or ""),
-		"renown"..(app.TableConcat(majorFactionInfo)),
-		"u:"..(u or "").." comp:"..(completed or "").." skills"..(app.TableConcat(skills) or ""),
-		"sq:"..app.SourceQuestString(questRef or id),
-		"lq:"..(app.LastQuestTurnedIn or ""),
-		-- TODO: put more info in here as it will be copy-paste into Discord
-
-		mapID and ("mapID:"..mapID.." ("..C_Map_GetMapInfo(mapID).name..")") or "mapID:??",
-		coord and ("coord:"..coord) or "coord:??",
-		"ver:"..app.Version,
-		"```",	-- discord fancy box
-	};
-end
--- Checks a given quest reference against the current character info to see if something is inaccurate
-app.CheckInaccurateQuestInfo = function(questRef, questChange)
-	if questRef and questRef.questID then
-		-- app.PrintDebug("CheckInaccurateQuestInfo",questRef.questID,questChange)
-		local id = questRef.questID;
-		local completed = app.CurrentCharacter.Quests[id];
-		if not
-			-- expectations for accurate quest data
-			-- meets current character filters
-			(app.CurrentCharacterFilters(questRef)
-			-- is marked as in the game
-			and app.ItemIsInGame(questRef)
-			-- repeatable or not previously completed or the accepted quest was immediately completed prior to the check
-			and (questRef.repeatable or not completed or app.LastQuestTurnedIn == completed)
-			-- not missing pre-requisites
-			and not questRef.missingPrequisites)
-		then
-			-- Play a sound when a reportable error is found, if any sound setting is enabled
-			app:PlayReportSound();
-
-			local popupID = "quest-filter-" .. id;
-			if app:SetupReportDialog(popupID, "Inaccurate Quest Info: " .. id,
-				app.BuildDiscordQuestInfoTable(id, "inaccurate-quest", questChange, questRef)
-			) then
-				local reportMsg = app:Linkify(L["REPORT_INACCURATE_QUEST"], app.Colors.ChatLinkError, "dialog:" .. popupID);
-				Callback(app.print, reportMsg);
-			end
-		end
-	end
-end
 local PrintQuestInfo = function(questID, new, info)
 	if app.IsReady and app.Settings:GetTooltipSetting("Report:CompletedQuests") then
 		local questRef = app.SearchForObject("questID", questID, "field");
@@ -2640,7 +2555,7 @@ local PrintQuestInfo = function(questID, new, info)
 		end
 		-- This quest doesn't meet the filter for this character, then ask to report in chat
 		if questChange == "accepted" then
-			DelayedCallback(app.CheckInaccurateQuestInfo, 1, questRef, questChange);
+			app.FunctionRunner.Run(app.CheckInaccurateQuestInfo, questRef, questChange);
 		end
 		local chatMsg;
 		if not questRef or GetRelativeValue(questRef, "_missing") then
@@ -2688,21 +2603,122 @@ local CompletedQuests = setmetatable({}, {__newindex = function (t, key, value)
 			TotalQuests = TotalQuests + 1;
 		end
 		rawset(t, key, value);
-		rawset(DirtyQuests, key, true);
-		rawset(DirtyQuests, "DIRTY", true);
+		tinsert(DirtyQuests, key);
 		ATTAccountWideData.Quests[key] = 1;
 		app.CurrentCharacter.Quests[key] = 1;
 		PrintQuestInfo(key);
 	elseif value == false then
 		TotalQuests = TotalQuests - 1;
-		rawset(DirtyQuests, key, true);
-		rawset(DirtyQuests, "DIRTY", true);
+		tinsert(DirtyQuests, key);
 		-- no need to actually set the key in the table since it's been marked as incomplete
 		-- and this meta function only triggers on NEW key assignments
 		PrintQuestInfo(key, false);
 	end
 end});
 -- app.CompletedQuests = CompletedQuests;
+-- Builds a table to be used in the SetupReportDialog to display text which is copied into Discord for player reports
+app.BuildDiscordQuestInfoTable = function(id, infoText, questChange, questRef, checks)
+	local info = {
+		"**"..(infoText or "quest-info")..":"..id.."**",
+		"```",	-- discord fancy box start
+	};
+	local coord;
+	local mapID = app.GetCurrentMapID();
+	local position = mapID and C_Map.GetPlayerMapPosition(mapID, "player");
+	local covID, covInfo = C_Covenants.GetActiveCovenantID();
+	if covID and covID > 0 then
+		local covData = C_Covenants.GetCovenantData(covID);
+		local covRenown = C_CovenantSanctumUI.GetRenownLevel();
+		covInfo = covID..":"..covData.name..":"..covRenown;
+	end
+	local DFmajorFactionIDs, majorFactionInfo, data = C_MajorFactions.GetMajorFactionIDs(9), {};
+	if DFmajorFactionIDs then
+		for _,factionID in ipairs(DFmajorFactionIDs) do
+			data = C_MajorFactions.GetMajorFactionData(factionID);
+			tinsert(majorFactionInfo, "|");
+			tinsert(majorFactionInfo, factionID);
+			tinsert(majorFactionInfo, ":");
+			tinsert(majorFactionInfo, data.name:sub(1,4));
+			tinsert(majorFactionInfo, ":");
+			tinsert(majorFactionInfo, data.renownLevel);
+		end
+	end
+	if position then
+		local x,y = position:GetXY();
+		x = math.floor(x * 1000) / 10;
+		y = math.floor(y * 1000) / 10;
+		coord = x..", "..y;
+	end
+	local skills = {};
+	for profID,known in pairs(app.CurrentCharacter.Professions) do
+		-- professions inherently known by all characters are marked 1 specifically; dynamic ones are true
+		if known ~= 1 then
+			tinsert(skills, "|"..profID..":");
+			tinsert(skills, C_TradeSkillUI.GetTradeSkillDisplayName(profID):sub(1,4));
+		end
+	end
+
+	tinsert(info, questChange.." '"..(C_TaskQuest.GetQuestInfoByQuestID(id) or C_QuestLog.GetTitleForQuestID(id) or "???").."'");
+	if checks then
+		for k,v in pairs(checks) do
+			tinsert(info, k..":"..tostring(v))
+		end
+	end
+	tinsert(info, "L:"..app.Level.." R:"..app.RaceID.." ("..app.Race..") C:"..app.ClassIndex.." ("..app.Class..")");
+	tinsert(info, "cov:"..(covInfo or "N/A").." renown"..(app.TableConcat(majorFactionInfo)));
+	tinsert(info, "skills"..(app.TableConcat(skills) or ""));
+	tinsert(info, "sq:"..app.SourceQuestString(questRef or id));
+	tinsert(info, "lq:"..(app.LastQuestTurnedIn or ""));
+	tinsert(info, mapID and ("mapID:"..mapID.." ("..C_Map_GetMapInfo(mapID).name..")") or "mapID:??");
+	tinsert(info, coord and ("coord:"..coord) or "coord:??");
+	tinsert(info, "ver:"..app.Version);
+	tinsert(info, "```"); 	-- discord fancy box end
+
+	return info;
+end
+-- Checks a given quest reference against the current character info to see if something is inaccurate
+app.CheckInaccurateQuestInfo = function(questRef, questChange)
+	if questRef and questRef.questID then
+		-- app.PrintDebug("CheckInaccurateQuestInfo",questRef.questID,questChange)
+		local id = questRef.questID;
+		local completed = app.CurrentCharacter.Quests[id];
+		-- expectations for accurate quest data
+		-- meets current character filters
+		local filter = app.CurrentCharacterFilters(questRef);
+		-- is marked as in the game
+		local inGame = app.ItemIsInGame(questRef);
+		-- repeatable or not previously completed or the accepted quest was immediately completed prior to the check, or character in party sync
+		local incomplete = (questRef.repeatable or not completed or app.LastQuestTurnedIn == completed or app.IsInPartySync) and true;
+		-- not missing pre-requisites
+		local metPrereq = not questRef.missingPrequisites;
+		if not (
+			filter
+			and inGame
+			and incomplete
+			and metPrereq
+			-- debugging, show link for any accepted quest
+			-- and false
+			)
+		then
+			-- Play a sound when a reportable error is found, if any sound setting is enabled
+			app:PlayReportSound();
+
+			local popupID = "quest-filter-" .. id;
+			local checks = {
+				["Filter"] = filter,
+				["InGame"] = inGame,
+				["Incomplete"] = incomplete,
+				["PreReq"] = metPrereq,
+			};
+			if app:SetupReportDialog(popupID, "Inaccurate Quest Info: " .. id,
+				app.BuildDiscordQuestInfoTable(id, "inaccurate-quest", questChange, questRef, checks))
+			then
+				local reportMsg = app:Linkify(L["REPORT_INACCURATE_QUEST"], app.Colors.ChatLinkError, "dialog:" .. popupID);
+				Callback(app.print, reportMsg);
+			end
+		end
+	end
+end
 -- returns nil if nil provided, otherwise true/false based on the specific quest being completed by the current character
 local IsQuestFlaggedCompleted = function(questID)
 	return questID and CompletedQuests[questID];
@@ -2987,7 +3003,7 @@ local function CreateHash(t)
 			-- Separate if using Class requirements
 			if t.c then
 				for _,class in pairs(t.c) do
-					hash = "C" .. class .. hash;
+					hash = hash .. "C" .. class;
 				end
 			end
 			-- Separate if using Faction/Race requirements
@@ -2995,7 +3011,7 @@ local function CreateHash(t)
 				hash = "F" .. t.r .. hash;
 			elseif t.races then
 				for _,race in pairs(t.races) do
-					hash = "R" .. race .. hash;
+					hash = hash .. "R" .. race;
 				end
 			end
 		elseif key == "spellID" and t.itemID then
@@ -5360,24 +5376,26 @@ local function SkipFillingGroup(group, FillData)
 	-- do not fill 'saved' groups in ATT tooltips
 	-- or groups directly under saved groups unless in Acct or Debug mode
 	if not app.MODE_DEBUG_OR_ACCOUNT then
-		-- (unless they are actual Maps or Instances, or a Difficulty header. Also 'saved' Items usually means tied to a questID directly)
-		if group.saved and not (group.instanceID or group.mapID or group.difficultyID or group.itemID or group.encounterID) then return true; end
+		-- only ignored filling saved 'quest' groups (unless it's an Item, which we ignore the ignore... :D)
+		if group.saved and group.questID and not group.itemID then return true; end
 		local parent = group.parent;
 		-- parent is a saved quest, then do not fill with stuff
 		if parent and parent.questID and parent.saved then return true; end
 	end
 
-	-- mark this group as being filled since it is not being skipped
-	if groupHash then included[groupHash] = true; end
+	-- mark this group as being filled since it is not being skipped (unless it's a basic header)
+	if not group.headerID then
+		if groupHash then included[groupHash] = true; end
+	end
 end
 -- Iterates through all groups of the group, filling them with appropriate data, then recursively follows the next layer of groups
 local function FillGroupsRecursive(group, FillData)
-	-- app.PrintDebug("FillGroups",group.hash,depth)
-	if SkipFillingGroup(group, FillData) then return; end
+	if SkipFillingGroup(group, FillData) then
+		-- app.PrintDebug("FGR-SKIP",group.hash)
+		return;
+	end
+	-- app.PrintDebug("FGR",group.hash)
 
-	-- app.PrintDebug("FillGroups",group.hash,depth)
-	-- increment depth if things are being nested
-	FillData.Depth = FillData.Depth + 1;
 	local groups;
 	-- Determine Cost/Crafted/Symlink groups
 	groups = app.ArrayAppend(groups,
@@ -5408,11 +5426,13 @@ end
 -- Iterates through all groups of the group, filling them with appropriate data, then queueing itself on the FunctionRunner to recursively follow the next layer of groups
 -- over multiple frames to reduce stutter
 local function FillGroupsRecursiveAsync(group, FillData)
-	-- app.PrintDebug("FillGroupsAsync",group.hash,depth)
-	if SkipFillingGroup(group, FillData) then return; end
+	if SkipFillingGroup(group, FillData) then
+		-- app.PrintDebug("FGRA-SKIP",group.hash)
+		return;
+	end
+	-- app.PrintDebug("FGRA",group.hash)
 
 	-- increment depth if things are being nested
-	FillData.Depth = FillData.Depth + 1;
 	local groups;
 	-- Determine Cost/Crafted/Symlink groups
 	groups = app.ArrayAppend(groups,
@@ -5452,8 +5472,6 @@ app.FillGroups = function(group)
 	-- Setup the FillData for this fill operation
 	local FillData = {
 		Included = {},
-		Depth = 0,
-		IsInWindow = isInWindow,
 	};
 	-- Get tradeskill cache
 	knownSkills = app.CurrentCharacter.Professions;
@@ -6153,7 +6171,6 @@ app.CreateDataCache = function(name)
 	cache["professionID"] = {};
 	-- identical cache as professionID
 	cache["requireSkill"] = rawget(cache, "professionID");
-	cache["altQuestIDs"] = {};
 	cache["questID"] = {};
 	cache["runeforgePowerID"] = {};
 	cache["rwp"] = {};
@@ -6316,11 +6333,6 @@ fieldConverters = {
 	end,
 
 	-- Complex Converters
-	["altQuests"] = function(group, value)
-		for _,questID in ipairs(value) do
-			CacheField(group, "altQuestIDs", questID);
-		end
-	end,
 	["crs"] = function(group, value)
 		for _,creatureID in ipairs(value) do
 			cacheCreatureID(group, creatureID);
@@ -7599,6 +7611,10 @@ local ObjectFunctions = {
 	["costProgress"] = function(t)
 		return 0;
 	end,
+	-- whether something is marked as repeatable in some way
+	["repeatable"] = function(t)
+		return t.isDaily or t.isWeekly or t.isMonthly or t.isYearly or t.isWorldQuest;
+	end,
 	-- whether something is considered 'missing' by seeing if it can search for itself
 	["_missing"] = function(t)
 		local key = t.key;
@@ -7883,7 +7899,7 @@ app.RequestLoadQuestByID = function(questID, data)
 	-- only allow requests once per frame until received
 	if not QuestsRequested[questID] then
 		-- there's some limit to quest data checking that causes d/c... not entirely sure what or how much
-		app.FunctionRunner.SetPerFrame(10, true);
+		app.FunctionRunner.SetPerFrame(10);
 		-- app.PrintDebug("RequestLoadQuestByID",questID,"Data:",data)
 		QuestsRequested[questID] = true;
 		if data then
@@ -8366,9 +8382,6 @@ local questFields = {
 	["link"] = function(t)
 		return GetQuestLink(t.questID) or "quest:" .. t.questID;
 	end,
-	["repeatable"] = function(t)
-		return rawget(t, "isDaily") or rawget(t, "isWeekly") or rawget(t, "isMonthly") or rawget(t, "isYearly") or rawget(t, "isWorldQuest");
-	end,
 	["collectible"] = app.CollectibleAsQuest,
 	["collected"] = IsQuestFlaggedCompletedForObject,
 	["trackable"] = app.ReturnTrue,
@@ -8740,14 +8753,15 @@ app.ShowIfReplayableQuest = function(data)
 	data.visible = C_QuestLog_IsQuestReplayable(data.questID) or app.CollectedItemVisibilityFilter(data);
 	return true;
 end
-local UpdateQuestIDs, CompletedKeys = {}, {};
+local CompletedKeys = {};
 local function QueryCompletedQuests()
+	wipe(DirtyQuests);
 	local freshCompletes = C_QuestLog_GetAllCompletedQuestIDs();
 	-- sometimes Blizz pretends that 0 Quests are completed. How silly of them!
 	if not freshCompletes or #freshCompletes == 0 then
 		return;
 	end
-	-- print("total completed quests new/previous",#freshCompletes,TotalQuests)
+	-- app.PrintDebug("QueryCompletedQuests",#freshCompletes,TotalQuests)
 	local oldReportSetting = app.Settings:GetTooltipSetting("Report:CompletedQuests");
 	-- check if Blizzard is being dumb / should we print a summary instead of individual lines
 	local questDiff = #freshCompletes - TotalQuests;
@@ -8782,52 +8796,23 @@ local function QueryCompletedQuests()
 	end
 end
 app.QueryCompletedQuests = QueryCompletedQuests;
--- A set of quests which indicate a needed refresh to the Custom Collect status of the character
-local CustomCollectQuests = {
-	[56775] = 1,	-- New Player Experience Starting Quest
-	[59926] = 1,	-- New Player Experience Starting Quest
-	[58911] = 1,	-- New Player Experience Ending Quest
-	[60359] = 1,	-- New Player Experience Ending Quest
-	[62713] = 1,	-- Shadowlands - SL_SKIP (Threads of Fate)
-	[65076] = 1,	-- Shadowlands - Covenant - Kyrian
-	[65077] = 1,	-- Shadowlands - Covenant - Venthyr
-	[65078] = 1,	-- Shadowlands - Covenant - Night Fae
-	[65079] = 1,	-- Shadowlands - Covenant - Necrolord
-};
 local function RefreshQuestCompletionState(questID)
 	-- app.PrintDebug("RefreshQuestCompletionState",questID)
 	if questID then
+		wipe(DirtyQuests);
 		questID = tonumber(questID);
 		CompletedQuests[questID] = true;
 	else
 		QueryCompletedQuests();
 	end
 
-	-- update if any quests were even completed to ensure visible changes occur
-	if questID or DirtyQuests.DIRTY then
-		DirtyQuests.DIRTY = nil;
-		-- make sure to update the incoming questID if it isn't marked after the refresh, somehow
-		if not DirtyQuests[questID] then
-			tinsert(UpdateQuestIDs, questID);
-		end
-		for questID,_ in pairs(DirtyQuests) do
-			tinsert(UpdateQuestIDs, questID);
-			-- Certain quests being completed should trigger a refresh of the Custom Collect status of the character (i.e. Covenant Switches, Threads of Fate, etc.)
-			if CustomCollectQuests[questID] then
-				Callback(app.RefreshCustomCollectibility);
-			end
-		end
-		-- if app.DEBUG_PRINT then
-		-- 	app.PrintDebug("Update Quests")
-		-- 	app.PrintTable(UpdateQuestIDs)
-		-- end
-		UpdateRawIDs("questID", UpdateQuestIDs);
-		wipe(UpdateQuestIDs);
+	-- update if any quests were even changed to ensure visible changes occur
+	if #DirtyQuests > 0 then
+		UpdateRawIDs("questID", DirtyQuests);
 		wipe(searchCache);
 	end
 	-- re-register the criteria update event
 	app:RegisterEvent("CRITERIA_UPDATE");
-	wipe(DirtyQuests);
 	wipe(npcQuestsCache);
 	-- app.PrintDebugPrior("RefreshedQuestCompletionState")
 end
@@ -11768,9 +11753,6 @@ local itemFields = {
 			end
 			return sformat("i:%d", itemLink);
 		end
-	end,
-	["repeatable"] = function(t)
-		return rawget(t, "isDaily") or rawget(t, "isWeekly") or rawget(t, "isMonthly") or rawget(t, "isYearly") or rawget(t, "isWorldQuest");
 	end,
 	["modItemID"] = function(t)
 		rawset(t, "modItemID", GetGroupItemIDWithModID(t) or t.itemID);
@@ -14951,6 +14933,10 @@ app.SetDGUDelay = function(delay)
 	DGUDelay = math.min(2, math.max(0.1, tonumber(delay)));
 end
 local function DirectGroupUpdate(group, got)
+	-- DGU OnUpdate needs to run regardless of filtering
+	if group.DGUOnUpdate then
+		group:DGUOnUpdate();
+	end
 	-- starting an update from a non-top-level group means we need to verify this group should even handle updates based on current filters first
 	if not app.RecursiveDirectGroupRequirementsFilter(group) then
 		-- app.PrintDebug("DGU:Filtered",group.hash,group.parent.text)
@@ -18752,6 +18738,7 @@ app._RefreshData = function()
 	wipe(searchCache);
 end
 function app:RefreshData(lazy, got, manual)
+	if app.refreshDataQueued then return; end
 	-- app.PrintDebug("RefreshData",lazy and "LAZY", got and "COLLECTED", manual and "MANUAL")
 	app.refreshDataForce = app.refreshDataForce or not lazy;
 	app.refreshDataGot = app.refreshDataGot or got;
@@ -24021,6 +24008,36 @@ app.Startup = function()
 	StartCoroutine("InitDataCoroutine", app.InitDataCoroutine);
 end
 
+-- Certain quests being completed should trigger a refresh of the Custom Collect status of the character (i.e. Covenant Switches, Threads of Fate, etc.)
+local function DGU_CustomCollect(t)
+	-- app.PrintDebug("DGU_CustomCollect",t.hash)
+	Callback(app.RefreshCustomCollectibility);
+end
+-- A set of quests which indicate a needed refresh to the Custom Collect status of the character
+local DGU_Quests = {
+	[51211] = DGU_CustomCollect,	-- Heart of Azeroth Quest
+	[56775] = DGU_CustomCollect,	-- New Player Experience Starting Quest
+	[59926] = DGU_CustomCollect,	-- New Player Experience Starting Quest
+	[58911] = DGU_CustomCollect,	-- New Player Experience Ending Quest
+	[60359] = DGU_CustomCollect,	-- New Player Experience Ending Quest
+	[62713] = DGU_CustomCollect,	-- Shadowlands - SL_SKIP (Threads of Fate)
+	[65076] = DGU_CustomCollect,	-- Shadowlands - Covenant - Kyrian
+	[65077] = DGU_CustomCollect,	-- Shadowlands - Covenant - Venthyr
+	[65078] = DGU_CustomCollect,	-- Shadowlands - Covenant - Night Fae
+	[65079] = DGU_CustomCollect,	-- Shadowlands - Covenant - Necrolord
+};
+local function AssignDirectGroupOnUpdates()
+	local questRef;
+	local Search = app.SearchForObject;
+	for questID,func in pairs(DGU_Quests) do
+		questRef = Search("questID", questID);
+		if questRef then
+			-- app.PrintDebug("Assign DGUOnUpdate",questRef.hash)
+			questRef.DGUOnUpdate = func;
+		end
+	end
+end
+
 -- Function which is triggered after Startup
 app.InitDataCoroutine = function()
 	-- First, load the addon data
@@ -24101,6 +24118,9 @@ app.InitDataCoroutine = function()
 		wipe(reagentCache);
 		reagentCache[-1] = reagentCacheVer;
 	end
+
+	-- Assign DGU OnUpdates
+	AssignDirectGroupOnUpdates();
 
 	-- Mark all previously completed quests.
 	app.QueryCompletedQuests();
@@ -24326,8 +24346,6 @@ app.InitDataCoroutine = function()
 		end
 		anyComplete = nil;
 	end
-
-	wipe(DirtyQuests);
 
 	app:RegisterEvent("QUEST_LOG_UPDATE");
 	app:RegisterEvent("QUEST_TURNED_IN");
