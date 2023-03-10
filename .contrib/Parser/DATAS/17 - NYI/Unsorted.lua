@@ -227,7 +227,6 @@ root(ROOTS.Unsorted, {
 				i(202667),	-- Sealed Artifact Scroll
 				i(202668),	-- Sealed Spirit Scroll
 				i(202669),	-- Sealed Fish Scroll
-				i(202670),	-- Sealed Knowledge Scroll
 				i(202671),	-- [DNT] Dragonscale Expedition Item 02
 				i(202672),	-- [DNT] Dragonscale Expedition Item 03
 				i(202673),	-- [DNT] Dragonscale Expedition Item 04
@@ -248,11 +247,7 @@ root(ROOTS.Unsorted, {
 				i(202688),	-- [DNT] Valdrakken Accord Item 04
 				i(202689),	-- [DNT] Valdrakken Accord Item 05
 				i(202713),	-- Scattered Supplies
-				i(202854),	-- Wondrous Fish
 				i(202868),	-- Mender's Signal
-				i(202870),	-- Mysterious Writings
-				i(202871),	-- Draconic Artifact
-				i(202872),	-- Token of Blessing
 				i(202874),	-- Healing Draught
 				i(203210),	-- Dragonscale Supply Box
 				i(203211),	-- Ensemble: Lion's Heritage Blue Armor Set
@@ -271,10 +266,7 @@ root(ROOTS.Unsorted, {
 				i(203381),	-- Sealed Letter To Neltharion
 				i(203398),	-- Assorted Reagents
 				i(203399),	-- Damaged Trident
-				i(203400),	-- Lackluster Spices
-				i(203401),	-- Dull Crystal
 				i(203402),	-- Broken Gnomish Device
-				i(203403),	-- Hastily Scrawled Rune
 				i(203404),	-- Broken Tuning Fork
 				i(203405),	-- [PH] Broken Leatherworking Item
 				i(203406),	-- Torn Kite
@@ -300,7 +292,6 @@ root(ROOTS.Unsorted, {
 				i(203426),	-- Design: Tuning Fork
 				i(203427),	-- [PH] Design: Repaired Leatherworking Item
 				i(203428),	-- Design: Tuskarr Kite
-				i(203460),	-- Onyx Annulet
 				i(203463),	-- Atrenosh's Journal
 				i(203464),	-- Sealed Spellsworn Scroll
 				i(203465),	-- Draconic Artifact
@@ -339,7 +330,6 @@ root(ROOTS.Unsorted, {
 				i(203643),	-- Primalist Plate Gloves
 				i(203644),	-- Primalist Mail Gloves
 				i(203645),	-- Primalist Leather Gloves
-				i(203646),	-- Primalist Cloak
 				i(203647),	-- Primalist Ring
 				i(203648),	-- Primalist Necklace
 				i(203649),	-- Primalist Trinket
@@ -474,31 +464,6 @@ root(ROOTS.Unsorted, {
 				i(203989),	-- Warshard of the Hakkari, Unborn
 				i(203997),	-- Raw Argali Flank
 				i(203998),	-- Beetle Juice
-				i(204000),	-- Storm Infused Stone
-				i(204001),	-- Echoing Thunder Stone
-				i(204002),	-- Flame Licked Stone
-				i(204003),	-- Raging Magma Stone
-				i(204004),	-- Searing Smokey Stone
-				i(204005),	-- Entropic Fel Stone
-				i(204006),	-- Indomitable Earth Stone
-				i(204007),	-- Shining Obsidian Stone
-				i(204008),	-- Prodigious Sand Stone
-				i(204009),	-- Gleaming Iron Stone
-				i(204010),	-- Deluging Water Stone
-				i(204011),	-- Freezing Ice Stone
-				i(204012),	-- Cold Frost Stone
-				i(204013),	-- Exuding Steam Stone
-				i(204014),	-- Sparkling Mana Stone
-				i(204015),	-- Swirling Mojo Stone
-				i(204018),	-- Humming Arcane Stone
-				i(204019),	-- Harmonic Music Stone
-				i(204020),	-- Wild Spirit Stone
-				i(204021),	-- Necromantic Death Stone
-				i(204022),	-- Pestilent Plague Stone
-				i(204025),	-- Obscure Pastel Stone
-				i(204027),	-- Desirous Blood Stone
-				i(204029),	-- Prophetic Twilight Stone
-				i(204030),	-- Wind Sculpted Stone
 				i(204065),	-- Azerite Powder
 				i(204066),	-- Igniter Torch
 				i(204072),	-- Deviously Deviled Eggs
@@ -517,7 +482,6 @@ root(ROOTS.Unsorted, {
 				i(204210),	-- Primordial Storm Core
 				i(204212),	-- Primordial Water Core
 				i(204213),	-- Short Range Teleport
-				i(204215),	-- Dormant Primordial Fragment
 				i(204216),	-- Primordial Pulverizing
 				i(204217),	-- Unstable Elementium
 				i(204218),	-- Design: Primordial Pulverizing
@@ -550,7 +514,6 @@ root(ROOTS.Unsorted, {
 				i(204267),	-- Gilnean Trainee's Leggings
 				i(204268),	-- Gilnean Trainee's Cord
 				i(204269),	-- Gilnean Trainee's Wristwraps
-				i(204276),	-- Untapped Forbidden Knowledge
 				i(204278),	-- Neltharion's Toolkit
 				i(204281),	-- Thousandbite Piranha Collar
 				i(204282),	-- Lunker Bits
@@ -657,13 +620,6 @@ root(ROOTS.Unsorted, {
 				i(204559),	-- Essence of Divination
 				i(204560),	-- Azure Scrying Crystal
 				i(204561),	-- Primalist Cache keys
-				i(204562),	-- Maruuk Maul
-				i(204563),	-- Morqut Club
-				i(204564),	-- Dragonscale Expeditioner's Rifle
-				i(204566),	-- Journal of the Forbidden Reach
-				i(204569),	-- Valdrakken Talons
-				i(204570),	-- Valdrakken Pocketknife
-				i(204571),	-- Bulwark of the Forbidden Reach
 				i(204573),	-- Condensed Fire Magic
 				i(204574),	-- Condensed Frost Magic
 				i(204575),	-- Condensed Earth Magic
@@ -682,7 +638,6 @@ root(ROOTS.Unsorted, {
 				i(204691),	-- Living Book
 				i(203398),	-- Essence of Dampening
 				i(203404),	-- Crystal Fork
-				i(203405),	-- Pristine Pelt
 				i(203407),	-- Draconic Suppression Powder
 				i(203408),	-- Ancient Ceremonial Trident
 				i(203412),	-- Arcane Dispelling Rune
@@ -746,7 +701,6 @@ root(ROOTS.Unsorted, {
 			n(QUESTS, {
 				-- 10.0.7.47910
 				q(72425),
-				q(72510),
 				q(72520),
 				q(72521),
 				q(72531),
@@ -778,24 +732,12 @@ root(ROOTS.Unsorted, {
 				q(72611),
 				q(72662),
 				q(72663),
-				q(72675),
-				q(72677),
-				q(72678),
-				q(72699),
 				q(72710),
 				q(72716),
 				q(72718),
 				q(72888),
 				q(72889),
 				q(72890),
-				q(72891),
-				q(72893),
-				q(72894),
-				q(72895),
-				q(72896),
-				q(72897),
-				q(72898),
-				q(72899),
 				q(72901),
 				q(72902),
 				q(72903),
@@ -848,7 +790,6 @@ root(ROOTS.Unsorted, {
 				q(73078),
 				q(73079),
 				q(73080),
-				q(73082),
 				q(73083),
 				q(73084),
 				q(73089),
@@ -871,7 +812,6 @@ root(ROOTS.Unsorted, {
 				q(73157),
 				q(73158),
 				q(73159),
-				q(73160),
 				q(73161),
 				q(73163),
 				q(73164),
@@ -888,7 +828,6 @@ root(ROOTS.Unsorted, {
 				q(73187),
 				q(73189),
 				q(73190),
-				q(73191),
 				q(73194),
 				q(73200),
 				q(73201),
@@ -906,7 +845,6 @@ root(ROOTS.Unsorted, {
 				q(73213),
 				q(73214),
 				q(73215),
-				q(73216),
 				q(73217),
 				q(73218),
 				q(73219),
@@ -916,7 +854,6 @@ root(ROOTS.Unsorted, {
 				q(73547),
 				q(73550),
 				q(73692),
-				q(73694),
 				q(73696),
 				q(73699),
 				q(73700),
@@ -929,37 +866,20 @@ root(ROOTS.Unsorted, {
 				q(74282),
 				q(74293),
 				q(74294),
-				q(74296),
-				q(74297),
-				q(74298),
-				q(74299),
 				q(74300),
-				q(74301),
-				q(74302),
-				q(74303),
-				q(74304),
 				q(74305),
 				q(74306),
 				q(74307),
 				q(74308),
 				q(74309),
 				q(74310),
-				q(74311),
 				q(74312),
-				q(74313),
 				q(74314),
-				q(74315),
 				q(74316),
 				q(74317),
 				q(74318),
-				q(74319),
-				q(74320),
 				q(74321),
 				q(74322),
-				q(74323),
-				q(74324),
-				q(74325),
-				q(74327),
 				q(74328),
 				q(74329),
 				q(74330),
@@ -997,7 +917,6 @@ root(ROOTS.Unsorted, {
 				q(74408),
 				q(74409),
 				q(74410),
-				q(74411),
 				q(74412),
 				q(74413),
 				q(74414),
@@ -1014,26 +933,17 @@ root(ROOTS.Unsorted, {
 				q(74427),
 				q(74428),
 				q(74429),
-				q(74431),
-				q(74432),
 				q(74433),
 				q(74434),
 				q(74435),
 				q(74439),
-				q(74442),
 				q(74443),
-				q(74444),
-				q(74445),
 				q(74447),
-				q(74468),
 				q(74469),
 				q(74470),
 				q(74471),
 				q(74472),
 				q(74473),
-				q(74474),
-				q(74475),
-				q(74477),
 				q(74478),
 				q(74479),
 				q(74480),
@@ -1048,8 +958,6 @@ root(ROOTS.Unsorted, {
 				q(74495),
 				q(74496),
 				q(74497),
-				q(74498),
-				q(74499),
 				q(74500),
 				q(74502),
 				q(74504),
@@ -1058,12 +966,9 @@ root(ROOTS.Unsorted, {
 				q(74507),
 				q(74508),
 				q(74509),
-				q(74510),
 				q(74511),
 				q(74512),
-				q(74513),
 				q(74527),
-				q(74528),
 				q(74529),
 				q(74530),
 				q(74567),
@@ -1097,8 +1002,6 @@ root(ROOTS.Unsorted, {
 				q(74734),
 				q(74745),
 				q(74748),
-				q(74755),
-				q(74756),
 				q(74757),
 				q(74758),
 				q(74759),
@@ -1121,16 +1024,13 @@ root(ROOTS.Unsorted, {
 				q(74780),
 				q(74781),
 				q(74782),
-				q(74784),
 				q(74788),
 				q(74789),
 				q(74795),
 				q(74796),
-				q(74847),
 				q(74862),
 				q(74864),
 				q(74865),
-				q(74867),
 				q(74869),
 				q(74871),
 				q(74874),
@@ -1162,10 +1062,8 @@ root(ROOTS.Unsorted, {
 				q(74970),
 				q(74971),
 				q(74974),
-				q(74976),
 				q(74978),
 				q(74983),
-				q(74984),
 				q(74993),
 				q(74994),
 				q(74996),
@@ -1203,29 +1101,23 @@ root(ROOTS.Unsorted, {
 				q(75051),
 				q(75052),
 				q(75053),
-				q(75056),
-				q(75057),
 				q(75065),
 				q(75066),
 				q(75068),
 				q(75069),
 				q(75070),
-				q(75117),
-				q(75118),
 				q(75125),
 				q(75127),
 				q(75129),
 				q(75130),
 				q(75136),
 				q(75146),
-				q(75147),
 				q(75152),
 				q(75153),
 				-- 10.0.7.48076
 				q(75154),
 				q(75158),
 				q(75159),
-				q(75160),
 				q(75161),
 				q(75163),
 				q(75169),
@@ -2439,6 +2331,7 @@ root(ROOTS.Unsorted, {
 				q(70046),	--
 				q(70056),	--
 				q(70065),	--
+				q(70108),	--
 				q(70109),	--
 				q(70113),	--
 				q(70114),	--
