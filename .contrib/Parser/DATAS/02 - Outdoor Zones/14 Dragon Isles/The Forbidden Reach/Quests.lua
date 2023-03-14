@@ -125,32 +125,111 @@ root(ROOTS.Zones, m(DRAGON_ISLES, bubbleDown({ ["timeline"] = { ADDED_DF_0_7 } }
 				["coord"] = { 34.6, 57.7, THE_FORBIDDEN_REACH },
 			}),
 
-			-- Dailys
+			-- Weeklies
+			q(75025, {	-- A Good Day for Rolling
+				["sourceQuests"] = { 74381 },	-- Hidden Legacies
+				["provider"] = { "n", 201291 },	-- Cataloger Coralie
+				["coord"] = { 34.4, 59.3, THE_FORBIDDEN_REACH },
+				["isWeekly"] = true,
+				["g"] = {
+					currency(2118),	-- Elemental Overflow
+				},
+			}),
+			q(73142, {	-- Busting Blues
+				["sourceQuests"] = { 74381 },	-- Hidden Legacies
+				["provider"] = { "n", 199199 },	-- Scalecommander Cindrethresh
+				["coord"] = { 35.3, 59.5, THE_FORBIDDEN_REACH },
+				["isWeekly"] = true,
+				["g"] = {
+					currency(2118),	-- Elemental Overflow
+				},
+			}),
+			q(73189, {	-- Creche Cache
+				["sourceQuests"] = { 74381 },	-- Hidden Legacies
+				["provider"] = { "n", 200727 },	-- Volethi
+				["coord"] = { 32.4, 52.9, THE_FORBIDDEN_REACH },
+				["isWeekly"] = true,
+				["g"] = {
+					currency(2118),	-- Elemental Overflow
+				},
+			}),
 			q(73139, {	-- Deep Sea Supplies
 				["sourceQuests"] = { 74381 },	-- Hidden Legacies
 				["provider"] = { "n", 200558 },	-- Tukkaraq
 				["coord"] = { 31.8, 54.2, THE_FORBIDDEN_REACH },
-				["isDaily"] = true,
+				["isWeekly"] = true,
+				["g"] = {
+					currency(2118),	-- Elemental Overflow
+				},
+			}),
+			q(73715, {	-- Driftwood Derby
+				["sourceQuests"] = { 74381 },	-- Hidden Legacies
+				["provider"] = { "n", 200558 },	-- Tukkaraq
+				["coord"] = { 31.8, 54.2, THE_FORBIDDEN_REACH },
+				["isWeekly"] = true,
+				["g"] = {
+					currency(2118),	-- Elemental Overflow
+				},
+			}),
+			q(73141, {	-- Everburning Embers
+				["sourceQuests"] = { 74381 },	-- Hidden Legacies
+				["provider"] = { "n", 200558 },	-- Tukkaraq
+				["coord"] = { 31.8, 54.2, THE_FORBIDDEN_REACH },
+				["isWeekly"] = true,
+				["g"] = {
+					currency(2118),	-- Elemental Overflow
+				},
+			}),
+			q(73140, {	-- Sunder the Crater
+				["sourceQuests"] = { 74381 },	-- Hidden Legacies
+				["provider"] = { "n", 199204 },	-- Scalecommander Azurathel
+				["coord"] = { 35.4, 58.6, THE_FORBIDDEN_REACH },
+				["isWeekly"] = true,
+				["g"] = {
+					currency(2118),	-- Elemental Overflow
+				},
+			}),
+			q(75024, {	-- Sneaky Pebbles
+				["sourceQuests"] = { 74381 },	-- Hidden Legacies
+				["provider"] = { "n", 200727 },	-- Volethi
+				["coord"] = { 32.4, 52.9, THE_FORBIDDEN_REACH },
+				["isWeekly"] = true,
+				["g"] = {
+					currency(2118),	-- Elemental Overflow
+				},
 			}),
 			q(73179, {	-- Soupocalypse Now!
 				["sourceQuests"] = { 74381 },	-- Hidden Legacies
 				["provider"] = { "n", 199199 },	-- Scalecommander Cindrethresh
 				["coord"] = { 35.3, 59.5, THE_FORBIDDEN_REACH },
-				["isDaily"] = true,
+				["isWeekly"] = true,
+				["g"] = {
+					currency(2118),	-- Elemental Overflow
+				},
+			}),
+			q(73398, {	-- Too Far Forward
+				["sourceQuests"] = { 74381 },	-- Hidden Legacies
+				["provider"] = { "n", 199204 },	-- Scalecommander Azurathel
+				["coord"] = { 35.4, 58.6, THE_FORBIDDEN_REACH },
+				["isWeekly"] = true,
+				["g"] = {
+					currency(2118),	-- Elemental Overflow
+				},
 			}),
 			q(73190, {	-- Toxic Infestation
 				["sourceQuests"] = { 74381 },	-- Hidden Legacies
 				["provider"] = { "n", 199199 },	-- Scalecommander Cindrethresh
 				["coord"] = { 35.3, 59.5, THE_FORBIDDEN_REACH },
-				["isDaily"] = true,
+				["isWeekly"] = true,
+				["g"] = {
+					currency(2118),	-- Elemental Overflow
+				},
 			}),
-
 
 			-- Envoy
 			-- Dragonscale
 			q(74908, {	-- New Adventures
 				["sourceQuests"] = { 74381 },	-- Hidden Legacies
-				-- ["provider"] = { "n", 199199 },	-- Scalecommander Cindrethresh
 				["coord"] = { 34.2, 59.9, THE_FORBIDDEN_REACH },
 			}),
 			q(74389, {	-- Filming the Caldera
@@ -158,25 +237,104 @@ root(ROOTS.Zones, m(DRAGON_ISLES, bubbleDown({ ["timeline"] = { ADDED_DF_0_7 } }
 				["provider"] = { "n", 200566 },	-- Cataloger Daela
 				["coord"] = { 34.3, 60.0, THE_FORBIDDEN_REACH },
 				["isDaily"] = true,
+				["g"] = {
+					currency(2118),	-- Elemental Overflow
+				},
 			}),
-
-
-
-			-- Dailys?? [From Alex]
-			q(73189, {	-- Creche Cache
-				["sourceQuests"] = { 74381 },	-- Hidden Legacies
-				["provider"] = { "n", 200727 },	-- Volethi
-				["coord"] = { 32.4, 52.9, THE_FORBIDDEN_REACH },
+			q(74118, {	-- Spelunking the Den
+				["sourceQuests"] = { 74908 },	-- New Adventures
+				["provider"] = { "n", 200566 },	-- Cataloger Daela
+				["coord"] = { 34.3, 60.0, THE_FORBIDDEN_REACH },
+				["isDaily"] = true,
+				["g"] = {
+					currency(2118),	-- Elemental Overflow
+				},
 			}),
-			q(73715, {	-- Driftwood Derby
+			-- Iskaara
+			q(74909, {	-- New Catches
 				["sourceQuests"] = { 74381 },	-- Hidden Legacies
-				["provider"] = { "n", 200558 },	-- Tukkaraq
-				["coord"] = { 31.8, 54.2, THE_FORBIDDEN_REACH },
+				["coord"] = { 34.2, 59.9, THE_FORBIDDEN_REACH },
+			}),
+			q(74119, {	-- Angler's Challenge
+				["sourceQuests"] = { 74909 },	-- New Catches
+				["provider"] = { "n", 200562 },	-- Turik
+				["coord"] = { 34.2, 60.0, THE_FORBIDDEN_REACH },
+				["isDaily"] = true,
+				["g"] = {
+					currency(2118),	-- Elemental Overflow
+				},
+			}),
+			q(74391, {	-- Harpooner's Challenge
+				["sourceQuests"] = { 74909 },	-- New Catches
+				["provider"] = { "n", 200562 },	-- Turik
+				["coord"] = { 34.2, 60.0, THE_FORBIDDEN_REACH },
+				["isDaily"] = true,
+				["g"] = {
+					currency(2118),	-- Elemental Overflow
+				},
+			}),
+			-- Maruuk
+			q(74910, {	-- New Foes
+				["sourceQuests"] = { 74381 },	-- Hidden Legacies
+				["coord"] = { 34.2, 59.9, THE_FORBIDDEN_REACH },
+			}),
+			q(74390, {	-- Brutal Prey
+				["sourceQuests"] = { 74910 },	-- New Foes
+				["provider"] = { "n", 200564 },	-- Storykeeper Ashekh
+				["coord"] = { 34.1, 59.9, THE_FORBIDDEN_REACH },
+				["isDaily"] = true,
+				["g"] = {
+					currency(2118),	-- Elemental Overflow
+				},
+			}),
+			q(74117, {	-- Rare Prey
+				["sourceQuests"] = { 74910 },	-- New Foes
+				["provider"] = { "n", 200564 },	-- Storykeeper Ashekh
+				["coord"] = { 34.1, 59.9, THE_FORBIDDEN_REACH },
+				["isDaily"] = true,
+				["g"] = {
+					currency(2118),	-- Elemental Overflow
+				},
+			}),
+			-- Valdrakken
+			q(74911, {	-- New Horizons
+				["sourceQuests"] = { 74381 },	-- Hidden Legacies
+				["coord"] = { 34.2, 59.9, THE_FORBIDDEN_REACH },
+			}),
+			q(75261, {	-- Reach Center
+				["sourceQuests"] = { 74911 },	-- New Horizons
+				["provider"] = { "n", 200563 },	-- Kraxxus
+				["coord"] = { 34, 59.8, THE_FORBIDDEN_REACH },
+				["isDaily"] = true,
+				["g"] = {
+					currency(2118),	-- Elemental Overflow
+				},
+			}),
+			q(74392, {	-- Reach South
+				["sourceQuests"] = { 74911 },	-- New Horizons
+				["provider"] = { "n", 200563 },	-- Kraxxus
+				["coord"] = { 34, 59.8, THE_FORBIDDEN_REACH },
+				["isDaily"] = true,
+				["g"] = {
+					currency(2118),	-- Elemental Overflow
+				},
 			}),
 
 			n(BONUS_OBJECTIVES, sharedData({
 				["isDaily"] = true,
 			},{
+				q(74331, {	-- Agni Blazehoof
+					["provider"] = { "n", 200740 },	-- Agni Blazehoof
+					-- ["coord"] = { X, Y, THE_FORBIDDEN_REACH },
+				}),
+				q(74333, {	-- Amephyst
+					["provider"] = { "n", 200743 },	-- Amephyst
+					-- ["coord"] = { X, Y, THE_FORBIDDEN_REACH },
+				}),
+				q(74328, {	-- Arcantrix
+					["provider"] = { "n", 200737 },	-- Arcantrix
+					-- ["coord"] = { X, Y, THE_FORBIDDEN_REACH },
+				}),
 				q(74341, {	-- Bonesifter Marwak
 					["provider"] = { "n", 200681 },	-- Bonesifter Marwak
 					["coord"] = { 41.9, 57.1, THE_FORBIDDEN_REACH },
@@ -184,6 +342,14 @@ root(ROOTS.Zones, m(DRAGON_ISLES, bubbleDown({ ["timeline"] = { ADDED_DF_0_7 } }
 				q(74340, {	-- Duzalgor
 					["provider"] = { "n", 200610 },	-- Duzalgor
 					["coord"] = { 41.1, 43.9, 2101 },
+				}),
+				q(74322, {	-- Faunos
+					["provider"] = { "n", 200725 },	-- Faunos <Lord of Fleece>
+					-- ["coord"] = { X, Y, THE_FORBIDDEN_REACH },
+				}),
+				q(74330, {	-- Fimbol
+					["provider"] = { "n", 200739 },	-- Fimbol
+					-- ["coord"] = { X, Y, THE_FORBIDDEN_REACH },
 				}),
 				q(74337, {	-- Gahz'raxes
 					["provider"] = { "n", 200537 },	-- Gahz'raxes
@@ -193,6 +359,10 @@ root(ROOTS.Zones, m(DRAGON_ISLES, bubbleDown({ ["timeline"] = { ADDED_DF_0_7 } }
 					["provider"] = { "n", 200717 },	-- Galakhad
 					["coord"] = { 44.0, 78.2, THE_FORBIDDEN_REACH },
 				}),
+				q(74321, {	-- Gareed
+					["provider"] = { "n", 200722 },	-- Gareed
+					-- ["coord"] = { X, Y, THE_FORBIDDEN_REACH },
+				}),
 				q(74343, {	-- Grugoth the Hullcrusher <Scource of the Coast>
 					["provider"] = { "n", 200721 },	-- Grugoth the Hullcrusher <Scource of the Coast>
 					["coord"] = { 42.9, 90.6, THE_FORBIDDEN_REACH },
@@ -201,13 +371,29 @@ root(ROOTS.Zones, m(DRAGON_ISLES, bubbleDown({ ["timeline"] = { ADDED_DF_0_7 } }
 					["provider"] = { "n", 200579 },	-- Ishyra
 					["coord"] = { 39.6, 2.4, THE_FORBIDDEN_REACH },
 				}),
+				q(74329, {	-- Kangalo
+					["provider"] = { "n", 200738 },	-- Kangalo
+					-- ["coord"] = { X, Y, THE_FORBIDDEN_REACH },
+				}),
 				q(74344, {	-- Lady Shaz'ra
 					["provider"] = { "n", 200885 },	-- Lady Shaz'ra
 					["coord"] = { 62.0, 54.0, THE_FORBIDDEN_REACH },
 				}),
+				-- q(XXXXX, {	-- Loot Specialist
+					-- ["provider"] = { "n", 203353 },	-- Loot Specialist <Venture Co. Acquisitions>
+					-- ["coord"] = { X, Y, THE_FORBIDDEN_REACH },
+				-- }),
+				q(74332, {	-- Luttrok
+					["provider"] = { "n", 200742 },	-- Luttrok
+					-- ["coord"] = { X, Y, THE_FORBIDDEN_REACH },
+				}),
 				q(74346, {	-- Mad-Eye Carrey
 					["provider"] = { "n", 201181 },	-- Mad-Eye Carrey
 					["coord"] = { 71.2, 39.1, THE_FORBIDDEN_REACH },
+				}),
+				q(74306, {	-- Manathema
+					["provider"] = { "n", 200621 },	-- Manathema
+					-- ["coord"] = { X, Y, THE_FORBIDDEN_REACH },
 				}),
 				q(74349, {	-- Ookbeard
 					["provider"] = { "n", 200956 },	-- Ookbeard <Irontide "Captain">
@@ -220,6 +406,22 @@ root(ROOTS.Zones, m(DRAGON_ISLES, bubbleDown({ ["timeline"] = { ADDED_DF_0_7 } }
 				q(74339, {	-- Reisa the Drowned
 					["provider"] = { "n", 200600 },	-- Reisa the Drowned
 					["coord"] = { 46.9, 9.8, THE_FORBIDDEN_REACH },
+				}),
+				q(74305, {	-- Sir Pinchalot
+					["provider"] = { "n", 200620 },	-- Sir Pinchalot
+					-- ["coord"] = { X, Y, THE_FORBIDDEN_REACH },
+				}),
+				q(74307, {	-- Snarfang
+					["provider"] = { "n", 200622 },	-- Snarfang
+					-- ["coord"] = { X, Y, THE_FORBIDDEN_REACH },
+				}),
+				q(74300, {	-- Tectonus
+					["provider"] = { "n", 200619 },	-- Tectonus
+					-- ["coord"] = { X, Y, THE_FORBIDDEN_REACH },
+				}),
+				q(74325, {	-- Tidesmith Zarviss
+					["provider"] = { "n", 200730 },	-- Tidesmith Zarviss
+					-- ["coord"] = { X, Y, THE_FORBIDDEN_REACH },
 				}),
 				q(74345, {	-- Veltrax
 					["provider"] = { "n", 200904 },	-- Veltrax
@@ -247,5 +449,11 @@ root(ROOTS.Zones, m(DRAGON_ISLES, bubbleDown({ ["timeline"] = { ADDED_DF_0_7 } }
 })));
 
 root(ROOTS.HiddenQuestTriggers, tier(DF_TIER, bubbleDownSelf({ ["timeline"] = { ADDED_DF_0_7 } }, {
-	q(73216),	-- Triggered after using a Sealed Scroll Map
+	q(73213),	-- Triggered after using a Sealed Fish Scroll
+	q(73216),	-- Triggered after using a Sealed Knowledge Scroll
+	q(74767),	-- First Envoy
+	q(74766),	-- Second Envoy
+	q(74765),	-- Third Envoy
+	q(74764),	-- Fourth Envoy
+	q(75240),	-- Unlocking Researcher Imareth as a vendor
 })))

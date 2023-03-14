@@ -7,6 +7,20 @@ root(ROOTS.Zones, m(DRAGON_ISLES, bubbleDown({ ["timeline"] = { ADDED_DF_0_7 } }
 			o(386633, {	-- Chest of Storms
 				["coord"] = { 48.8, 73.1, THE_FORBIDDEN_REACH },
 				["questID"] = 74567,
+				["g"] = {
+					i(204573),	-- Condensed Fire Magic
+					i(204574),	-- Condensed Frost Magic
+					i(204575),	-- Condensed Earth Magic
+					i(204576),	-- Condensed Shadow Magic
+					i(204577),	-- Condensed Nature Magic
+					i(204578),	-- Condensed Arcane Magic
+					i(204579),	-- Condensed Necromantic Magic
+				},
+				["sym"] = {
+					{"select", "mapID", THE_FORBIDDEN_REACH },{"pop"},
+					{"where", "headerID", ZONE_REWARDS },{"pop"},
+					{"not", "itemID", 204276 },	-- Untapped Forbidden Knowledge (TODO: verify this exclusion)
+				},
 			}),
 			o(386168, {	-- Farscale Cache
 				["coord"] = { 75.6, 65.0, THE_FORBIDDEN_REACH },
@@ -32,11 +46,21 @@ root(ROOTS.Zones, m(DRAGON_ISLES, bubbleDown({ ["timeline"] = { ADDED_DF_0_7 } }
 			i(204181),	-- Opera of the Aspects
 			i(204185),	-- The Old Gods and the Ordering of Azeroth (Annotated)
 
-			-- TODO: When you use Sealed Knowledge Scroll you get the location of a treasure, which contains one of these
-			i(202871),	-- Draconic Artifact
-			i(202870),	-- Mysterious Writings
-			i(202872),	-- Token of Blessing
-			i(202854),	-- Wondrous Fish
+			-- TODO: Sealed Scroll Maps lead to these
+			i(202871),	-- Draconic Artifact (Sealed Artifact Scroll)
+			i(202870),	-- Mysterious Writings (Sealed Knowledge Scroll)
+			i(202872),	-- Token of Blessing (Sealed Spirit Scroll)
+			n(200958, {
+				["g"]= {
+					i(202854),	-- Wondrous Fish (Sealed Fish Scroll)
+				}
+			}),
 		}),
+	}),
+})))
+
+root(ROOTS.HiddenQuestTriggers, tier(DF_TIER, bubbleDownSelf({ ["timeline"] = { ADDED_DF_0_7 } }, {
+	n(THE_FORBIDDEN_REACH, {
+		q(74567),	-- Chest of Storms tracking quest
 	}),
 })))

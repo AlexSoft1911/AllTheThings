@@ -44,11 +44,6 @@ root(ROOTS.Zones, m(DRAGON_ISLES, bubbleDown({ ["timeline"] = { ADDED_DF_0_7 } }
 						},
 					}),
 					i(198356),	-- Honey Snack
-					--i(202278, {	-- Renewed Proto-Drake: Antlers (DM!)
-					--	["cost"] = {
-					--		{ "c", ELEMENTAL_OVERFLOW, 10000 },
-					--	},
-					--}),
 					i(203224, {	-- Valdrakken Surplus Chest
 						["cost"] = {
 							{ "i", 202870, 1 },	-- 1x Mysterious Writings [Have no Source of This yet]
@@ -61,17 +56,102 @@ root(ROOTS.Zones, m(DRAGON_ISLES, bubbleDown({ ["timeline"] = { ADDED_DF_0_7 } }
 					}),
 				},
 			}),
+			n(200724, {	-- Researcher Imareth
+				["description"] = "This NPC becomes a vendor upon completing the quest 'Primordial Embellishment'",
+				["coord"] = { 35.1, 57.6, THE_FORBIDDEN_REACH },
+				["g"] = {
+					i(204573, {	-- Condensed Fire Magic
+						["cost"] = {
+							{ "i", 204215, 10 },	-- Dormant Primordial Fragment
+						},
+						["g"] = {
+							i(204005),	-- Entropic Fel Stone
+							i(204003),	-- Raging Magma Stone
+							i(204004),	-- Searing Smokey Stone
+						},
+					}),
+					i(204574, {	-- Condensed Frost Magic
+						["cost"] = {
+							{ "i", 204215, 10 },	-- Dormant Primordial Fragment
+						},
+						["g"] = {
+							i(204012),	-- Cold Frost Stone
+							i(204010),	-- Deluging Water Stone
+							i(204013),	-- Exuding Steam Stone
+							i(204011),	-- Freezing Ice Stone
+						},
+					}),
+					i(204575, {	-- Condensed Earth Magic
+						["cost"] = {
+							{ "i", 204215, 10 },	-- Dormant Primordial Fragment
+						},
+						["g"] = {
+							i(204009),	-- Gleaming Iron Stone
+							i(204006),	-- Indomitable Earth Stone
+							i(204007),	-- Shining Obsidian Stone
+						},
+					}),
+					i(204576, {	-- Condensed Shadow Magic
+						["cost"] = {
+							{ "i", 204215, 10 },	-- Dormant Primordial Fragment
+						},
+						["g"] = {
+							i(204029),	-- Prophetic Twilight Stone
+							i(204015),	-- Swirling Mojo Stone
+						},
+					}),
+					i(204577, {	-- Condensed Nature Magic
+						["cost"] = {
+							{ "i", 204215, 10 },	-- Dormant Primordial Fragment
+						},
+						["g"] = {
+							i(204001),	-- Echoing Thunder Stone
+							i(204000),	-- Storm Infused Stone
+							i(204020),	-- Wild Spirit Stone
+						},
+					}),
+					i(204578, {	-- Condensed Arcane Magic
+						["cost"] = {
+							{ "i", 204215, 10 },	-- Dormant Primordial Fragment
+						},
+						["g"] = {
+							i(204019),	-- Harmonic Music Stone
+							i(204018),	-- Humming Arcane Stone
+							i(204025),	-- Obscure Pastel Stone
+						},
+					}),
+					i(204579, {	-- Condensed Necromantic Magic
+						["cost"] = {
+							{ "i", 204215, 10 },	-- Dormant Primordial Fragment
+						},
+						["g"] = {
+							i(204027),	-- Desirous Blood Stone
+							i(204021),	-- Necromantic Death Stone
+						},
+					}),
+					i(203460, {	-- Onyx Annulet
+						["cost"] = {
+							{ "i", 204215, 10 },	-- Dormant Primordial Fragment
+						},
+					}),
+				},
+			}),
 			n(200564, {	-- Storykeeper Askhekh
 				["coord"] = { 34.1, 60.0, THE_FORBIDDEN_REACH },
 				["g"] = {
+					i(204559, {	-- Essence of Divination
+						["cost"] = {
+							{ "c", ELEMENTAL_OVERFLOW, 2000 },
+						},
+					}),
 					i(203222, {	-- Maruuk Surplus Bundle
 						["cost"] = {
 							{ "i", 202872, 1 },	-- 1x Token of Blessing [Have no Source of This yet]
 						},
 					}),
-					i(204559, {	-- Essence of Divination
+					i(204382, {	-- Noble Bruffalon
 						["cost"] = {
-							{ "c", ELEMENTAL_OVERFLOW, 2000 },
+							{ "c", ELEMENTAL_OVERFLOW, 100000 },
 						},
 					}),
 				},
@@ -79,7 +159,7 @@ root(ROOTS.Zones, m(DRAGON_ISLES, bubbleDown({ ["timeline"] = { ADDED_DF_0_7 } }
 			n(202445, {	-- Trader Hag'arth
 				["coord"] = { 35.9, 57.5, THE_FORBIDDEN_REACH },
 				["g"] = {
-					i(203426, {	-- Design: Tuning Fork (RECIPE!)
+					i(203426, {	-- Design: Crystal Tuning Fork (RECIPE!)
 						["cost"] = {
 							{ "c", ARTISANS_METTLE, 10 },
 						},
@@ -89,22 +169,22 @@ root(ROOTS.Zones, m(DRAGON_ISLES, bubbleDown({ ["timeline"] = { ADDED_DF_0_7 } }
 							{ "c", ARTISANS_METTLE, 10 },
 						},
 					}),
-					i(203428, {	-- Pattern: Morqut Kite (RECIPE!)
+					i(203427, {	-- Pattern: Reinforced Pristine Leather (RECIPE!)
 						["cost"] = {
 							{ "c", ARTISANS_METTLE, 10 },
 						},
 					}),
-					i(203427, {	-- Pattern: Reinforced Leather Patch (RECIPE!)
+					i(203428, {	-- Pattern: Traditional Morqut Kite (RECIPE!)
 						["cost"] = {
 							{ "c", ARTISANS_METTLE, 10 },
 						},
 					}),
-					i(203421, {	-- Plans: Ceremonial Trident (RECIPE!)
+					i(203421, {	-- Plans: Ancient Ceremonial Trident (RECIPE!)
 						["cost"] = {
 							{ "c", ARTISANS_METTLE, 10 },
 						},
 					}),
-					i(203420, {	-- Recipe: Neutralizing Agent (RECIPE!)
+					i(203420, {	-- Recipe: Draconic Suppression Powder (RECIPE!)
 						["cost"] = {
 							{ "c", ARTISANS_METTLE, 10 },
 						},
@@ -119,7 +199,7 @@ root(ROOTS.Zones, m(DRAGON_ISLES, bubbleDown({ ["timeline"] = { ADDED_DF_0_7 } }
 							{ "c", ARTISANS_METTLE, 10 },
 						},
 					}),
-					i(203425, {	-- Technique: Dispelling Rune (RECIPE!)
+					i(203425, {	-- Technique: Arcane Dispelling Rune (RECIPE!)
 						["cost"] = {
 							{ "c", ARTISANS_METTLE, 10 },
 						},

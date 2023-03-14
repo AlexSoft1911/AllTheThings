@@ -142,18 +142,18 @@ root(ROOTS.Zones, m(EASTERN_KINGDOMS, {
 						["coord"] = { 52.6, 40.8, IRONFORGE },
 						["races"] = ALLIANCE_ONLY,
 						-- #if BEFORE 2.1.0
-						["g"] = APPRENTICE_JOURNEYMAN_EXPERT_BLACKSMITHING,
+						["groups"] = APPRENTICE_JOURNEYMAN_EXPERT_BLACKSMITHING,
 						-- #endif
 					}),
 					n(5164, {	-- Grumnus Steelshaper <Armor Crafter>
 						["coord"] = { 50.2, 42.6, IRONFORGE },
 						["races"] = ALLIANCE_ONLY,
-						["g"] = CLASSIC_ARMORSMITHING,
+						["groups"] = CLASSIC_ARMORSMITHING,
 					}),
 					n(11146, {	-- Ironus Coldsteel <Special Weapon Crafter>
 						["coord"] = { 50.8, 43.0, IRONFORGE },
 						["races"] = ALLIANCE_ONLY,
-						["g"] = CLASSIC_WEAPONSMITHING,
+						["groups"] = CLASSIC_WEAPONSMITHING,
 					}),
 				}),
 				prof(FISHING, {
@@ -195,6 +195,7 @@ root(ROOTS.Zones, m(EASTERN_KINGDOMS, {
 						-- #elseif BEFORE LEGION
 						["description"] = "Keep this in your bank until Transmog is added otherwise you'll need to fish it up again. Fair warning!",
 						-- #endif
+						["timeline"] = { "added 2.3.0.7561" },
 					}),
 				}),
 			}),
@@ -652,15 +653,6 @@ root(ROOTS.Zones, m(EASTERN_KINGDOMS, {
 					["lvl"] = 10,
 					["groups"] = COOKING_AWARD_GROUPS,
 				}),
-				applyclassicphase(TBC_PHASE_ONE, q(10891, {	-- Imperial Plate Armor [A]
-					["qg"] = 11145,	-- Myolor Sunderfury
-					["coord"] = { 52.0, 41.4, IRONFORGE },
-					["timeline"] = { "removed 4.0.3" },
-					["requireSkill"] = BLACKSMITHING,
-					["isBreadcrumb"] = true,
-					["races"] = ALLIANCE_ONLY,
-					["lvl"] = 50,
-				})),
 				q(1073, {	-- Ineptitude + Chemicals = Fun (1/2)
 					["qg"] = 4081,	-- Lomac Gearstrip
 					["sourceQuest"] = 1072,	-- An Old Colleague
